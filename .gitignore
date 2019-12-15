@@ -2,3 +2,4 @@ node_modules
 dist/*
 !dist/_headers
 .idea
+.DS_Store

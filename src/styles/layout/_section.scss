@@ -1,0 +1,8 @@
+@import 'header-variables';
+
+section {
+  position: relative;
+  top: $header-height-1;
+  height: calc(100vh - #{$header-height-1});
+  width: 100vw;
+}

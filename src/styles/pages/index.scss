@@ -1,0 +1,24 @@
+@import '../modules/main';
+@import '../modules/colours';
+@import '../layout/header';
+@import '../layout/section';
+
+section#introduction, section#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    position: relative;
+    top: 15%;
+
+    p {
+      font-size: 1.6em;
+      color: $dark-grey;
+    }
+
+    p:nth-child(1) {
+      font-size: 2.4em;
+    }
+  }
+}

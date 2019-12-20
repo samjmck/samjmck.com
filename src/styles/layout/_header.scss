@@ -15,7 +15,10 @@ header {
 
   /* Why do we need this container?
      If we apply the max-width property to the parent element, i.e. the header, then
-     the background-color will not span the whole width of the page as that max-width
+     the background-color will not span the whole width of the page as the header element
+     will only be as big as the max-width
+     So we make the header the background element if you will and make the container hold
+     the actual header elements
    */
   div.container {
     height: 100%;
@@ -56,6 +59,9 @@ header {
           margin: 0 30px;
         }
 
+        /* We want the last link to stick to the absolute right of the element as that's
+           what the logo does on the left side of element as well
+         */
         li:last-child {
           margin: 0 0 0 30px;
         }

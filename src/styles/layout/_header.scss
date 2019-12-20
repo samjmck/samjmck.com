@@ -70,6 +70,9 @@ header {
   }
 }
 
+/* Remove container padding after 2500px, only use max-width
+   Makes header look nicer on ultra-wide/high res displays
+ */
 @media screen and (min-width: 2500px) {
   header {
     div.container {

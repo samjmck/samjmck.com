@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "lib": ["es2017", "dom"],
     "target": "es6",
     "module": "ESNext",
     "outDir": "./dist",
     "sourceMap": true,
     "alwaysStrict": true,
     "moduleResolution": "node",
-    "noImplicitAny": true
+    "noImplicitAny": true,
   },
   "include": [
     "./src/"

@@ -27,7 +27,7 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    max-width: 1500px;
+    max-width: 1250px;
 
     a {
       text-decoration: none;
@@ -60,6 +60,14 @@ header {
           margin: 0 0 0 30px;
         }
       }
+    }
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  header {
+    div.container {
+      padding: 0;
     }
   }
 }

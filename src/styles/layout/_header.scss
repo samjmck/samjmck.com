@@ -74,9 +74,18 @@ header {
    Makes header look nicer on ultra-wide/high res displays
  */
 @media screen and (min-width: 2500px) {
-  header {
-    div.container {
-      padding: 0;
-    }
+  header div.container {
+    padding: 0;
   }
+}
+
+/* Mobile header */
+@media screen and (max-width: 850px) {
+ header div.container {
+   justify-content: center;
+
+   nav {
+     display: none;
+   }
+ }
 }

@@ -1,4 +1,4 @@
-@import 'header-variables';
+@import '../modules/sizes';
 @import '../modules/colours';
 
 header {
@@ -73,19 +73,23 @@ header {
 /* Remove container padding after 2500px, only use max-width
    Makes header look nicer on ultra-wide/high res displays
  */
-@media screen and (min-width: 2500px) {
+@media screen and (min-width: $media-min-no-container-padding) {
   header div.container {
     padding: 0;
   }
 }
 
 /* Mobile header */
-@media screen and (max-width: 850px) {
- header div.container {
-   justify-content: center;
+@media screen and (max-width: $media-max-header-size) {
+ header {
+   height: $header-height-2;
 
-   nav {
-     display: none;
+   div.container {
+     justify-content: center;
+
+     nav {
+       display: none;
+     }
    }
  }
 }

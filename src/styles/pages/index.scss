@@ -1,5 +1,6 @@
 @import '../modules/main';
 @import '../modules/colours';
+@import '../modules/sizes';
 @import '../layout/header';
 @import '../layout/section';
 
@@ -11,6 +12,8 @@ section#introduction, section#contact {
   div {
     position: relative;
     top: 15%;
+
+    padding: 20px;
 
     p {
       font-size: 1.6em;

@@ -1,5 +1,4 @@
 const common = require('./webpack.common');
-const { plugins } = common;
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
@@ -12,16 +11,10 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                include: [
-                    path.resolve(__dirname, 'src'),
-                ],
                 use: ['babel-loader'],
             },
             {
                 test: /\.(ts|tsx)$/,
-                include: [
-                    path.resolve(__dirname, 'src'),
-                ],
                 use: ['awesome-typescript-loader'],
             },
             {
@@ -35,10 +28,9 @@ module.exports = {
         ],
     },
     plugins: [
-        ...plugins,
         new MiniCssExtractPlugin({
-            filename: '[name].[hash].css',
-            chunkFilename: '[id].[hash].css',
-        })
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        }),
     ],
 };

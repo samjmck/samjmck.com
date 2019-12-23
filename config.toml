@@ -1,0 +1,7 @@
+baseURL = "https://sammckenzie.be/"
+languageCode = "en"
+staticDir = "none"
+title = "Sam Mckenzie"
+
+[params]
+    description = "My portfolio with a list of all my achievements, projects and current interests"

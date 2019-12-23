@@ -1,35 +1,17 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-const cleanExcludePaths = [
-    '_headers',
-];
-
-const htmlFileNameByScript = {
-    'index.ts': 'index.html',
-};
+const fs = require('fs');
 
 const entry = {};
-Object.keys(htmlFileNameByScript).forEach(scriptName => {
-    entry[scriptName] = `${__dirname}/src/scripts/pages/${scriptName}`;
-});
-
-const htmlWebpackPlugins = Object.keys(entry).map(entryName => new HtmlWebpackPlugin({
-    chunks: [entryName],
-    template: `${__dirname}/src/${htmlFileNameByScript[entryName]}`,
-    filename: `${__dirname}/dist/${htmlFileNameByScript[entryName]}`,
-}));
+for(const script of fs.readdirSync(`${__dirname}/static/scripts/pages`)) {
+    // slice to remove .ts
+    entry[script.slice(0, -3)] = `${__dirname}/static/scripts/pages/${script}`;
+}
 
 module.exports = {
     entry,
-    plugins: [
-        new CleanWebpackPlugin(`${__dirname}/dist`, { exclude: cleanExcludePaths }),
-        ...htmlWebpackPlugins,
-    ],
     output: {
-        filename: '[name].[hash].bundle.js',
-        chunkFilename: '[name].[chunkhash].chunk.js',
-        path: `${__dirname}/dist`,
+        filename: '[name].bundle.js',
+        chunkFilename: '[name].chunk.js',
+        path: `${__dirname}/public/static`,
     },
     resolve: {
         extensions: ['.ts', '.js'],

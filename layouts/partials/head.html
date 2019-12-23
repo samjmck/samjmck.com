@@ -1,0 +1,19 @@
+<head>
+    <meta name="author" content="Sam Mckenzie" />
+    <meta name="description" content="{{ if .IsPage }} {{ .Description }} {{ else }} {{ .Site.Params.description }} {{ end }}" />
+
+    <title>
+        {{- if .IsPage -}}
+            {{- .Site.Title -}} &mdash; Sam Mckenzie
+        {{- else -}}
+            {{- if eq .Section "blog" -}}
+                Blog &mdash; Sam Mckenzie
+            {{- else -}}
+                Personal site &mdash; Sam Mckenzie
+            {{- end -}}
+        {{- end -}}
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta charset="utf-8" />
+</head>

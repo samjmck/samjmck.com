@@ -1,7 +1,8 @@
 ---
 title: "Title"
 date: {{ .Date }}
-url: "blog/{{ lower .Name }}.html"
+lastmod: {{ .Date }}
+publishdate: {{ .Date }}
 draft: true
 ---
 

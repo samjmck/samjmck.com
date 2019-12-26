@@ -1,4 +1,4 @@
-baseURL = "https://sammckenzie.be/"
+baseURL = "https://sammckenzie.be"
 languageCode = "en"
 staticDir = "none"
 title = "Sam Mckenzie"

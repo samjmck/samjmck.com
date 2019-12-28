@@ -4,4 +4,40 @@
 @import '../layout/header';
 @import '../layout/section';
 
+article {
+  align-self: center;
+  max-width: 700px;
+  font-size: 20px;
 
+  div#article-header {
+    margin: 0 0 30px 0;
+    font-family: 'Source Sans Pro', sans-serif;
+
+    h1#title {
+      font-weight: 700;
+      font-size: 2em;
+
+      margin: 0 0 5px 0;
+    }
+
+    p#details {
+      color: $light-grey;
+
+      margin: 5px 0 0 0;
+    }
+  }
+
+  main {
+    line-height: 1.4em;
+    font-family: 'Source Sans Pro', serif;
+
+    p {
+      margin: 30px 0;
+    }
+
+    h2, h3, h4, h5 {
+      font-size: 1.35em;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+  }
+}

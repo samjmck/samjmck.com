@@ -1,3 +1,3 @@
-import('../modules/header').then(module => {});
+import '../modules/header.ts';
 import '../../styles/pages/index.scss';
 

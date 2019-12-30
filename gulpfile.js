@@ -4,7 +4,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const exec = require('child_process').exec;
 
 function css() {
-    return gulp.src(`${__dirname}/static/styles/**/*.scss`)
+    return gulp.src(`${__dirname}/static/styles/pages/*.scss`)
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(sourcemaps.write('')) // empty string so it writes to the same path as gulp.dest

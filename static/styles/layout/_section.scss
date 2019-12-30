@@ -3,13 +3,13 @@
 section {
   position: relative;
   top: $header-height-1;
-  height: calc(100vh - #{$header-height-1});
+  min-height: calc(100vh - #{$header-height-1});
   width: 100vw;
 }
 
 @media screen and (max-width: $media-max-header-size) {
   section {
     top: $header-height-2;
-    height: calc(100vh - #{$header-height-2});
+    min-height: calc(100vh - #{$header-height-2});
   }
 }

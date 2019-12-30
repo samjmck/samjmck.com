@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+{{- partial "header-relative.html" . -}}
+
+<article>
+    <div id="article-header">
+        <h1 id="title">{{ .Title }}</h1>
+
+        <p id="details">{{ .PublishDate.Format "January 2, 2006" }} {{ with .Lastmod }} &mdash; last edit on {{ .Format "January 2, 2006" }} {{ end }}</p>
+    </div>
+    <main>
+        {{ .Content }}
+    </main>
+</article>
+
+<link href="../../static/blog.css" rel="stylesheet" />
+<script src="../../static/blog.bundle.js"></script>
+<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Source+Sans+Pro:400,700&display=swap" rel="stylesheet" />
+
+{{ end }}

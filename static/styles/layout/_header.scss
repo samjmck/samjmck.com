@@ -2,7 +2,6 @@
 @import '../modules/colours';
 
 header {
-  position: fixed;
   top: 0;
   height: $header-height-1;
   width: 100vw;
@@ -68,6 +67,14 @@ header {
       }
     }
   }
+}
+
+header.fixed {
+  position: fixed;
+}
+
+header.relative {
+  position: relative;
 }
 
 /* Remove container padding after 2500px, only use max-width

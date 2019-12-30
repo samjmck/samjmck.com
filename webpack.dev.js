@@ -1,5 +1,4 @@
 const common = require('./webpack.common');
-const { plugins } = common;
 
 const path = require('path');
 const fs = require('fs');
@@ -27,25 +26,7 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|gif|webp)$/,
                 use: ['file-loader'],
-            },
-            {
-                test: /\.(sa|sc|c)ss$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
-                ],
-            },
+            }
         ],
     },
     plugins: [

@@ -1,1 +1,1 @@
-import '../../styles/pages/blog.scss';
+import '../modules/header.ts';

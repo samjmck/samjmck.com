@@ -9,7 +9,7 @@ section#introduction, section#contact {
   flex-direction: column;
   align-items: center;
 
-  div {
+  > div {
     position: relative;
     top: 15vh;
 
@@ -22,6 +22,101 @@ section#introduction, section#contact {
 
     p:nth-child(1) {
       font-size: 2.4em;
+    }
+  }
+}
+
+section#work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > div {
+    position: relative;
+    padding: 50px;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+
+    div.work-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      div.side {
+        display: flex;
+        flex-direction: column;
+
+        p, a {
+          font-size: 1.4em;
+        }
+      }
+
+      div.side.left {
+        align-items: flex-end;
+        padding: 0 20px 0 0;
+        min-width: 200px;
+
+        p.date {
+          color: $light-grey;
+          text-transform: uppercase;
+          white-space: nowrap;
+          font-weight: 600;
+        }
+
+        div.date-connector {
+          position: relative;
+          right: 25px;
+          width: 2px;
+          height: 100%;
+          background-color: rgba(50, 48, 48, .1);
+        }
+      }
+
+      div.side.right {
+        flex-grow: 1;
+        margin: 0 0 75px 0;
+
+        div.header {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          p, a {
+            margin: 0;
+          }
+
+          p.title {
+            font-size: 2em;
+            color: $black;
+          }
+
+          a.project-link {
+            text-decoration: none;
+          }
+        }
+
+        p.description {
+          color: $dark-grey;
+        }
+
+        div.showcase {
+          margin: 25px auto 0 auto;
+          width: 80%;
+
+          img {
+            width: 100%;
+            height: auto;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+
+    div.work-item:last-child div.side.left div.date-connector {
+      display: none;
     }
   }
 }

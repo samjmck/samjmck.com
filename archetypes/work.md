@@ -1,12 +1,13 @@
 ---
 draft: true
-params:
-- start_date: ""
-- end_date: ""
-- job_title: ""
-- company: ""
-- short_description: ""
-- link: ""
-- blog_post_link: ""
----
+title: ""
+date: {{ .Date }}
 
+endDate: {{ .Date }}
+company: ""
+link: ""
+website: ""
+github: ""
+image: ""
+---
+Short description.

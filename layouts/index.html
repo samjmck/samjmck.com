@@ -16,6 +16,28 @@
     </div>
 </section>
 
+<section id="work">
+    <div>
+        {{ range (where .Paginator.Pages "Type" "work").ByDate.Reverse }}
+        <div class="work-item">
+            <div class="side left">
+                <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
+                <div class="date-connector"></div>
+            </div>
+            <div class="side right">
+                <div class="header">
+                    <p class="title">{{ .Title }}</p>
+                    {{ with .Params.github }}<a class="project-link" href="{{ . }}">View Github</a>{{- end -}}
+                    {{ with .Params.website }}<a class="project-link" href="{{ . }}">View site</a>{{ end }}
+                </div>
+                <p class="description">{{- .RawContent -}}</p>
+                {{ if isset .Params "image" }}<div class="showcase"><img src="{{ .Dir }}{{ .Params.image }}" loading="lazy" alt="Image of project {{ .Title }}" /></div>{{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+
 <section id="contact">
     <div>
         <p><b>Contact me.</b></p>

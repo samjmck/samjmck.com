@@ -10,4 +10,4 @@ website: "https://footietracker.com"
 github: ""
 image: "footietracker.png"
 ---
-Development of a portfolio tracker with the Google Sheets API for a virtual football stock market.
+Development of a portfolio tracker for a virtual football stock market with the Google Sheets API.

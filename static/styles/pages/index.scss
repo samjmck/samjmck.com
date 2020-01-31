@@ -33,7 +33,7 @@ section#work {
 
   > div {
     position: relative;
-    padding: 50px;
+    padding: 2.5em;
     width: 100%;
     max-width: 1000px;
     display: flex;
@@ -118,5 +118,47 @@ section#work {
     div.work-item:last-child div.side.left div.date-connector {
       display: none;
     }
+  }
+}
+
+@media screen and (max-width: #{$media-max-header-size}) {
+  section#work > div div.work-item {
+    flex-direction: column;
+
+    div.date-connector {
+      display: none;
+    }
+
+    div.side.left {
+      align-items: flex-start;
+    }
+  }
+}
+
+@media screen and (max-width: #{$media-max-step-2}) {
+  section#work > div div.work-item div.side.right {
+    flex-direction: column;
+
+    div.showcase {
+      width: 100%;
+    }
+
+    div.header {
+      flex-direction: column;
+    }
+  }
+
+  section#introduction > div, section#contact > div {
+    top: 5vh;
+  }
+}
+
+@media screen and (max-width: #{$media-max-step-3}) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  section#work > div {
+    padding: 20px;
   }
 }

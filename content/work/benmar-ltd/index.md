@@ -8,6 +8,6 @@ company: ""
 link: ""
 website: "https://benmar-ltd.co.uk"
 github: ""
-image: "benmar-ltd.png"
+imageName: "benmar-ltd"
 ---
 Development and design of Benmar Limited’s website and custom content management system. The website utilises TypeScript, SCSS and webpack while the backend uses Node.js with Express and TypeScript.

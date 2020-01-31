@@ -8,6 +8,6 @@ company: ""
 link: ""
 website: "https://footietracker.com"
 github: ""
-image: "footietracker.png"
+imageName: "footietracker"
 ---
 Development of a portfolio tracker for a virtual football stock market with the Google Sheets API.

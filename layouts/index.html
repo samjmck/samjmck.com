@@ -31,7 +31,12 @@
                     {{ with .Params.website }}<a class="project-link" href="{{ . }}">View site</a>{{ end }}
                 </div>
                 <p class="description">{{- .RawContent -}}</p>
-                {{ if isset .Params "image" }}<div class="showcase"><img src="{{ .File.Dir }}{{ .Params.image }}" loading="lazy" alt="Image of project {{ .Title }}" /></div>{{ end }}
+                <div class="showcase">
+                    <picture>
+                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}.webp"/>
+                        <img src="{{ .File.Dir }}{{ .Params.imageName }}.png" loading="lazy" alt="Image of project {{ .Title }}" />
+                    </picture>
+                </div>
             </div>
         </div>
         {{ end }}

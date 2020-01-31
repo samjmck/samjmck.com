@@ -8,6 +8,6 @@ company: ""
 link: ""
 website: ""
 github: "https://github.com/samjmckenzie/sammckenzie.be"
-image: "sammckenzie.be.png"
+imageName: "sammckenzie.be"
 ---
 Development and design of personal website. The main technologies used to create this were SCSS, TypeScript, webpack and Hugo.

@@ -8,6 +8,6 @@ company: ""
 link: ""
 website: ""
 github: ""
-image: ""
+imageName: ""
 ---
 Short description.

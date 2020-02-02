@@ -100,3 +100,9 @@ header.relative {
    }
  }
 }
+
+@media screen and (max-width: $media-max-step-3) {
+  header {
+    height: $header-height-3;
+  }
+}

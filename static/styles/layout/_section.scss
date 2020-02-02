@@ -13,3 +13,10 @@ section {
     min-height: calc(100vh - #{$header-height-2});
   }
 }
+
+@media screen and (max-width: $media-max-step-3) {
+  section {
+    top: $header-height-3;
+    min-height: calc(100vh - #{$header-height-3});
+  }
+}

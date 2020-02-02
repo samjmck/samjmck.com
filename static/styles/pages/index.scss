@@ -162,3 +162,9 @@ section#work {
     padding: 20px;
   }
 }
+
+@media screen and (max-width: #{$media-max-step-4}) {
+  body {
+    font-size: 0.85rem;
+  }
+}

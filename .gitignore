@@ -1,6 +1,7 @@
 node_modules/
 resources/
 static/*.bundle.js
+static/*.bundle.js.map
 assets/generated-bundles/*
 .idea
 .DS_Store

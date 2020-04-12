@@ -1,79 +1,87 @@
-{{ define "main" }}
+{{ define "html" }}}
+<head>
+    {{- partial "head-content.html" . -}}
 
-<a class="skip-link" href="#introduction">Skip to introduction</a>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600&display=swap" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=PT+Serif:700|&display=swap&text=Sam%20Mckenzie" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+</head>
+<body>
+    <a class="skip-link" href="#introduction">Skip to introduction</a>
 
-{{- partial "header-fixed.html" . -}}
+    {{- partial "header-fixed.html" . -}}
 
-
-<section id="introduction">
-    <div>
-        <p>
-            I&rsquo;m <i>Sam</i>. <br />
-            <b>I can design and develop your website for you.</b>
-        </p>
-        <p>
-            Most of my design work and prototypes are on <a href="https://dribbble.com/samjmckenzies">Dribbble</a>. <br/>
-            A lot of my code can be found on my <a href="https://github.com/samjmckenzie">Github</a> account.
-        </p>
-        <p>You can email me at <a href="mailto:me@sammckenzie.be">me@sammckenzie.be</a>.</p>
-    </div>
-</section>
-
-<section id="work">
-    <div>
-        {{ range (where .Paginator.Pages "Type" "work").ByDate.Reverse }}
-        <div class="work-item">
-            <div class="side left">
-                <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
-                <div class="date-connector"></div>
-            </div>
-            <div class="side right">
-                <div class="header">
-                    <p class="title">{{ .Title }}</p>
-                    {{ with .Params.github }}<a class="project-link" href="{{ . }}">View Github</a>{{- end -}}
-                    {{ with .Params.website }}<a class="project-link" href="{{ . }}">View site</a>{{ end }}
-                </div>
-                <p class="description">{{- .RawContent -}}</p>
-                <div class="showcase">
-                    <picture>
-                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}.webp"/>
-                        <img src="{{ .File.Dir }}{{ .Params.imageName }}.png" loading="lazy" alt="Image of project {{ .Title }}" />
-                    </picture>
-                </div>
-            </div>
+    <section id="introduction">
+        <div>
+            <p>
+                I&rsquo;m <i>Sam</i>. <br />
+                <b>I can design and develop your website for you.</b>
+            </p>
+            <p>
+                Most of my design work and prototypes are on <a href="https://dribbble.com/samjmckenzies">Dribbble</a>. <br/>
+                A lot of my code can be found on my <a href="https://github.com/samjmckenzie">Github</a> account.
+            </p>
+            <p>You can email me at <a href="mailto:me@sammckenzie.be">me@sammckenzie.be</a>.</p>
         </div>
-        {{ end }}
-    </div>
-</section>
+    </section>
 
-<section id="contact">
-    <div>
-        <p><b>Contact me.</b></p>
-        <p>You can email me at <a href="mailto:me@sammckenzie.be">me@sammckenzie.be</a>.</p>
-        <p>I can also be reached via the messaging app <a href="https://t.me/samjmckenzie">Telegram</a>.</p>
-        <p>Feel free to follow or contact me on <a href="https://twitter.com/sam_mck">Twitter</a>.</p>
-    </div>
-</section>
+    <section id="work">
+        <div>
+            {{ range (where .Paginator.Pages "Type" "work").ByDate.Reverse }}
+            <div class="work-item">
+                <div class="side left">
+                    <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
+                    <div class="date-connector"></div>
+                </div>
+                <div class="side right">
+                    <div class="header">
+                        <p class="title">{{ .Title }}</p>
+                        {{ with .Params.github }}<a class="project-link" href="{{ . }}">View Github</a>{{- end -}}
+                        {{ with .Params.website }}<a class="project-link" href="{{ . }}">View site</a>{{ end }}
+                    </div>
+                    <p class="description">{{- .RawContent -}}</p>
+                    <div class="showcase">
+                        <picture>
+                            <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}.webp"/>
+                            <img src="{{ .File.Dir }}{{ .Params.imageName }}.png" loading="lazy" alt="Image of project {{ .Title }}" />
+                        </picture>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </section>
 
-{{ $scss := resources.Get "styles/pages/index.scss" }}
-{{ $options := (dict "outputStyle" "compressed") }}
-{{ $style := $scss | resources.ToCSS $options }}
+    <section id="contact">
+        <div>
+            <p><b>Contact me.</b></p>
+            <p>You can email me at <a href="mailto:me@sammckenzie.be">me@sammckenzie.be</a>.</p>
+            <p>I can also be reached via the messaging app <a href="https://t.me/samjmckenzie">Telegram</a>.</p>
+            <p>Feel free to follow or contact me on <a href="https://twitter.com/sam_mck">Twitter</a>.</p>
+        </div>
+    </section>
 
-<style>
-{{ $style.Content | safeCSS }}
-</style>
+    {{ $scss := resources.Get "styles/pages/index.scss" }}
+    {{ $options := (dict "outputStyle" "compressed") }}
+    {{ $style := $scss | resources.ToCSS $options }}
 
-{{ with resources.Get "generated-bundles/index.bundle.js" }}
-<script src="{{ .Permalink }}" defer></script>
-{{ end }}
+    <style>
+        {{ $style.Content | safeCSS }}
+    </style>
 
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600&display=swap" rel="stylesheet" />
+    <!--
+    {{ with resources.Get "generated-bundles/index.bundle.js" }}
+    <script src="{{ .Permalink }}" defer></script>
+    {{ end }}
+    -->
 
-<!--
-This request is 290B and the font file itself 4KB (macOS doesn't even load it as the font is built-in)
-The svg equivalent is 17KB but can be inserted inline
-I think the font solution is better as the font file gets loaded alongside the other font anyway
--->
-<link href="https://fonts.googleapis.com/css?family=PT+Serif:700|&display=swap&text=Sam%20Mckenzie" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600&display=swap" rel="stylesheet" />
 
+    <!--
+    This request is 290B and the font file itself 4KB (macOS doesn't even load it as the font is built-in)
+    The svg equivalent is 17KB but can be inserted inline
+    I think the font solution is better as the font file gets loaded alongside the other font anyway
+    -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:700|&display=swap&text=Sam%20Mckenzie" rel="stylesheet" />
+</body>
 {{ end }}

@@ -1,4 +1,7 @@
 node_modules/
+resources/
+static/*.bundle.js
+assets/generated-bundles/*
 .idea
 .DS_Store
 public/*

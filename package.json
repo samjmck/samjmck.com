@@ -1,7 +1,7 @@
 {
   "author": "Sam Mckenzie",
   "scripts": {
-    "build": "gulp"
+    "build": "webpack --config webpack.prod.js; hugo"
   },
   "dependencies": {
     "@babel/core": "^7.8.7",
@@ -16,9 +16,6 @@
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^0.1.19",
     "file-loader": "^4.2.0",
-    "gulp": "^4.0.2",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.13.1",
     "style-loader": "^1.1.3",

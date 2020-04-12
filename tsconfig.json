@@ -11,7 +11,7 @@
     "noImplicitAny": true,
   },
   "include": [
-    "./static/"
+    "./assets/"
   ],
   "exclude": [
     "node_modules"

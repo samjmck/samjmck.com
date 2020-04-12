@@ -1,9 +1,9 @@
 const fs = require('fs');
 
 const entry = {};
-for(const script of fs.readdirSync(`${__dirname}/static/scripts/pages`)) {
+for(const script of fs.readdirSync(`${__dirname}/assets/scripts/pages`)) {
     // slice to remove .ts
-    entry[script.slice(0, -3)] = `${__dirname}/static/scripts/pages/${script}`;
+    entry[script.slice(0, -3)] = `${__dirname}/assets/scripts/pages/${script}`;
 }
 
 module.exports = {
@@ -11,8 +11,8 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         chunkFilename: '[name].chunk.js',
-        publicPath: 'static/',
-        path: `${__dirname}/public/static`,
+        publicPath: '/',
+        path: `${__dirname}/assets/generated-bundles`,
     },
     resolve: {
         extensions: ['.ts', '.js'],

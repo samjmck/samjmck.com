@@ -3,7 +3,8 @@ const common = require('./webpack.common');
 module.exports = {
     ...common,
     mode: 'production',
-    devtool: 'source-map',
+    // Hugo doesn't move sourcemaps so we don't make them
+    // devtool: 'none',
     module: {
         rules: [
             {

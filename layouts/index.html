@@ -42,7 +42,7 @@
                     <p class="description">{{- .RawContent -}}</p>
                     <div class="showcase">
                         <picture>
-                            <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}.webp"/>
+                            <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}.webp" />
                             <img src="{{ .File.Dir }}{{ .Params.imageName }}.png" loading="lazy" alt="Image of project {{ .Title }}" />
                         </picture>
                     </div>
@@ -58,6 +58,9 @@
             <p>You can email me at <a href="mailto:me@sammckenzie.be">me@sammckenzie.be</a>.</p>
             <p>I can also be reached via the messaging app <a href="https://t.me/samjmckenzie">Telegram</a>.</p>
             <p>Feel free to follow or contact me on <a href="https://twitter.com/sam_mck">Twitter</a>.</p>
+        </div>
+        <div id="email-public-key">
+            <a href="https://api.protonmail.ch/pks/lookup?op=get&search=me@sammckenzie.be">PGP key for encrypted email</a>
         </div>
     </section>
 

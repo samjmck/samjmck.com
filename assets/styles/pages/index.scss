@@ -10,7 +10,7 @@ section#introduction, section#contact {
   flex-direction: column;
   align-items: center;
 
-  > div {
+  > div:nth-child(1) {
     position: relative;
     top: 15vh;
 
@@ -23,6 +23,17 @@ section#introduction, section#contact {
 
     p:nth-child(1) {
       font-size: 2.4em;
+    }
+  }
+
+  > div#email-public-key {
+    position: absolute;
+    bottom: 2em;
+
+    a {
+      color: $light-grey;
+      font-size: 1em;
+      text-decoration: none;
     }
   }
 }
@@ -149,7 +160,7 @@ section#work {
     }
   }
 
-  section#introduction > div, section#contact > div {
+  section#introduction > div, section#contact > div:nth-child(1) {
     top: 5vh;
   }
 }

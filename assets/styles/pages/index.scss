@@ -160,6 +160,10 @@ section#work {
     }
   }
 
+  section#contact>div:nth-child(1) a#email-public-key-mobile {
+    display: block;
+  }
+
   section#introduction > div, section#contact > div:nth-child(1) {
     top: 5vh;
   }

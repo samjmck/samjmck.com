@@ -6,6 +6,7 @@ assets/generated-bundles/*
 .idea
 .DS_Store
 public/*
+
 !public/_headers
 !public/android-chrome-192x192.png
 !public/android-chrome-512x512.png
@@ -13,6 +14,9 @@ public/*
 !public/browserconfig.xml
 !public/favicon.ico
 !public/favicon.svg
+!public/favicon_darkmode.svg
+!public/favicon_with_background.svg
+!public/favicon_squared_background.svg
 !public/favicon-16x16.png
 !public/favicon-32x32.png
 !public/mstile-70x70.png

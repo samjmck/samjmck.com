@@ -5,16 +5,58 @@
 @import '../layout/header';
 @import '../layout/section';
 
-section#introduction, section#contact {
+section#introduction {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  > div:nth-child(1) {
+  div.container {
+    max-width: 850px;
+    position: relative;
+    top: 10vh;
+
+    padding: 25px;
+
+    p {
+      font-size: 1.6em;
+      color: $dark-grey;
+    }
+
+    p:nth-child(1) {
+      font-size: 2.2em;
+    }
+
+    span.email-me {
+      position: relative;
+      left: 0.3em;
+      font-size: 1.4em;
+      color: $light-grey;
+    }
+
+    a.button {
+      margin-top: 0.4em;
+      display: inline-block;
+      font-size: 1.4em;
+    }
+
+    div.links {
+      border-top: 1px solid #e6e5e5;
+      margin: 0.6em 0 0 0;
+      padding: 0.8em 0 0 0;
+    }
+  }
+}
+
+section#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div.container {
     position: relative;
     top: 15vh;
 
-    padding: 20px;
+    padding: 25px;
 
     p {
       font-size: 1.6em;
@@ -26,7 +68,7 @@ section#introduction, section#contact {
     }
   }
 
-  > div#email-public-key {
+  div#email-public-key {
     position: absolute;
     bottom: 2em;
 
@@ -67,7 +109,7 @@ section#work {
 
       div.side.left {
         align-items: flex-end;
-        padding: 0 20px 0 0;
+        padding: 0 40px 0 0;
         min-width: 200px;
 
         p.date {
@@ -160,11 +202,11 @@ section#work {
     }
   }
 
-  section#contact>div:nth-child(1) a#email-public-key-mobile {
+  section#contact div.container a#email-public-key-mobile {
     display: block;
   }
 
-  section#introduction > div, section#contact > div:nth-child(1) {
+  section#introduction div.container, section#contact div.container {
     top: 5vh;
   }
 }

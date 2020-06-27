@@ -18,7 +18,7 @@ module.exports = {
             {
                 test: /\.(ts|tsx)$/,
                 include: [
-                    path.resolve(__dirname, 'src'),
+                    path.resolve(__dirname, 'assets/scripts'),
                 ],
                 options: JSON.parse(fs.readFileSync(`${__dirname}/.babelrc`)),
                 loader: 'babel-loader',

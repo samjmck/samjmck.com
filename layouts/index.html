@@ -2,7 +2,6 @@
 <head>
     {{- partial "head-content.html" . -}}
 
-    <!--<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600&display=swap" />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=PT+Serif:700|&display=swap&text=Sam%20Mckenzie" />-->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -13,16 +12,18 @@
     {{- partial "header-fixed.html" . -}}
 
     <section id="introduction">
-        <div>
-            <p>
-                I&rsquo;m <i>Sam</i>. <br />
-                <b>I can design and develop your website for you.</b>
-            </p>
-            <p>
-                Most of my design work and prototypes are on <a href="https://dribbble.com/samjmckenzies">Dribbble</a>. <br/>
-                A lot of my code can be found on my <a href="https://github.com/samjmckenzie">Github</a> account.
-            </p>
-            <p>You can email me at <a href="mailto:me@sammckenzie.be">me@sammckenzie.be</a>.</p>
+        <div class="container">
+            <div class="text">
+                <p>
+                    <b>I can design and develop your website for you.</b>
+                </p>
+                <p>
+                    I specialise in developing <i>fast</i> websites that not only look beautiful, but also have a great user experience and help your site rank higher in search results.
+                </p>
+            </div>
+            <div class="links">
+                <a class="button black" id="scroll-to-work" href="#work">See my work</a> <span class="email-me">or send me an email at <a href="mailto:me@sammckenzie.be">me@sammckenzie.be</a></span>
+            </div>
         </div>
     </section>
 
@@ -37,8 +38,8 @@
                 <div class="side right">
                     <div class="header">
                         <p class="title">{{ .Title }}</p>
-                        {{ with .Params.github }}<a class="project-link" href="{{ . }}">View Github</a>{{- end -}}
-                        {{ with .Params.website }}<a class="project-link" href="{{ . }}">View site</a>{{ end }}
+                        {{ with .Params.github }}<a class="project-link" href="{{ . }}">Visit Github repo</a>{{- end -}}
+                        {{ with .Params.website }}<a class="project-link" href="{{ . }}">Visit site</a>{{ end }}
                     </div>
                     <p class="description">{{- .RawContent -}}</p>
                     <div class="showcase">
@@ -54,7 +55,7 @@
     </section>
 
     <section id="contact">
-        <div>
+        <div class="container">
             <p><b>Contact me.</b></p>
             <p>You can email me at <a href="mailto:me@sammckenzie.be">me@sammckenzie.be</a>.</p>
             <p>I can also be reached via the messaging app <a href="https://t.me/samjmckenzie">Telegram</a>.</p>
@@ -73,11 +74,13 @@
         {{ $style.Content | safeCSS }}
     </style>
 
-    <!--
+
     {{ with resources.Get "generated-bundles/index.bundle.js" }}
-    <script src="{{ .Permalink }}" defer></script>
+    <script>
+        {{ .Content | safeJS }}
+    </script>
     {{ end }}
-    -->
+
 
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
 

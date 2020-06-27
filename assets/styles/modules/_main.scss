@@ -22,12 +22,20 @@ body {
 }
 
 p {
-  margin: 7px 0;
+  margin: 0.2em 0;
 }
 
 a {
-  text-decoration: underline;
+  text-decoration: none;
   color: $blue;
+}
+
+a:focus {
+  background-color: #c3dcff;
+  outline: 0;
+  color: #171616;
+  text-decoration: none;
+  box-shadow: 0 0 #c3dcff, 0 4px #0b0c0c;
 }
 
 input, input:active, input:focus {
@@ -37,4 +45,22 @@ input, input:active, input:focus {
 button, button:active, button:focus{
   outline: 0;
   border: 0;
+}
+
+a.button.black {
+  background-color: #181818f0;
+  color: $white;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 0.25em 0.7em;
+  box-shadow: 0.1em 0.1em 0.3em rgba(0,0,0,0.15);
+  transform: scale(1);
+  transition: box-shadow .15s ease-in-out, background-color .2s ease-in-out, transform .1s ease-in-out;
+}
+
+a.button.black:hover {
+  transform: scale(1.02);
+  transition: box-shadow .15s ease-in-out, background-color .2s ease-in-out, transform .15s ease-in-out;
+  box-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,0.35);
+  background-color: #0e0e0e;
 }

@@ -1,8 +1,8 @@
 +++
 title = "How to setup Caddy with Cloudflare"
 date = 2020-07-07T00:25:24+02:00
-lastmod = 2020-07-07T00:25:24+02:00
-publishdate = 2020-07-07T00:25:24+02:00
+lastmod = 2020-07-10T00:25:24+02:00
+publishdate = 2020-07-10T00:25:24+02:00
 draft = false
 +++
 
@@ -176,6 +176,10 @@ Now run Caddy with `caddy run`.
 ### Authenticated origin pull
 
 This feature ensures that when an "origin pull" is made to update the CDN cache, that the request being made to your origin server is from Cloudflare and not a different source. Cloudflare have written a good article about this [here](https://support.cloudflare.com/hc/en-us/articles/204899617-Authenticated-Origin-Pulls).
+
+You can enable authenticated origin pulls by going to the SSL/TLS section of your domain, going to the origin server tab and then toggling the switch for authenticated origin pulls.
+
+{{< img src="cloudflare-authenticated-origin-pulls-on.png" alt="Toggled switch for Cloudflare authenticated origin pulls" >}}
 
 To configure authenticated origin pulls, download the Cloudflare CA file to `/etc/ssl/certs`.
 

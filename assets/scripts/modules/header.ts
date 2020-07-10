@@ -11,5 +11,4 @@ const observer = new IntersectionObserver(entries => {
     threshold: 1
 });
 
-console.log('oberserving');
 observer.observe(document.querySelector('section#introduction div.container'));

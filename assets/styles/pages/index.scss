@@ -4,6 +4,7 @@
 @import '../modules/sizes';
 @import '../layout/header';
 @import '../layout/section';
+@import '../modules/fonts/fonts';
 
 section#introduction {
   display: flex;
@@ -81,126 +82,62 @@ section#contact {
 }
 
 section#work {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  div.introduction {
+    text-align: center;
+    color: $dark-grey;
 
-  > div {
-    position: relative;
-    padding: 2.5em;
-    width: 100%;
-    max-width: 1000px;
+    p.my-work {
+      font-weight: 600;
+      font-size: 2.2em;
+    }
+    p.work-account-links {
+      margin: 0 auto;
+      max-width: 750px;
+      font-size: 1.6em;
+    }
+  }
+
+  ul.projects {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-start;
+    list-style-type: none;
 
-    div.work-item {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
+    li.project {
+      div.showcase {
 
-      div.side {
-        display: flex;
-        flex-direction: column;
+      }
 
-        p, a {
+      div.content {
+        color: $dark-grey;
+
+        div.header {
+          font-weight: 600;
+
+          span.title {
+            font-size: 1.6em;
+          }
+          span.date {
+            float: right;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            color: $light-grey;
+          }
+        }
+        p.description {
           font-size: 1.4em;
         }
       }
-
-      div.side.left {
-        align-items: flex-end;
-        padding: 0 40px 0 0;
-        min-width: 200px;
-
-        p.date {
-          color: $light-grey;
-          text-transform: uppercase;
-          white-space: nowrap;
-          font-weight: 600;
-        }
-
-        div.date-connector {
-          position: relative;
-          right: 25px;
-          width: 2px;
-          height: 100%;
-          background-color: rgba(50, 48, 48, .1);
-        }
-      }
-
-      div.side.right {
-        flex-grow: 1;
-        margin: 0 0 75px 0;
-
-        div.header {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-
-          p, a {
-            margin: 0;
-          }
-
-          p.title {
-            font-size: 2em;
-            color: $black;
-          }
-
-          a.project-link {
-            text-decoration: none;
-          }
-        }
-
-        p.description {
-          color: $dark-grey;
-        }
-
-        div.showcase {
-          margin: 25px auto 0 auto;
-          width: 80%;
-
-          img {
-            width: 100%;
-            height: auto;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-            border-radius: 5px;
-          }
-        }
-      }
-    }
-
-    div.work-item:last-child div.side.left div.date-connector {
-      display: none;
     }
   }
 }
 
 @media screen and (max-width: #{$media-max-header-size}) {
-  section#work > div div.work-item {
-    flex-direction: column;
 
-    div.date-connector {
-      display: none;
-    }
-
-    div.side.left {
-      align-items: flex-start;
-    }
-  }
 }
 
 @media screen and (max-width: #{$media-max-step-2}) {
-  section#work > div div.work-item div.side.right {
-    flex-direction: column;
 
-    div.showcase {
-      width: 100%;
-    }
-
-    div.header {
-      flex-direction: column;
-    }
-  }
 
   section#contact div.container a#email-public-key-mobile {
     display: block;
@@ -214,10 +151,6 @@ section#work {
 @media screen and (max-width: #{$media-max-step-3}) {
   body {
     font-size: 0.9rem;
-  }
-
-  section#work > div {
-    padding: 20px;
   }
 }
 

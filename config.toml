@@ -1,6 +1,6 @@
 baseURL = "https://sammckenzie.be"
 languageCode = "en"
-staticDir = "none"
+staticDir = "static"
 title = "Sam Mckenzie"
 
 [params]

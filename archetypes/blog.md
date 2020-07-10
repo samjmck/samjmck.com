@@ -1,8 +1,8 @@
----
-title: "Title"
-date: {{ .Date }}
-lastmod: {{ .Date }}
-publishdate: {{ .Date }}
++++
+title = "Title"
+date = {{ .Date }}
+lastmod = {{ .Date }}
+publishdate = {{ .Date }}
 draft: true
----
++++
 

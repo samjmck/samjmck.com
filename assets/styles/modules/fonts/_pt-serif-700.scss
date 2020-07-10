@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/pt-serif-v11-latin-700.eot'); /* IE9 Compat Modes */
+    src: local('PT Serif Bold'), local('PTSerif-Bold'),
+         url('/fonts/pt-serif-v11-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/pt-serif-v11-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/fonts/pt-serif-v11-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/pt-serif-v11-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/pt-serif-v11-latin-700.svg#PTSerif') format('svg'); /* Legacy iOS */
+  }

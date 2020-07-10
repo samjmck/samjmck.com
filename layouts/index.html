@@ -1,10 +1,6 @@
 {{ define "html" }}
 <head>
     {{- partial "head-content.html" . -}}
-
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=PT+Serif:700|&display=swap&text=Sam%20Mckenzie" />-->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 <body>
     <a class="skip-link" href="#introduction">Skip to introduction</a>
@@ -28,30 +24,29 @@
     </section>
 
     <section id="work">
-        <div>
+        <div class="introduction">
+            <p class="my-work">My work</p>
+            <p class="work-account-links">You can find my open-source projects on my <a href="https://github.com/samjmckenzie">Github</a> account and my design work on my <a href="https://www.dribbble.com/samjmck">Dribbble</a> account.</p>
+        </div>
+        <ul class="projects">
             {{ range (where .Paginator.Pages "Type" "work").ByDate.Reverse }}
-            <div class="work-item">
-                <div class="side left">
-                    <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
-                    <div class="date-connector"></div>
+            <li class="project">
+                <div class="showcase">
+                    <picture>
+                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}.webp" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName }}.png" loading="lazy" alt="Image of project {{ .Title }}" />
+                    </picture>
                 </div>
-                <div class="side right">
+                <div class="content">
                     <div class="header">
-                        <p class="title">{{ .Title }}</p>
-                        {{ with .Params.github }}<a class="project-link" href="{{ . }}">Visit Github repo</a>{{- end -}}
-                        {{ with .Params.website }}<a class="project-link" href="{{ . }}">Visit site</a>{{ end }}
+                        <span class="title">{{ .Title }}</span>
+                        <span class="date">{{ .Date.Format "January 2006" }}</span>
                     </div>
                     <p class="description">{{- .RawContent -}}</p>
-                    <div class="showcase">
-                        <picture>
-                            <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}.webp" />
-                            <img src="{{ .File.Dir }}{{ .Params.imageName }}.png" loading="lazy" alt="Image of project {{ .Title }}" />
-                        </picture>
-                    </div>
                 </div>
-            </div>
+            </li>
             {{ end }}
-        </div>
+        </ul>
     </section>
 
     <section id="contact">
@@ -62,7 +57,7 @@
             <p>Feel free to follow or contact me on <a href="https://twitter.com/sam_mck">Twitter</a>.</p>
         </div>
         <div id="email-public-key">
-            <a href="/email-pgp-key">PGP key for encrypted email</a>
+            <a href="https://api.protonmail.ch/pks/lookup?op=get&search=me@sammckenzie.be">PGP key for encrypted email</a>
         </div>
     </section>
 
@@ -80,17 +75,5 @@
         {{ .Content | safeJS }}
     </script>
     {{ end }}
-
-
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-
-    <!--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600&display=swap" rel="stylesheet" />-->
-
-    <!--
-    This request is 290B and the font file itself 4KB (macOS doesn't even load it as the font is built-in)
-    The svg equivalent is 17KB but can be inserted inline
-    I think the font solution is better as the font file gets loaded alongside the other font anyway
-    -->
-    <!--<link href="https://fonts.googleapis.com/css?family=PT+Serif:700|&display=swap&text=Sam%20Mckenzie" rel="stylesheet" />-->
 </body>
 {{ end }}

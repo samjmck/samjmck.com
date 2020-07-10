@@ -3,7 +3,8 @@
 section {
   position: relative;
   top: $header-height-1;
-  min-height: calc(100vh - #{$header-height-1});
+  height: calc(100vh - #{$header-height-1});
+  max-height: 700px;
   width: 100vw;
 }
 

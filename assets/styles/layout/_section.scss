@@ -1,23 +1,39 @@
 @import '../modules/sizes';
 
-section {
+div.sections {
   position: relative;
   top: $header-height-1;
+}
+
+section {
+  position: relative;
   height: calc(100vh - #{$header-height-1});
   max-height: 700px;
   width: 100vw;
 }
 
+// Hack for broken hidden top part of section when linking to element
+div.section {
+  position: relative;
+  top: -80px;
+  width: 0;
+  height: 0;
+}
+
 @media screen and (max-width: $media-max-header-size) {
-  section {
+  div.sections {
     top: $header-height-2;
-    min-height: calc(100vh - #{$header-height-2});
+  }
+  section {
+    height: calc(100vh - #{$header-height-2});
   }
 }
 
 @media screen and (max-width: $media-max-step-3) {
-  section {
+  div.sections {
     top: $header-height-3;
-    min-height: calc(100vh - #{$header-height-3});
+  }
+  section {
+    height: calc(100vh - #{$header-height-3});
   }
 }

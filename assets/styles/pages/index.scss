@@ -6,10 +6,12 @@
 @import '../layout/section';
 @import '../modules/fonts/fonts';
 
-section#introduction {
+section.introduction {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  background: linear-gradient(180deg, rgba(251, 251, 251, 0) 0%, rgba(254, 254, 254, 0) 60%, #F4F6F6 100%);
 
   div.container {
     max-width: 850px;
@@ -41,6 +43,7 @@ section#introduction {
     }
 
     div.links {
+      text-align: center;
       border-top: 1px solid #e6e5e5;
       margin: 0.6em 0 0 0;
       padding: 0.8em 0 0 0;
@@ -48,7 +51,115 @@ section#introduction {
   }
 }
 
-section#contact {
+section.work {
+  background-color: #F4F6F6;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  height: auto;
+  max-height: none;
+
+  ul.left-column, ul.right-column {
+    display: flex;
+    flex-direction: column;
+    max-width: 575px;
+    list-style-type: none;
+    padding: 0 1.3em;
+    margin: 0;
+
+    li.item {
+      width: 100%;
+      margin: 0 0 1.15em 0;
+    }
+    li.introduction {
+      p.my-work {
+        font-size: 2em;
+      }
+      p.work-account-links {
+        color: $mid-grey;
+        font-size: 1.4em;
+      }
+    }
+    li.project {
+      box-shadow: 5px 5px 20px rgba(4, 97, 97, 0.1);
+      border-radius: 6px;
+      background-color: $white;
+      transition: box-shadow .1s ease-in-out;
+
+      div.showcase {
+        img {
+          border-radius: 6px;
+          width: 100%;
+          height: auto;
+        }
+      }
+      div.showcase.double {
+        display: flex;
+        flex-direction: row;
+        padding: 0.8em 0.8em 0 0.8em;
+
+        img {
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+          border-radius: 2px;
+        }
+        picture:nth-child(1) {
+          margin-right: 0.3em;
+        }
+        picture:nth-child(2) {
+          margin-left: 0.3em;
+        }
+      }
+      div.content {
+        padding: 0.6em 1.2em 0.9em 1.2em;
+
+        div.header {
+          margin: 0 0 0.5em 0;
+
+          span.title {
+            font-size: 1.6em;
+            color: $dark-grey;
+            font-weight: 600;
+          }
+
+          span.date {
+            font-size: 1em;
+            line-height: 1.8em;
+            text-transform: uppercase;
+            font-weight: 600;
+            float: right;
+            color: $light-grey;
+          }
+        }
+        p.description {
+          font-size: 1.2em;
+          color: $mid-grey;
+        }
+        p.link {
+          font-size: 1.2em;
+
+          svg {
+            position: relative;
+            top: 0.15em;
+            margin-right: 0.1em;
+            height: 1.1em;
+            width: 1.1em;
+          }
+          span {
+
+          }
+        }
+      }
+    }
+    li.project:hover {
+      box-shadow: 5px 5px 20px rgba(4, 97, 97, 0.15);
+      transition: box-shadow .1s ease-in-out;
+    }
+  }
+}
+
+section.contact {
+  background-color: #F4F6F6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,70 +192,33 @@ section#contact {
   }
 }
 
-section#work {
-  div.introduction {
-    text-align: center;
-    color: $dark-grey;
-
-    p.my-work {
-      font-weight: 600;
-      font-size: 2.2em;
-    }
-    p.work-account-links {
-      margin: 0 auto;
-      max-width: 750px;
-      font-size: 1.6em;
-    }
-  }
-
-  ul.projects {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    list-style-type: none;
-
-    li.project {
-      div.showcase {
-
-      }
-
-      div.content {
-        color: $dark-grey;
-
-        div.header {
-          font-weight: 600;
-
-          span.title {
-            font-size: 1.6em;
-          }
-          span.date {
-            float: right;
-            font-size: 1.2em;
-            text-transform: uppercase;
-            color: $light-grey;
-          }
-        }
-        p.description {
-          font-size: 1.4em;
-        }
-      }
-    }
-  }
-}
-
 @media screen and (max-width: #{$media-max-header-size}) {
 
 }
 
 @media screen and (max-width: #{$media-max-step-2}) {
-
-
-  section#contact div.container a#email-public-key-mobile {
+  section.contact div.container a#email-public-key-mobile {
     display: block;
   }
 
-  section#introduction div.container, section#contact div.container {
+  section.introduction div.container, section.contact div.container {
     top: 5vh;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  section.introduction {
+    span.email-me {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  section.work {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
 }
 

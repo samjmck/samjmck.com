@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["es2017", "DOM", "ES6", "DOM.Iterable"],
     "target": "es6",
     "module": "ESNext",
     "outDir": "./dist",

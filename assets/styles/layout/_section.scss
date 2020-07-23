@@ -8,7 +8,8 @@ div.sections {
 section {
   position: relative;
   height: calc(100vh - #{$header-height-1});
-  max-height: 700px;
+  min-height: 550px;
+  max-height: 78vh;
   width: 100vw;
 }
 

@@ -7,9 +7,9 @@ div.sections {
 
 section {
   position: relative;
-  height: calc(100vh - #{$header-height-1});
-  min-height: 550px;
-  max-height: 78vh;
+  min-height: 500px;
+  // height: calc(85vh - #{$header-height-1});
+  height: 78vh;
   width: 100vw;
 }
 
@@ -21,20 +21,26 @@ div.section {
   height: 0;
 }
 
+@media screen and (min-width: 700px) and (max-aspect-ratio: 13/9) {
+  section {
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  section {
+    height: auto;
+  }
+}
+
 @media screen and (max-width: $media-max-header-size) {
   div.sections {
     top: $header-height-2;
-  }
-  section {
-    height: calc(100vh - #{$header-height-2});
   }
 }
 
 @media screen and (max-width: $media-max-step-3) {
   div.sections {
     top: $header-height-3;
-  }
-  section {
-    height: calc(100vh - #{$header-height-3});
   }
 }

@@ -7,7 +7,7 @@ header {
   width: 100vw;
   background-color: $white;
   z-index: 1;
-  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid #e6e5e5;
   transition: border .1s ease-in-out;
 
   display: flex;
@@ -45,6 +45,12 @@ header {
         font-family: 'PT Serif', serif;
         font-weight: 700;
       }
+      a.full {
+        display: initial;
+      }
+      a.compact {
+        display: none;
+      }
     }
 
     nav {
@@ -77,8 +83,8 @@ header {
   }
 }
 
-header.show-border {
-  border-bottom: 1px solid #e6e5e5;
+header.hide-border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
   transition: border .1s ease-in-out;
 }
 
@@ -116,10 +122,22 @@ header.sticky {
      }
    }
  }
+ header.hide-border {
+  border-bottom: 1px solid #e6e5e5;
+}
 }
 
 @media screen and (max-width: $media-max-step-3) {
   header {
     height: $header-height-3;
+
+    div.container div#logo {
+      a.full {
+        display: none;
+      }
+      a.compact {
+        display: initial;
+      }
+    }
   }
 }

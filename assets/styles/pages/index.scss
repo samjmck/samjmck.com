@@ -6,7 +6,7 @@
 @import '../layout/section';
 @import '../modules/fonts/fonts';
 
-section.introduction {
+section.about {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,12 +65,12 @@ section.work {
     flex-direction: column;
     max-width: 575px;
     list-style-type: none;
-    padding: 0 1.3em;
-    margin: 0;
+    padding: 0;
+    margin: 0 1.5em;
 
     li.item {
       width: 100%;
-      margin: 0 0 1.15em 0;
+      margin: 0 0 1.8em 0;
     }
     li.introduction {
       p.my-work {
@@ -201,20 +201,20 @@ section.contact {
     display: block;
   }
 
-  section.introduction div.container, section.contact div.container {
+  section.about div.container, section.contact div.container {
     top: 5vh;
   }
 }
 
 @media screen and (max-width: 700px) {
-  section.introduction {
+  section.about {
     span.email-me {
       display: none;
     }
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
   section.work {
     flex-direction: column;
     align-items: center;

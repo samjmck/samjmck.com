@@ -2,7 +2,7 @@
 draft = false
 title = "Netflix concept"
 date = 2019-10-30T15:09:33+02:00
-weight = 5
+weight = 3
 
 endDate = 2020-07-24T15:09:33+02:00
 company = ""

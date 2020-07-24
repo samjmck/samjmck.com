@@ -16,9 +16,8 @@ section.about {
   div.container {
     max-width: 850px;
     position: relative;
-    top: 10vh;
 
-    padding: 25px;
+    padding: 12vh 1.7em;
 
     p {
       font-size: 1.6em;
@@ -163,12 +162,11 @@ section.contact {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 25vh;
 
   div.container {
     position: relative;
-    top: 15vh;
-
-    padding: 25px;
+    padding: 1.7em;
 
     p {
       font-size: 1.6em;
@@ -181,8 +179,8 @@ section.contact {
   }
 
   div#email-public-key {
-    position: absolute;
-    bottom: 2em;
+    position: relative;
+    top: -0.7em;
 
     a {
       color: $light-grey;
@@ -192,19 +190,11 @@ section.contact {
   }
 }
 
-@media screen and (max-width: #{$media-max-header-size}) {
-
-}
-
-@media screen and (max-width: #{$media-max-step-2}) {
-  section.contact div.container a#email-public-key-mobile {
-    display: block;
-  }
-
-  section.about div.container, section.contact div.container {
-    top: 5vh;
-  }
-}
+// @media screen and (max-width: #{$media-max-step-2}) {
+//   section.contact div.container a#email-public-key-mobile {
+//     display: block;
+//   }
+// }
 
 @media screen and (max-width: 700px) {
   section.about {

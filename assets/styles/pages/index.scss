@@ -5,6 +5,7 @@
 @import '../layout/header';
 @import '../layout/section';
 @import '../modules/fonts/fonts';
+@import '../layout/mobile-navigation';
 
 section.about {
   display: flex;
@@ -17,7 +18,7 @@ section.about {
     max-width: 850px;
     position: relative;
 
-    padding: 12vh 1.7em;
+    padding: 14vh 1.7em;
 
     p {
       font-size: 1.6em;
@@ -56,21 +57,25 @@ section.work {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  height: auto;
-  max-height: none;
+  padding: 0 5em 6em 5em;
 
+  ul.left-column {
+    margin: 0 1.4em 0 0;
+  }
+  ul.right-column {
+    margin: 0 0 0 1.4em;
+  }
   ul.left-column, ul.right-column {
     display: flex;
     flex-direction: column;
     max-width: 725px;
     list-style-type: none;
     padding: 0;
-    margin: 0 1.9em;
     flex: 1;
 
     li.item {
       width: 100%;
-      margin: 0 0 1.8em 0;
+      margin: 0 0 2em 0;
     }
     li.introduction {
       p.my-work {
@@ -202,11 +207,27 @@ section.contact {
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1000px) {
   section.work {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+
+    ul.left-column, ul.right-column {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  section.work {
+    padding: 0 3em 6em 3em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  section.work {
+    padding: 0 1.8em 6em 1.8em;
   }
 }
 

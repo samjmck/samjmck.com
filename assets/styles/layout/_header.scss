@@ -14,16 +14,9 @@ header {
   flex-direction: row;
   justify-content: center;
 
-  /* Why do we need this container?
-     If we apply the max-width property to the parent element, i.e. the <header> element, then
-     the background-color will not span the whole width of the page as the header element will
-     only be as big as the max-width
-     So we make the header the background element if you will and make the container hold
-     the actual header elements
-   */
-  div.container {
-    height: 100%;
+  nav {
     width: 100%;
+    height: 100%;
     padding: 0 10%;
 
     display: flex;
@@ -33,11 +26,18 @@ header {
 
     max-width: 1250px;
 
+    svg#hamburger {
+      cursor: pointer;
+      display: none;
+      position: absolute;
+      right: 2em;
+      height: 1.6em;
+      width: auto;
+    }
     a {
       text-decoration: none;
       color: inherit;
     }
-
     div#logo {
       font-size: 1.6em;
 
@@ -52,32 +52,28 @@ header {
         display: none;
       }
     }
+    ul {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+      font-size: 1.1em;
+      margin: 0;
+      padding: 0;
 
-    nav {
-      ul {
-        display: flex;
-        flex-direction: row;
-        list-style-type: none;
-        font-size: 1.1em;
-        margin: 0;
-
-        li {
-          margin: 0 30px;
-          color: $light-grey;
-          transition: color .15s ease-in-out;
-        }
-
-        li:hover {
-          transition: color .3s ease-in-out;
-          color: $black;
-        }
-
-        /* We want the last link to stick to the absolute right of the element as that's
-           what the logo does on the left side of element as well
-         */
-        li:last-child {
-          margin: 0 0 0 30px;
-        }
+      li {
+        margin: 0 30px;
+        color: $light-grey;
+        transition: color .15s ease-in-out;
+      }
+      li:hover {
+        transition: color .3s ease-in-out;
+        color: $black;
+      }
+      /* We want the last link to stick to the absolute right of the element as that's
+          what the logo does on the left side of element as well
+        */
+      li:last-child {
+        margin: 0 0 0 30px;
       }
     }
   }
@@ -100,43 +96,106 @@ header.sticky {
   position: sticky;
 }
 
+svg#hamburger {
+  g {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation-duration: 350ms;
+    animation-timing-function: ease-in-out;
+    animation-play-state: paused;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+  }
+  g.top {
+    animation-name: to-x-top;
+  }
+  g.middle {
+    animation-name: to-x-middle;
+  }
+  g.bottom {
+    animation-name: to-x-bottom;
+  }
+}
+
+@keyframes to-x-top {
+  0% {
+    transform: translateY(50px);
+  }
+  50% {
+    transform: translateY(120px);
+  }
+  100% {
+    transform: translateY(120px) rotate(45deg);
+  }
+}
+
+@keyframes to-x-middle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes to-x-bottom {
+  0% {
+    transform: translateY(190px);
+  }
+  50% {
+    transform: translateY(120px)
+  }
+  100% {
+    transform: translateY(120px) rotate(-45deg);
+  }
+}
+
 /* Remove container padding after 2500px, only use max-width
    Makes header look nicer on ultra-wide/high res displays
  */
 @media screen and (min-width: $media-min-no-container-padding) {
-  header div.container {
+  header nav {
     padding: 0;
   }
 }
 
 /* Mobile header */
 @media screen and (max-width: $media-max-header-size) {
- header {
-   height: $header-height-2;
+  header {
+    height: $header-height-2;
 
-   div.container {
-     justify-content: center;
+    nav {
+      justify-content: center;
 
-     nav {
-       display: none;
-     }
-   }
- }
- header.hide-border {
-  border-bottom: 1px solid #e6e5e5;
-}
+      svg#hamburger {
+        display: initial;
+      }
+      ul {
+        display: none;
+      }
+    }
+  }
+  header.hide-border {
+    border-bottom: 1px solid #e6e5e5;
+  }
 }
 
 @media screen and (max-width: $media-max-step-3) {
   header {
     height: $header-height-3;
 
-    div.container div#logo {
-      a.full {
-        display: none;
-      }
-      a.compact {
-        display: initial;
+    nav {
+      div#logo {
+        a.full {
+          display: none;
+        }
+        a.compact {
+          display: initial;
+        }
       }
     }
   }

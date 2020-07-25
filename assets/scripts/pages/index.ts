@@ -1,6 +1,5 @@
 import '../modules/smooth-scroll';
-
-let showBorderFixed = false;
+import '../modules/mobile-navigation';
 
 const headerElement = document.getElementsByTagName('header')[0]
 if("IntersectionObserver" in window) {

@@ -172,6 +172,8 @@
 
     </div>
 
+    {{- partial "mobile-navigation.html" . -}}
+
     {{ $scss := resources.Get "styles/pages/index.scss" }}
     {{ $options := (dict "outputStyle" "compressed") }}
     {{ $style := $scss | resources.ToCSS $options }}

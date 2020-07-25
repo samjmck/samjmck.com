@@ -1,0 +1,59 @@
+@import '../modules/colours';
+@import '../modules/sizes';
+
+div#mobile-navigation-overlay {
+    position: fixed;
+    width: 100%;
+    background-color: $white;
+    top: $header-height-1;
+    height: auto;
+    border-bottom: 1px solid #e6e5e5;
+    transition: transform 750ms ease-in-out, opacity 750ms cubic-bezier(0.22, 0.24, 0.04, 1.03);
+    transform: translateY(-100%);
+    will-change: transform;
+    opacity: 0;
+
+    nav {
+        padding: 1em 0;
+
+        ul {
+            text-align: center;
+            list-style-type: none;
+            font-size: 1.4em;
+            margin: 0;
+            padding: 0;
+
+            a {
+                text-decoration: none;
+            }
+            li {
+                color: $light-grey;
+                transition: color .15s ease-in-out;
+            }
+            li:not(:last-child) {
+                margin: 0 0 1em 0;
+            }
+            li:hover {
+                transition: color .3s ease-in-out;
+                color: $black;
+            }
+        }
+    }
+}
+div#mobile-navigation-overlay.visible {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 750ms ease-in-out, opacity 750ms cubic-bezier(0.22, 0.24, 0.04, 1.03);
+}
+
+@media screen and (max-width: $media-max-header-size) {
+    div#mobile-navigation-overlay {
+        top: $header-height-2;
+    }
+}
+
+@media screen and (max-width: $media-max-step-3) {
+    div#mobile-navigation-overlay {
+        top: $header-height-3;
+    }
+}

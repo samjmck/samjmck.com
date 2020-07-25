@@ -1,6 +1,6 @@
 +++
 draft = false
-title = "Netflix concept"
+title = "Netflix redesign"
 date = 2019-10-30T15:09:33+02:00
 weight = 3
 

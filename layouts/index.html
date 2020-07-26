@@ -174,19 +174,18 @@
 
     {{- partial "mobile-navigation.html" . -}}
 
-    {{ $scss := resources.Get "styles/pages/index.scss" }}
-    {{ $options := (dict "outputStyle" "compressed") }}
-    {{ $style := $scss | resources.ToCSS $options }}
+    {{ $cssOptions := dict "outputStyle" "compressed" }}
+    {{ $style := resources.Get "styles/pages/index.scss" | resources.ToCSS $cssOptions }}
 
     <style>
         {{ $style.Content | safeCSS }}
     </style>
 
+    {{ $jsOptions := dict "targetPath" "index.js" "target" "es2015" "minify" true }}
+    {{ $bundle := resources.Get "scripts/pages/index.ts" | js.Build $jsOptions }}
 
-    {{ with resources.Get "generated-bundles/index.bundle.js" }}
     <script>
-        {{ .Content | safeJS }}
+        {{ $bundle.Content | safeJS }}
     </script>
-    {{ end }}
 </body>
 {{ end }}

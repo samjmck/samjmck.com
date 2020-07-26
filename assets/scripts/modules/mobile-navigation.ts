@@ -1,47 +1,49 @@
 const mobileNavigationOverlayElement = document.getElementById('mobile-navigation-overlay');
 const mobileNavAnchorElements = mobileNavigationOverlayElement.getElementsByTagName('a');
+const navButtonElement = document.getElementById('nav-button');
 
+let opened = false;
+let isTransitioning = false;
 function toggleMobileNavigation() {
+    isTransitioning = true;
     if(mobileNavigationOverlayElement.classList.contains('visible')) {
         mobileNavigationOverlayElement.classList.remove('visible');
     } else {
         mobileNavigationOverlayElement.classList.add('visible');
     }
+    opened = !opened;
 }
-
-
-const hamburgerElement = document.getElementById('hamburger');
-const gElements = hamburgerElement.getElementsByTagName('g');
-
-let isAnimating = false;
-
-function runAnimations() {
-    for(const gElement of gElements) {
-        gElement.style.animationPlayState = 'running';
+function switchNavButton() {
+    if(navButtonElement.classList.contains('show-cross')) {
+        navButtonElement.classList.remove('show-cross');
+    } else {
+        navButtonElement.classList.add('show-cross');
     }
 }
-function pauseAnimations() {
-    for(const gElement of gElements) {
-        gElement.style.animationPlayState = 'paused';
-    }
-}
-
-hamburgerElement.addEventListener('click', event => {
-    if(!isAnimating) {
-        runAnimations();
-        toggleMobileNavigation();
-        isAnimating = true;
-    }
+mobileNavigationOverlayElement.addEventListener('transitionend', event => {
+    isTransitioning = false;
 });
 
-gElements[0].addEventListener('animationiteration', event => {
-    pauseAnimations();
-    isAnimating = false;
+
+navButtonElement.addEventListener('click', event => {
+    if(!isTransitioning) {
+        toggleMobileNavigation();
+        switchNavButton();
+    }
 });
 
 for(const anchorElement of mobileNavAnchorElements) {
     anchorElement.addEventListener('click', event => {
         toggleMobileNavigation();
-        runAnimations();
+        switchNavButton();
     });
 }
+
+window.addEventListener('resize', event => {
+    if(window.innerWidth > 850) {
+        if(opened) {
+            toggleMobileNavigation();
+            switchNavButton();
+        }
+    }
+});

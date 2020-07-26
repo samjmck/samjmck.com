@@ -26,13 +26,39 @@ header {
 
     max-width: 1250px;
 
-    svg#hamburger {
+    div#nav-button {
       cursor: pointer;
       display: none;
       position: absolute;
       right: 2em;
       height: 1.6em;
-      width: auto;
+      overflow: hidden;
+
+      svg {
+        height: 100%;
+        width: auto;
+        transition: transform 600ms ease-in-out, opacity 400ms ease-in-out;
+      }
+      svg#hamburger {
+        position: relative;
+        opacity: 1;
+        transform: translateX(0);
+      }
+      svg#cross {
+        position: absolute;
+        opacity: 0;
+        transform: translateX(100%);
+      }
+    }
+    div#nav-button.show-cross {
+      svg#hamburger {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      svg#cross {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
     a {
       text-decoration: none;
@@ -96,64 +122,6 @@ header.sticky {
   position: sticky;
 }
 
-svg#hamburger {
-  g {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation-duration: 350ms;
-    animation-timing-function: ease-in-out;
-    animation-play-state: paused;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
-  }
-  g.top {
-    animation-name: to-x-top;
-  }
-  g.middle {
-    animation-name: to-x-middle;
-  }
-  g.bottom {
-    animation-name: to-x-bottom;
-  }
-}
-
-@keyframes to-x-top {
-  0% {
-    transform: translateY(50px);
-  }
-  50% {
-    transform: translateY(120px);
-  }
-  100% {
-    transform: translateY(120px) rotate(45deg);
-  }
-}
-
-@keyframes to-x-middle {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes to-x-bottom {
-  0% {
-    transform: translateY(190px);
-  }
-  50% {
-    transform: translateY(120px)
-  }
-  100% {
-    transform: translateY(120px) rotate(-45deg);
-  }
-}
-
 /* Remove container padding after 2500px, only use max-width
    Makes header look nicer on ultra-wide/high res displays
  */
@@ -171,7 +139,7 @@ svg#hamburger {
     nav {
       justify-content: center;
 
-      svg#hamburger {
+      div#nav-button {
         display: initial;
       }
       ul {

@@ -6,7 +6,7 @@
 @import '../modules/fonts/source-sans-pro-400';
 @import '../modules/fonts/source-sans-pro-400i';
 @import '../modules/fonts/source-sans-pro-600';
-
+@import '../modules/syntax';
 
 article {
   padding: 2em 1em;
@@ -65,7 +65,7 @@ article {
     pre {
       overflow-x: auto;
       width: 100%;
-      background-color: $black;
+      background-color: #272822;
       color: $white;
       padding: 0.4em 0.7em;
       font-size: 0.8em;

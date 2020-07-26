@@ -20,6 +20,8 @@ This means that you won't be using their CDN and that the vast majority of featu
 As the SSL certificate won't be served from Cloudflare anymore, you'll need Caddy to serve a valid SSL certificate for you. Luckily, Caddy's [automatic HTTPS](https://caddyserver.com/docs/automatic-https "Link to Caddy documentation of automatic HTTPS") feature automatically obtains and renews SSL certificates from Let's Encrypt. Add your site's address to your `Caddyfile`, which is the configuration file for Caddy, and start Caddy with `caddy run`.
 
 For example, this is what my `Caddyfile` looks like:
+{{< highlight bash >}}
+{{< / highlight >}}
 ```
 hostlocal.dev
 ```
@@ -65,35 +67,35 @@ For this option, you'll need to compile Caddy with the Cloudflare module which m
 
 First, download the latest version of Go for your system's architecture from the [Go downloads page](https://golang.org/dl/). In my case, I'll be downloading the x86 64-bit version for Go 1.14.4.
 
-```
+{{< highlight bash >}}
 curl -OL https://golang.org/dl/go1.14.4.linux-amd64.tar.gz
-```
+{{< / highlight >}}
 
 Now extract the archive into `/usr/local` with the following command:
 
-```
+{{< highlight bash >}}
 tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz
-```
+{{< / highlight >}}
 
 Lastly, add `export PATH=$PATH:/usr/local/go/bin` to `$HOME/.profile` and then reload the `.profile` file. This allows you to run the Go binary with the `go` command.
 
-```
+{{< highlight bash >}}
 echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.profile
 source $HOME/.profile
-```
+{{< / highlight >}}
 
 Now that we have Go installed, we can proceed to compiling our Caddy binary. To do so, we first need `xcaddy`, which is a tool that helps us build compile custom Caddy binaries. This can be installed with the following command:
 
-```
+{{< highlight bash >}}
 go get -u github.com/caddyserver/xcaddy/cmd/xcaddy
-```
+{{< / highlight >}}
 
 The location of the `xcaddy` binary depends on the `GOPATH` of your system. On Linux, it should be located in `$HOME/go/bin/xcaddy`. You'll need to finds it location to run it. Note the `--with github.com/caddy-dns/cloudflare` argument compiles Caddy with the Cloudflare module. The `mv` command will move the binary after it has been compiled so you can run it from anywhere.
 
-```
+{{< highlight bash >}}
 ./go/bin/xcaddy build --with github.com/caddy-dns/cloudflare
 mv caddy /usr/bin
-```
+{{< / highlight >}}
 
 All that is left now is to configure Caddy with a Cloudflare API token, which you can create by clicking on "my profile" on the top right of your Cloudflare dashboard and then clicking on the API tokens tab. Click on create token and then use the edit zone DNS template.
 
@@ -103,20 +105,20 @@ Select your website in the zone resources section. For example, I will be select
 
 Continue through the creation process until your API token has been created. Copy the API token and add it to your environment variables with the following command:
 
-```
+{{< highlight bash >}}
 echo "export CLOUDFLARE_AUTH_TOKEN=TOKEN_HERE" >> ~/.bashrc
 source ~/.bashrc
-```
+{{< / highlight >}}
 
 Now configure your `Caddyfile` as followed to use the Cloudflare module with your API token:
 
-```
+{{< highlight conf >}}
 hostlocal.dev {
    tls {
       dns cloudflare {env.CLOUDFLARE_AUTH_TOKEN}
    }
 }
-```
+{{< / highlight >}}
 
 Start Caddy with `caddy run` and you should see that it successfully solves the DNS-01 requests in the logs.
 
@@ -130,17 +132,17 @@ The next modal window will contain the certificate and the private key. Leave th
 
 Now configure Caddy to use the certificate and private key by adding the following directive to your site in your `Caddyfile`:
 
-```
+{{< highlight bash >}}
 tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
-```
+{{< / highlight >}}
 
 For example, this is what my `Caddyfile` looks like:
 
-```
+{{< highlight conf >}}
 hostlocal.dev {
    tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
 }
-```
+{{< / highlight >}}
 
 Now run Caddy with `caddy run` and you should see a Cloudflare certificate on your website.
 
@@ -150,27 +152,27 @@ Now run Caddy with `caddy run` and you should see a Cloudflare certificate on yo
 
 The easiest way to do this is by using `tls internal` in your `Caddyfile`, which will use a certificate that is signed by a locally trusted CA. This option also requires no extra maintenance work as that'll be done by Caddy. In my case, this is that my `Caddyfile` looks like:
 
-```
+{{< highlight conf >}}
 hostlocal.dev {
    tls internal
 }
-```
+{{< / highlight >}}
 
 If you need a self-signed certificate, you create one with a private key with the following command that I got from [this IBM tutorial](https://www.ibm.com/support/knowledgecenter/SSMNED_5.0.0/com.ibm.apic.cmc.doc/task_apionprem_gernerate_self_signed_openSSL.html):
 
-```
+{{< highlight bash >}}
 openssl req -newkey rsa:2048 -nodes -keyout /etc/ssl/private/key.pem -x509 -days 365 -out /etc/ssl/certs/certificate.pem
-```
+{{< / highlight >}}
 
 Note that the certificate will only be valid for a year. You can change the days argument to extend the validity of the certificate.
 
 Add the `tls` directive to your `Caddyfile` so it looks like this:
 
-```
+{{< highlight conf >}}
 hostlocal.dev {
    tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem
 }
-```
+{{< / highlight >}}
 
 Now run Caddy with `caddy run`.
 
@@ -186,22 +188,22 @@ To configure authenticated origin pulls, download the Cloudflare CA file to `/et
 
 Note that the download link might change in the future. You can find the latest link at the end of [this Cloudflare article](https://support.cloudflare.com/hc/en-us/articles/204899617-Authenticated-Origin-Pulls).
 
-```
+{{< highlight bash >}}
 curl -o /etc/ssl/certs/origin-pull-ca.pem https://support.cloudflare.com/hc/en-us/article_attachments/360044928032/origin-pull-ca.pem
-```
+{{< / highlight >}}
 
 You can now configure Caddy to verify client certificates with the Cloudflare CA and otherwise block the request if the client doesn't present a valid certificate or any at all. Add the following to your `tls` directive in your `Caddyfile`:
 
-```
+{{< highlight conf >}}
 client_auth {
    mode require_and_verify
    trusted_ca_cert_file /etc/ssl/certs/origin-pull-ca.pem
 }
-```
+{{< / highlight >}}
 
 This is what my `Caddyfile` looks like now, configured with a Cloudflare issued certificate and authenticated origin pulls:
 
-```
+{{< highlight conf >}}
 hostlocal.dev {
    tls /etc/ssl/certs/certificate.pem /etc/ssl/private/key.pem {
       client_auth {
@@ -210,7 +212,7 @@ hostlocal.dev {
       }
    }
 }
-```
+{{< / highlight >}}
 
 You can now run Caddy with the `caddy run` command.
 

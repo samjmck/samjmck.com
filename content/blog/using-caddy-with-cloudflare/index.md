@@ -3,7 +3,7 @@ title = "How to setup Caddy with Cloudflare"
 tags = ["caddy", "cloudflare", "hosting"]
 description = "Setting up Cloudflare can be quite difficult, especially if you're doing so with some software that you haven't used before. This blog post shows you how to configure Caddy with Cloudflare as well as what all of the different features mean for your site's security and speed."
 date = 2020-07-07T00:25:24+02:00
-lastmod = 2020-07-10T00:25:24+02:00
+lastmod = 2020-07-27T19:35:17+02:00
 publishdate = 2020-07-10T00:25:24+02:00
 draft = false
 categories = ["development"]
@@ -17,7 +17,7 @@ If the cloud icon in the proxy status column is greyed out, like in the image be
 
 {{< img src="cloudflare-dns-proxy-off.png" alt="Cloudflare DNS settings with proxying turned off" >}}
 
-This means that you won't be using their CDN and that the vast majority of features in your Cloudflare dashboard won't work. Visitors will be routed straight to your origin server and Cloudflare will basically only act as a DNS manager for your domain.
+This means that you won't be using their CDN and that the vast majority of features in your Cloudflare dashboard won't work. Visitors will be routed straight to your origin server and Cloudflare will basically only act as a DNS provider for your domain.
 
 As the SSL certificate won't be served from Cloudflare anymore, you'll need Caddy to serve a valid SSL certificate for you. Luckily, Caddy's [automatic HTTPS](https://caddyserver.com/docs/automatic-https "Link to Caddy documentation of automatic HTTPS") feature automatically obtains and renews SSL certificates from Let's Encrypt. Add your site's address to your `Caddyfile`, which is the configuration file for Caddy, and start Caddy with `caddy run`.
 
@@ -32,13 +32,13 @@ And this is what my site looks like:
 
 ## Configuration with proxy enabled
 
-If the cloud icon in the proxy status column is orange, then Cloudflare will be acting as a reverse proxy for your web server and you'll have access to their CDN. Visitors will now visit your site through a Cloudflare server.
+If the cloud icon in the proxy status column is orange, then Cloudflare will act as a reverse proxy for your web server and you'll have access to their CDN. Visitors will now visit your site through a Cloudflare server.
 
 {{< img src="cloudflare-dns-proxy-on.png" alt="Cloudflare DNS settings with proxying turned on" >}}
 
 This slightly complicates the SSL situation. Cloudflare issue their own certificates that will be used by the CDN servers, which will now be sitting in front of your origin server. This will be used to encrypt traffic between visitors and Cloudflare. You can see this certificate in the edge certificates tab of the SSL section of your dashboard. There are a number of encryption modes to choose from in the SSL section of your dashboard, of which I'll be covering two: the _full_ and _full (strict)_ modes. I will not be covering the other modes, _off_ and _flexible_, as they are not recommended for security.
 
-The difference between the full and full (strict) modes is that the certificate for the strict mode has to be signed by a Cloudflare trusted certificate authority (CA), while the standard full mode can have a self-signed certificate. Both options ensure that the traffic between the client and Cloudflare as well as the traffic between Cloudflare and the origin server is encrypted. At no point will HTTP be used.
+The difference between the _full_ and _full (strict)_ modes is that the certificate for the strict mode has to be signed by a Cloudflare trusted certificate authority (CA), while the standard full mode can have a self-signed certificate. Both options ensure that the traffic between the client and Cloudflare as well as the traffic between Cloudflare and the origin server is encrypted. At no point will HTTP be used.
 
 You have three options when it comes to choosing a certificate for your origin server:
 
@@ -138,7 +138,7 @@ hostlocal.dev {
 }
 {{< / highlight >}}
 
-If you need a self-signed certificate, you create one with a private key with the following command that I got from [this IBM tutorial](https://www.ibm.com/support/knowledgecenter/SSMNED_5.0.0/com.ibm.apic.cmc.doc/task_apionprem_gernerate_self_signed_openSSL.html):
+If you need a self-signed certificate, you can create one with a private key with the following command that I got from [this IBM tutorial](https://www.ibm.com/support/knowledgecenter/SSMNED_5.0.0/com.ibm.apic.cmc.doc/task_apionprem_gernerate_self_signed_openSSL.html):
 
 {{< highlight bash >}}
 openssl req -newkey rsa:2048 -nodes -keyout /etc/ssl/private/key.pem -x509 -days 365 -out /etc/ssl/certs/certificate.pem

@@ -21,10 +21,8 @@ As the SSL certificate won't be served from Cloudflare anymore, you'll need Cadd
 
 For example, this is what my `Caddyfile` looks like:
 {{< highlight bash >}}
-{{< / highlight >}}
-```
 hostlocal.dev
-```
+{{< / highlight >}}
 
 And this is what my site looks like:
 

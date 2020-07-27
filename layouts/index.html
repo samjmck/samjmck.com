@@ -66,15 +66,17 @@
             </li>
             {{ range first $leftColLen $work }}
             <li class="item project">
+                {{ $image := .Resources.GetMatch (printf "%s.png" .Params.imageName) }}
                 {{ if .Params.imageName2 }}
                 <div class="showcase double">
+                    {{ $image2 := .Resources.GetMatch (printf "%s.png" .Params.imageName2) }}
                     <picture>
                         <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}_900w.webp" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" loading="lazy" alt="Image of project {{ .Title }}" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                     <picture>
                         <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName2 }}_900w.webp" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName2 }}_900w.png" loading="lazy" alt="Image of project {{ .Title }}" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName2 }}_900w.png" height="{{ $image2.Height }}" width="{{ $image2.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                 </div>
                 {{ else }}
@@ -90,7 +92,7 @@
                         {{ .File.Dir }}{{ .Params.imageName }}_1400w.png 1400w,
                         {{ .File.Dir }}{{ .Params.imageName }}_1700w.png 1700w,
                         " sizes="(max-width: 950px) 90vw, (max-width: 1600px) 45vw, 725px" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" loading="lazy" alt="Image of project {{ .Title }}" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                 </div>
                 {{ end }}
@@ -112,15 +114,17 @@
         <ul class="right-column">
             {{ range after $leftColLen $work }}
             <li class="item project">
+                {{ $image := .Resources.GetMatch (printf "%s.png" .Params.imageName) }}
                 {{ if .Params.imageName2 }}
                 <div class="showcase double">
+                    {{ $image2 := .Resources.GetMatch (printf "%s.png" .Params.imageName2) }}
                     <picture>
-                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}-resized.webp" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName }}-resized.png" loading="lazy" alt="Image of project {{ .Title }}" />
+                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}_900w.webp" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                     <picture>
-                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName2 }}-resized.webp" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName2 }}-resized.png" loading="lazy" alt="Image of project {{ .Title }}" />
+                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName2 }}_900w.webp" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName2 }}_900w.png" height="{{ $image2.Height }}" width="{{ $image2.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                 </div>
                 {{ else }}
@@ -130,13 +134,13 @@
                         {{ .File.Dir }}{{ .Params.imageName }}_900w.webp 900w,
                         {{ .File.Dir }}{{ .Params.imageName }}_1400w.webp 1400w,
                         {{ .File.Dir }}{{ .Params.imageName }}_1700w.webp 1700w,
-                        " sizes="(max-width: 950px) 90vw, (max-width: 1600px) 45vw, 725px" />
+                        " sizes="(max-width: 950px) 900px, (max-width: 1600px) 1400px, 725px" />
                         <source type="image/png" srcset="
                         {{ .File.Dir }}{{ .Params.imageName }}_900w.png 900w,
                         {{ .File.Dir }}{{ .Params.imageName }}_1400w.png 1400w,
                         {{ .File.Dir }}{{ .Params.imageName }}_1700w.png 1700w,
                         " sizes="(max-width: 950px) 90vw, (max-width: 1600px) 45vw, 725px" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" loading="lazy" alt="Image of project {{ .Title }}" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                 </div>
                 {{ end }}
@@ -172,7 +176,7 @@
 
     </div>
 
-    {{- partial "mobile-navigation.html" . -}}
+    {{- partial "mobile-navigation-fixed.html" . -}}
 
     {{ $cssOptions := dict "outputStyle" "compressed" }}
     {{ $style := resources.Get "styles/pages/index.scss" | resources.ToCSS $cssOptions }}

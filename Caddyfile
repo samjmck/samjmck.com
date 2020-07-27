@@ -1,4 +1,4 @@
-http://localhost {
+localhost {
 	file_server {
 		root public
 	}

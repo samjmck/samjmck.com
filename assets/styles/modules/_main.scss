@@ -1,5 +1,21 @@
 @import 'colours';
 
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.absolute {
+  position: absolute;
+}
+
 html {
   background-color: $white;
   box-sizing: border-box;

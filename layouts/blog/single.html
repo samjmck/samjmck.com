@@ -3,26 +3,36 @@
 <head>
     {{- partial "head-content.html" . -}}
 </head>
+<body>
+    {{- partial "header-relative.html" . -}}
 
-{{- partial "header-relative.html" . -}}
+    <article>
+        <div id="article-header">
+            <h1 id="title">{{ .Title }}</h1>
 
-<article>
-    <div id="article-header">
-        <h1 id="title">{{ .Title }}</h1>
+            <p id="details">{{ .PublishDate.Format "January 2, 2006" }}{{ if ne .PublishDate .Lastmod }} &mdash; last edit on {{ .Format "January 2, 2006" }}{{ end }}</p>
+        </div>
+        <main>
+            {{ .Content }}
+        </main>
+    </article>
 
-        <p id="details">{{ .PublishDate.Format "January 2, 2006" }}{{ if ne .PublishDate .Lastmod }} &mdash; last edit on {{ .Format "January 2, 2006" }}{{ end }}</p>
-    </div>
-    <main>
-        {{ .Content }}
-    </main>
-</article>
+    {{- partial "mobile-navigation-absolute.html" . -}}
 
-{{ $scss := resources.Get "styles/pages/blog.scss" }}
-{{ $options := (dict "outputStyle" "compressed") }}
-{{ $style := $scss | resources.ToCSS $options }}
+    {{ $cssOptions := dict "outputStyle" "compressed" }}
+    {{ $style := resources.Get "styles/pages/blog.scss" | resources.ToCSS $cssOptions }}
 
-<style>
-    {{ $style.Content | safeCSS }}
-</style>
+    <style>
+        {{ $style.Content | safeCSS }}
+    </style>
+
+    {{ $jsOptions := dict "targetPath" "blog.js" "target" "es2015" "minify" true }}
+    {{ $bundle := resources.Get "scripts/pages/blog.ts" | js.Build $jsOptions }}
+
+    <script>
+        {{ $bundle.Content | safeJS }}
+    </script>
+    </style>
+</body>
 
 {{ end }}

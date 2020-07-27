@@ -1,10 +1,12 @@
 +++
 title = "How to setup Caddy with Cloudflare"
+tags = ["caddy", "cloudflare", "hosting"]
 description = "Setting up Cloudflare can be quite difficult, especially if you're doing so with some software that you haven't used before. This blog post shows you how to configure Caddy with Cloudflare as well as what all of the different features mean for your site's security and speed."
 date = 2020-07-07T00:25:24+02:00
 lastmod = 2020-07-10T00:25:24+02:00
 publishdate = 2020-07-10T00:25:24+02:00
 draft = false
+categories = ["development"]
 +++
 
 Configuring Cloudflare can be quite difficult. There are many different settings for proxying and SSL that can be fairly confusing if you don't understand what they do or how to configure them on your web server. And while there are plenty of tutorials out there explaining how to use configure nginx or Apache for Cloudflare, there aren't really any that explain how to configure Caddy.
@@ -61,38 +63,18 @@ You have three options when it comes to choosing a certificate for your origin s
 
 ### Using a Let's Encrypt certificate
 
-For this option, you'll need to compile Caddy with the Cloudflare module which means you'll need to install Go if haven't already. My instructions, which are straight from the Go website, will be for Linux, but you can still follow [these instructions](https://golang.org/doc/install "Instructions for installing Golang") if you need to install it on a different OS.
+~~For this option, you'll need to compile Caddy with the Cloudflare module which means you'll need to install Go if haven't already. My instructions, which are straight from the Go website, will be for Linux, but you can still follow [these instructions](https://golang.org/doc/install "Instructions for installing Golang") if you need to install it on a different OS.~~
 
-First, download the latest version of Go for your system's architecture from the [Go downloads page](https://golang.org/dl/). In my case, I'll be downloading the x86 64-bit version for Go 1.14.4.
+**Update:** Caddy now has a download page for the v2 version, where you can also select modules to include in your build. We'll be using that instead of compiling a custom build as it's a lot easier to use.
 
-{{< highlight bash >}}
-curl -OL https://golang.org/dl/go1.14.4.linux-amd64.tar.gz
-{{< / highlight >}}
+Visit the [Caddy download page](https://caddyserver.com/download), select your platform and architecture and scroll down so you can select the `cloudflare` DNS provider module.
 
-Now extract the archive into `/usr/local` with the following command:
+{{< img src="caddy-download-page.png" alt="Caddy download page" >}}
 
-{{< highlight bash >}}
-tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz
-{{< / highlight >}}
-
-Lastly, add `export PATH=$PATH:/usr/local/go/bin` to `$HOME/.profile` and then reload the `.profile` file. This allows you to run the Go binary with the `go` command.
+Now right click the download button and copy the link address. Replace the URL in the following command with the link you just copied so we can download the custom binary:
 
 {{< highlight bash >}}
-echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.profile
-source $HOME/.profile
-{{< / highlight >}}
-
-Now that we have Go installed, we can proceed to compiling our Caddy binary. To do so, we first need `xcaddy`, which is a tool that helps us build compile custom Caddy binaries. This can be installed with the following command:
-
-{{< highlight bash >}}
-go get -u github.com/caddyserver/xcaddy/cmd/xcaddy
-{{< / highlight >}}
-
-The location of the `xcaddy` binary depends on the `GOPATH` of your system. On Linux, it should be located in `$HOME/go/bin/xcaddy`. You'll need to finds it location to run it. Note the `--with github.com/caddy-dns/cloudflare` argument compiles Caddy with the Cloudflare module. The `mv` command will move the binary after it has been compiled so you can run it from anywhere.
-
-{{< highlight bash >}}
-./go/bin/xcaddy build --with github.com/caddy-dns/cloudflare
-mv caddy /usr/bin
+sudo curl -o /usr/bin/caddy -L https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fcloudflare&idempotency=88158148000217
 {{< / highlight >}}
 
 All that is left now is to configure Caddy with a Cloudflare API token, which you can create by clicking on "my profile" on the top right of your Cloudflare dashboard and then clicking on the API tokens tab. Click on create token and then use the edit zone DNS template.

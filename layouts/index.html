@@ -71,28 +71,28 @@
                 <div class="showcase double">
                     {{ $image2 := .Resources.GetMatch (printf "%s.png" .Params.imageName2) }}
                     <picture>
-                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}_900w.webp" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
+                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}_700w.webp" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_700w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                     <picture>
-                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName2 }}_900w.webp" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName2 }}_900w.png" height="{{ $image2.Height }}" width="{{ $image2.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
+                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName2 }}_700w.webp" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName2 }}_700w.png" height="{{ $image2.Height }}" width="{{ $image2.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                 </div>
                 {{ else }}
                 <div class="showcase single">
                     <picture>
                         <source type="image/webp" srcset="
-                        {{ .File.Dir }}{{ .Params.imageName }}_900w.webp 900w,
-                        {{ .File.Dir }}{{ .Params.imageName }}_1400w.webp 1400w,
-                        {{ .File.Dir }}{{ .Params.imageName }}_1700w.webp 1700w,
-                        " sizes="(max-width: 950px) 900px, (max-width: 1600px) 1400px, 725px" />
+                        {{ .File.Dir }}{{ .Params.imageName }}_700w.webp 700w,
+                        {{ .File.Dir }}{{ .Params.imageName }}_1100w.webp 1100w,
+                        {{ .File.Dir }}{{ .Params.imageName }}_1450w.webp 1450w,
+                        " sizes="(max-width: 700px) 700px, (max-width: 1100px) 1100px, 1450px" />
                         <source type="image/png" srcset="
-                        {{ .File.Dir }}{{ .Params.imageName }}_900w.png 900w,
-                        {{ .File.Dir }}{{ .Params.imageName }}_1400w.png 1400w,
-                        {{ .File.Dir }}{{ .Params.imageName }}_1700w.png 1700w,
-                        " sizes="(max-width: 950px) 90vw, (max-width: 1600px) 45vw, 725px" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
+                        {{ .File.Dir }}{{ .Params.imageName }}_700w.png 700w,
+                        {{ .File.Dir }}{{ .Params.imageName }}_1100w.png 1100w,
+                        {{ .File.Dir }}{{ .Params.imageName }}_1450w.png 1450w,
+                        " sizes="(max-width: 700px) 700px, (max-width: 1100px) 1100px, 1450px" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_700w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                 </div>
                 {{ end }}
@@ -119,28 +119,28 @@
                 <div class="showcase double">
                     {{ $image2 := .Resources.GetMatch (printf "%s.png" .Params.imageName2) }}
                     <picture>
-                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}_900w.webp" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
+                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName }}_700w.webp" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_700w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                     <picture>
-                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName2 }}_900w.webp" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName2 }}_900w.png" height="{{ $image2.Height }}" width="{{ $image2.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
+                        <source type="image/webp" srcset="{{ .File.Dir }}{{ .Params.imageName2 }}_700w.webp" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName2 }}_700w.png" height="{{ $image2.Height }}" width="{{ $image2.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                 </div>
                 {{ else }}
                 <div class="showcase single">
                     <picture>
                         <source type="image/webp" srcset="
-                        {{ .File.Dir }}{{ .Params.imageName }}_900w.webp 900w,
-                        {{ .File.Dir }}{{ .Params.imageName }}_1400w.webp 1400w,
-                        {{ .File.Dir }}{{ .Params.imageName }}_1700w.webp 1700w,
-                        " sizes="(max-width: 950px) 900px, (max-width: 1600px) 1400px, 725px" />
+                        {{ .File.Dir }}{{ .Params.imageName }}_700w.webp 700w,
+                        {{ .File.Dir }}{{ .Params.imageName }}_1100w.webp 1100w,
+                        {{ .File.Dir }}{{ .Params.imageName }}_1450w.webp 1450w,
+                        " sizes="(max-width: 700px) 700px, (max-width: 1100px) 1100px, 1450px" />
                         <source type="image/png" srcset="
-                        {{ .File.Dir }}{{ .Params.imageName }}_900w.png 900w,
-                        {{ .File.Dir }}{{ .Params.imageName }}_1400w.png 1400w,
-                        {{ .File.Dir }}{{ .Params.imageName }}_1700w.png 1700w,
-                        " sizes="(max-width: 950px) 90vw, (max-width: 1600px) 45vw, 725px" />
-                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_900w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
+                        {{ .File.Dir }}{{ .Params.imageName }}_700w.png 700w,
+                        {{ .File.Dir }}{{ .Params.imageName }}_1100w.png 1100w,
+                        {{ .File.Dir }}{{ .Params.imageName }}_1450w.png 1450w,
+                        " sizes="(max-width: 700px) 700px, (max-width: 1100px) 1100px, 1450px" />
+                        <img src="{{ .File.Dir }}{{ .Params.imageName }}_700w.png" height="{{ $image.Height }}" width="{{ $image.Width }}" loading="lazy" alt="Image of project {{ .Title }}" />
                     </picture>
                 </div>
                 {{ end }}

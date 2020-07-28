@@ -45,7 +45,7 @@ title = "Sam Mckenzie"
         link = "/#contact"
         value = "Contact"
 
-        [[languages.nl.params.nav-link]]
+        [[languages.nl.params.nav_link]]
         link = "/#blog"
         value = "Blog"
 

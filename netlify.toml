@@ -1,2 +1,20 @@
 [context.production.environment]
     HUGO_VERSION = "0.74.3"
+
+# Hugo has been configured to generate static files for the en and nl languages in the folders en and nl
+# Now, the index.html at the root of the site 
+
+[[redirects]]
+    from = "/"
+    to = "/en/index.html"
+    status = 200
+    force = true # Override Hugo-generated index.html
+    conditions = {Language = ["en"]}
+
+[[redirects]]
+    from = "/"
+    to = "/nl/index.html"
+    status = 200
+    force = true # Override Hugo-generated index.html
+    conditions = {Language = ["nl"]}
+

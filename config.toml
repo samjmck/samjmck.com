@@ -1,7 +1,55 @@
 baseURL = "https://sammckenzie.be"
-languageCode = "en"
-staticDir = "static"
+defaultContentLanguageInSubdir = true
+defaultContentLanguage = "en"
 title = "Sam Mckenzie"
+
+[languages.en]
+    languageName = "English"
+    weight = 1
+
+    [languages.en.params]
+        description = "My personal site with a list of projects, achievements and current interests"
+
+        [[languages.en.params.nav_link]]
+        link = "/#home"
+        value = "Home"
+
+        [[languages.en.params.nav_link]]
+        link = "/#work"
+        value = "Work"
+
+        [[languages.en.params.nav_link]]
+        link = "/#contact"
+        value = "Contact"
+
+        [[languages.en.params.nav_link]]
+        link = "/#blog"
+        value = "Blog"
+
+[languages.nl]
+    languageName = "Nederlands"
+    weight = 2
+
+    [languages.nl.params]
+        description = "My personal site with a list of projects, achievements and current interests"
+
+        [[languages.nl.params.nav_link]]
+        link = "/#thuis"
+        value = "Thuis"
+
+        [[languages.nl.params.nav_link]]
+        link = "/#projecten"
+        value = "Projecten"
+
+        [[languages.nl.params.nav_link]]
+        link = "/#contact"
+        value = "Contact"
+
+        [[languages.nl.params.nav-link]]
+        link = "/#blog"
+        value = "Blog"
+
+
 
 [markup.highlight]
     codeFences = true
@@ -13,6 +61,3 @@ title = "Sam Mckenzie"
     noClasses = true
     style = "monokai"
     tabWidth = 4
-
-[params]
-    description = "My portfolio with a list of projects, achievements and current interests"

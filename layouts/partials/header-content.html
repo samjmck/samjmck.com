@@ -17,9 +17,8 @@
         <a class="compact" href="#">SM</a>
     </div>
     <ul>
-        <li><a class="local-link" href="/#about">About</a></li>
-        <li><a class="local-link" href="/#work">Work</a></li>
-        <li><a class="local-link" href="/#contact">Contact</a></li>
-        <li><a class="local-link" href="/blog">Blog</a></li>
+        {{ range .Site.Params.nav_link }}
+        <li><a class="local-link" href="{{ .link | relLangURL }}">{{ .value }}</a></li>
+        {{ end }}
     </ul>
 </nav>

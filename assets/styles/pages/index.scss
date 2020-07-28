@@ -8,7 +8,7 @@
 @import '../layout/mobile-navigation';
 
 
-section.about {
+section.home {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -201,7 +201,7 @@ section.contact {
 // }
 
 @media screen and (max-width: 700px) {
-  section.about {
+  section.home {
     span.email-me {
       display: none;
     }

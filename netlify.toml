@@ -13,6 +13,7 @@
     status = 200
     force = true # Override Hugo-generated index.html
     conditions = {Language = ["en"]}
+    headers = {X-Dev-Lang = "en"}
 
 [[redirects]]
     from = "/"
@@ -20,6 +21,7 @@
     status = 200
     force = true # Override Hugo-generated index.html
     conditions = {Language = ["nl"]}
+    headers = {X-Dev-Lang = "nl"}
 
 # Redirect for all other languages
 [[redirects]]
@@ -27,3 +29,4 @@
     to = "/en/index.html"
     status = 200
     force = true # Override Hugo-generated index.html
+    headers = {X-Dev-Lang = "default-en"}

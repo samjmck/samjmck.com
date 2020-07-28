@@ -13,8 +13,8 @@
     </div>
 
     <div id="logo">
-        <a class="full" href="/#">Sam Mckenzie</a>
-        <a class="compact" href="#">SM</a>
+        <a class="full" href="{{ `/#` | relLangURL }}">Sam Mckenzie</a>
+        <a class="compact" href="{{ `/#` | relLangURL }}">SM</a>
     </div>
     <ul>
         {{ range .Site.Params.nav_link }}

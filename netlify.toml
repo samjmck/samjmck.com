@@ -21,3 +21,9 @@
     force = true # Override Hugo-generated index.html
     conditions = {Language = ["nl"]}
 
+# Redirect for all other languages
+[[redirects]]
+    from = "/"
+    to = "/en/index.html"
+    status = 200
+    force = true # Override Hugo-generated index.html

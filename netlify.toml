@@ -2,7 +2,10 @@
     HUGO_VERSION = "0.74.3"
 
 # Hugo has been configured to generate static files for the en and nl languages in the folders en and nl
-# Now, the index.html at the root of the site 
+# Now, the index.html at the root of the site which would normally redirect the client to /en/ will proxy
+# the request. This is much faster for the client and provides a better experience
+# It also proxies to the correct lang site
+# https://docs.netlify.com/routing/redirects/redirect-options/#redirect-by-country-or-language
 
 [[redirects]]
     from = "/"

@@ -23,7 +23,7 @@ title = "Sam Mckenzie"
         value = "Contact"
 
         [[languages.en.params.nav_link]]
-        link = "/#blog"
+        link = "/blog"
         value = "Blog"
 
 [languages.nl]
@@ -34,11 +34,11 @@ title = "Sam Mckenzie"
         description = "My personal site with a list of projects, achievements and current interests"
 
         [[languages.nl.params.nav_link]]
-        link = "/#thuis"
+        link = "/#home"
         value = "Thuis"
 
         [[languages.nl.params.nav_link]]
-        link = "/#projecten"
+        link = "/#work"
         value = "Projecten"
 
         [[languages.nl.params.nav_link]]
@@ -46,7 +46,7 @@ title = "Sam Mckenzie"
         value = "Contact"
 
         [[languages.nl.params.nav_link]]
-        link = "/#blog"
+        link = "/blog"
         value = "Blog"
 
 

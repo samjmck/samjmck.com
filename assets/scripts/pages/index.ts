@@ -15,5 +15,5 @@ if("IntersectionObserver" in window) {
         threshold: 1,
     });
 
-    observer.observe(document.querySelector('section.about div.container'));
+    observer.observe(document.querySelector('section.home div.container'));
 }

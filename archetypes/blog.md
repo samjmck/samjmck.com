@@ -4,6 +4,8 @@ description = ""
 date = {{ .Date }}
 lastmod = {{ .Date }}
 publishdate = {{ .Date }}
-draft: true
+tags = []
+categories = []
+draft = true
 +++
 

@@ -1,5 +1,77 @@
 {{ define "html" }}
 
+<head>
+    {{ partial "head-content" . }}
+</head>
+<body>
+    {{ partial "header-relative.html" . }}
+    <aside>
+        <div class="filter">
+            <p class="filter-title">Categories</p>
+            <ul class="filter-list">
+                <li class="category">all</li>
+                {{ range $k, $v := .Site.Taxonomies.categories -}}
+                <li class="category">{{ $k }}</li>
+                {{- end }}
+            </ul>
+        </div>
+        <div class="filter">
+            <p class="filter-title">Languages</p>
+            <ul class="filter-list">
+                {{ range .Site.Languages -}}
+                <li class="category">{{ .LanguageName }}</li>
+                {{ end }}
+            </ul>
+        </div>
+        <div class="filter">
+            <p class="filter-title">Tags</p>
+            <ul class="filter-list">
+                {{ range $k, $v := .Site.Taxonomies.categories -}}
+                <li><span class="hashtag">#</span> {{ $k }}</li>
+                {{- end }}
+            </ul>
+        </div>
+    </aside>
+    <main>
+        <ul>
+        {{- $currentLang := .Site.Language.LanguageName -}}
+        {{- $filteredPages := slice -}}
+        {{- $pages := where (where .Site.AllPages.ByPublishDate "Kind" "page") "Section" "blog" -}}
 
+        {{- range $i, $p := $pages -}}
 
+            {{- $matchedLanguage := false -}}
+            {{- if eq $currentLang $p.Language.LanguageName -}}
+                {{- $matchedLanguage = true -}}
+            {{- end -}}
+
+            {{- $hasTranslatedPage := false -}}
+            {{- range .Translations -}}
+                {{- if eq .Language.LanguageName $currentLang -}}
+                    {{- $hasTranslatedPage = true -}}
+                {{- end -}}
+            {{- end -}}
+
+            {{- if or ($matchedLanguage) (not $hasTranslatedPage) -}}
+                {{- $filteredPages = $filteredPages | append $p -}}
+            {{- end -}}
+
+        {{- end -}}
+
+        {{ range (.Paginate $filteredPages 5).Pages }}
+            {{ partial "post.html" . }}
+        {{ end }}
+        </ul>
+    </main>
+</body>
+{{ end }}
+
+{{ define "partials/post.html" }}
+<li>
+    <div class="post-header">
+        <span class="post-date">{{ .PublishDate.Format "January 2, 2006" }}</span> {{ with (first 1 .Translations) }} <span class="language">Open Dutch version</span> {{ end }}
+    </div>
+    <h2 class="post-title">{{ .Title }}</h2>
+    <p class="description">{{ .Description }}</p>
+</li>
 {{ end }}

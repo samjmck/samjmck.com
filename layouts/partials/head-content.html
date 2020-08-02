@@ -1,17 +1,7 @@
 <meta name="author" content="Sam Mckenzie" />
-<meta name="description" content="{{ if .IsPage }} {{ .Description }} {{ else }} {{ .Site.Params.description }} {{ end }}" />
+<meta name="description" content="{{ .Description }}" />
 
-<title>
-    {{- if .IsPage -}}
-        {{- .Title }}
-    {{- else -}}
-        {{- if eq .Section "blog" -}}
-            Blog &ndash; Sam Mckenzie
-        {{- else -}}
-            Sam Mckenzie
-        {{- end -}}
-    {{- end -}}
-</title>
+<title>{{ .Title }}</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta charset="utf-8" />

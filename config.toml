@@ -1,53 +1,51 @@
 baseURL = "https://sammckenzie.be"
 defaultContentLanguageInSubdir = true
 defaultContentLanguage = "en"
+disableAliases = true
 title = "Sam Mckenzie"
+
+[outputs]
+    section = ["HTML", "JSON"]
 
 [languages.en]
     languageName = "English"
     weight = 1
 
-    [languages.en.params]
-        description = "My personal site with a list of projects, achievements and current interests"
+    [[languages.en.params.nav_link]]
+    link = "/#home"
+    value = "Home"
 
-        [[languages.en.params.nav_link]]
-        link = "/#home"
-        value = "Home"
+    [[languages.en.params.nav_link]]
+    link = "/#work"
+    value = "Work"
 
-        [[languages.en.params.nav_link]]
-        link = "/#work"
-        value = "Work"
+    [[languages.en.params.nav_link]]
+    link = "/#contact"
+    value = "Contact"
 
-        [[languages.en.params.nav_link]]
-        link = "/#contact"
-        value = "Contact"
-
-        [[languages.en.params.nav_link]]
-        link = "/blog"
-        value = "Blog"
+    [[languages.en.params.nav_link]]
+    link = "/blog"
+    value = "Blog"
 
 [languages.nl]
     languageName = "Nederlands"
     weight = 2
 
-    [languages.nl.params]
-        description = "My personal site with a list of projects, achievements and current interests"
+    [[languages.nl.params.nav_link]]
+    link = "/#home"
+    value = "Thuis"
 
-        [[languages.nl.params.nav_link]]
-        link = "/#home"
-        value = "Thuis"
+    [[languages.nl.params.nav_link]]
+    link = "/#work"
+    value = "Projecten"
 
-        [[languages.nl.params.nav_link]]
-        link = "/#work"
-        value = "Projecten"
+    [[languages.nl.params.nav_link]]
+    link = "/#contact"
+    value = "Contact"
 
-        [[languages.nl.params.nav_link]]
-        link = "/#contact"
-        value = "Contact"
-
-        [[languages.nl.params.nav_link]]
-        link = "/blog"
-        value = "Blog"
+    [[languages.nl.params.nav_link]]
+    link = "/blog"
+    value = "Blog"
 
 
 

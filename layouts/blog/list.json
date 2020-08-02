@@ -1,0 +1,60 @@
+[
+    {{- $posts := "" -}}
+    {{- $currentLang := .Site.Language.LanguageName -}}
+    {{- $pages := where (where .Site.AllPages.ByPublishDate "Kind" "page") "Section" "blog" -}}
+
+    {{- range $i, $p := $pages -}}
+
+        {{- /* Page language != current site language? Check if page has translated page and if so, skip the current item of the loop. If not, list the page normally */ -}}
+        {{- /* Page language == current site language? List page normally with otherLanguages attribute array populated */ -}}
+
+        {{- $matchedLanguage := false -}}
+        {{- if eq $currentLang $p.Language.LanguageName -}}
+            {{- $matchedLanguage = true -}}
+        {{- end -}}
+
+        {{- $hasTranslatedPage := false -}}
+        {{- range .Translations -}}
+            {{- if eq .Language.LanguageName $currentLang -}}
+                {{- $hasTranslatedPage = true -}}
+            {{- end -}}
+        {{- end -}}
+
+        {{- if or ($matchedLanguage) (not $hasTranslatedPage) -}}
+            {{- $posts = printf "%s, %s" $posts (partial "post.json" (dict "PageInd" $i "PagesLen" (len $pages) "Page" $p)) -}}
+        {{- end -}}
+
+    {{- end -}}
+
+    {{- substr $posts 2 -}}
+]
+
+{{- define "partials/post.json" -}}
+{
+    "title": "{{ .Page.Title }}",
+    "description": "{{ .Page.Params.description }}",
+    {{ $tags := slice }}
+    {{- range .Page.Params.tags -}}
+    {{ $tags = $tags | append (printf `"%s"` .) }}
+    {{- end -}}
+    "tags": [{{ delimit $tags ", " }}],
+    {{ $categories := slice }}
+    {{- range .Page.Params.categories -}}
+    {{ $categories = $categories | append (printf `"%s"` .) }}
+    {{- end -}}
+    "categories": [{{ delimit $categories ", " }}],
+    "date": "{{ .Page.Date }}",
+    "publishDate": "{{ .Page.PublishDate }}",
+    "lastModifiedDate": "{{ .Page.Lastmod }}",
+    "otherLanguages": [
+        {{ range $j, $t := .Page.Translations -}}
+        {
+            "languageName": "{{ $t.Language.LanguageName }}",
+            "languageCode": "{{ $t.Language.Lang }}",
+            "title": "{{ $t.Title }}",
+            "link": "{{ $t.RelPermalink }}"
+        }{{ if not (eq $j (sub (len .Page.Translations) 1)) -}} , {{- end }}
+        {{- end }}
+    ]
+}
+{{- end -}}

@@ -31,6 +31,7 @@
 
 {{- define "partials/post.json" -}}
 {
+    "languageCode": "{{ .Page.Language.Lang }}",
     "title": "{{ .Page.Title }}",
     "description": "{{ .Page.Params.description }}",
     {{ $tags := slice }}
@@ -44,8 +45,8 @@
     {{- end -}}
     "categories": [{{ delimit $categories ", " }}],
     "date": "{{ .Page.Date }}",
-    "publishDate": "{{ .Page.PublishDate }}",
-    "lastModifiedDate": "{{ .Page.Lastmod }}",
+    "publishDate": "{{ .Page.PublishDate.Format "January 2, 2006" }}",
+    "lastModifiedDate": "{{ .Page.Lastmod.Format "January 2, 2006" }}",
     "otherLanguages": [
         {{ range $j, $t := .Page.Translations -}}
         {

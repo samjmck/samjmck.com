@@ -23,6 +23,20 @@ interface Post {
     element: HTMLLIElement;
 }
 
+const prefetchedLinks: string[] = [];
+function prefetch(aElement: HTMLAnchorElement) {
+    aElement.addEventListener('mouseover', event => {
+        if(prefetchedLinks.indexOf(aElement.href) > -1) {
+            return;
+        }
+        const linkElement = <HTMLLinkElement> document.createElement('link');
+        linkElement.rel = 'prefetch';
+        linkElement.href = aElement.href;
+        prefetchedLinks.push(aElement.href);
+        document.body.appendChild(linkElement);
+    });
+}
+
 const postsElement = document.getElementById('posts');
 const posts: Post[] = [];
 
@@ -32,15 +46,31 @@ function createPostListElement(postData: PostData, languageCode: string): HTMLLI
     const dutch = 'Engelse versie beschikbaar';
     const languageInner = languageCode === 'en' ? english : dutch;
 
+    const postHeaderElement = document.createElement('div');
+    postHeaderElement.className = 'post-header';
+    postHeaderElement.innerHTML = `<span class="post-date">${postData.publishDate}</span> ${postData.otherLanguages.length > 0 ? `<span class="language"><a href="${postData.otherLanguages[0].link}" alt="${postData.otherLanguages[0].title}">${languageInner}</a></span>` : ''}`;
+
+    const postTitleElement = document.createElement('h2');
+    postTitleElement.className = 'post-title';
+    const aElement = document.createElement('a');
+    aElement.innerHTML = postData.title;
+    aElement.href = postData.link;
+    aElement.title = postData.title;
+    aElement.addEventListener('mouseover', event => {
+        prefetch(aElement);
+    });
+    postTitleElement.appendChild(aElement);
+
+    const descriptionElement = document.createElement('p');
+    descriptionElement.className = 'description';
+    descriptionElement.innerHTML = postData.description;
+
     const element = <HTMLLIElement> document.createElement('li');
     element.className = 'post';
-    element.innerHTML = `
-    <div class="post-header">
-        <span class="post-date">${postData.publishDate}</span> ${postData.otherLanguages.length > 0 ? `<span class="language"><a href="${postData.otherLanguages[0].link}" alt="${postData.otherLanguages[0].title}">${languageInner}</a></span>` : ''}
-    </div>
-    <h2 class="post-title"><a href="${postData.link}" alt="${postData.title}">${postData.title}</a></h2>
-    <p class="description">${postData.description}</p>
-    `
+    element.appendChild(postHeaderElement);
+    element.appendChild(postTitleElement);
+    element.appendChild(descriptionElement);
+
     return element;
 }
 
@@ -144,17 +174,9 @@ for(const tagElement of document.getElementsByClassName('tag')) {
 }
 
 // Prefetch the html of the page when hovering over the link
-const prefetchedLinks: string[] = [];
 for(const aElement of document.querySelectorAll<HTMLAnchorElement> ('li.post h2.post-title a')) {
     aElement.addEventListener('mouseover', event => {
-        if(prefetchedLinks.indexOf(aElement.href) > -1) {
-            return;
-        }
-        const linkElement = <HTMLLinkElement> document.createElement('link');
-        linkElement.rel = 'prefetch';
-        linkElement.href = aElement.href;
-        prefetchedLinks.push(aElement.href);
-        document.body.appendChild(linkElement);
+        prefetch(aElement);
     });
 }
 

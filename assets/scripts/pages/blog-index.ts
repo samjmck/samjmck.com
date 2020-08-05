@@ -3,6 +3,7 @@ import '../modules/mobile-navigation';
 interface PostData {
     languageCode: string;
     title: string;
+    link: string;
     description: string;
     tags: string[];
     categories: string[];
@@ -37,7 +38,7 @@ function createPostListElement(postData: PostData, languageCode: string): HTMLLI
     <div class="post-header">
         <span class="post-date">${postData.publishDate}</span> ${postData.otherLanguages.length > 0 ? `<span class="language"><a href="${postData.otherLanguages[0].link}" alt="${postData.otherLanguages[0].title}">${languageInner}</a></span>` : ''}
     </div>
-    <h2 class="post-title">${postData.title}</h2>
+    <h2 class="post-title"><a href="${postData.link}" alt="${postData.title}">${postData.title}</a></h2>
     <p class="description">${postData.description}</p>
     `
     return element;

@@ -34,6 +34,7 @@
     "languageCode": "{{ .Page.Language.Lang }}",
     "title": "{{ .Page.Title }}",
     "description": "{{ .Page.Params.description }}",
+    "link": "{{ .Page.RelPermalink }}",
     {{ $tags := slice }}
     {{- range .Page.Params.tags -}}
     {{ $tags = $tags | append (printf `"%s"` .) }}

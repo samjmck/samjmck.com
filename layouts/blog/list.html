@@ -1,77 +1,106 @@
 {{ define "html" }}
 
+{{- $currentLang := .Site.Language.LanguageName -}}
+{{- $filteredPages := slice -}}
+{{- /* We cannot use .Site.Taxonomies.tags as it only lists the tags for the current language, not across multiple languages */ -}}
+{{- $tags := slice -}}
+{{- $pages := where (where .Site.AllPages.ByPublishDate "Kind" "page") "Section" "blog" -}}
+{{- range $i, $p := $pages -}}
+    {{- $matchedLanguage := false -}}
+    {{- if eq $currentLang $p.Language.LanguageName -}}
+        {{- $matchedLanguage = true -}}
+    {{- end -}}
+
+    {{- $hasTranslatedPage := false -}}
+    {{- range .Translations -}}
+        {{- if eq .Language.LanguageName $currentLang -}}
+            {{- $hasTranslatedPage = true -}}
+        {{- end -}}
+    {{- end -}}
+
+    {{- if or ($matchedLanguage) (not $hasTranslatedPage) -}}
+        {{- $filteredPages = $filteredPages | append $p -}}
+        {{- range $p.Params.tags -}}
+            {{- if not (in $tags .) -}}
+                {{- $tags = $tags | append . -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
 <head>
     {{ partial "head-content" . }}
+
+    <link rel="preload" href="/fonts/source-sans-pro-v13-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+    {{ range (first 1 $filteredPages) }}<link rel="prefetch" href="{{ .RelPermalink }}" />{{ end }}
 </head>
 <body>
     {{ partial "header-relative.html" . }}
-    <aside>
-        <div class="filter">
-            <p class="filter-title">Categories</p>
-            <ul class="filter-list">
-                <li class="category">all</li>
-                {{ range $k, $v := .Site.Taxonomies.categories -}}
-                <li class="category">{{ $k }}</li>
-                {{- end }}
+    <div class="container">
+        <aside>
+            <div class="filter">
+                <p class="filter-title"><span class="filter-name">Categories</span> <span class="filter-action show-filter showing">Show</span><span class="filter-action hide-filter">Hide</span></p>
+                <ul class="filter-list">
+                    <li class="selected category" data-category="all">all</li>
+                    {{ range $k, $v := .Site.Taxonomies.categories -}}
+                    <li class="category" data-category="{{ $k }}">{{ $k }}</li>
+                    {{- end }}
+                </ul>
+            </div>
+            <div class="filter">
+                <p class="filter-title"><span class="filter-name">Languages</span> <span class="filter-action show-filter showing">Show</span><span class="filter-action hide-filter">Hide</span></p>
+                <ul class="filter-list">
+                    <li class="selected language" data-language-code="all">all</li>
+                    {{ range .Site.Languages -}}
+                    <li class="language" data-language-code="{{ .Lang }}">{{ .LanguageName }}</li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{- $hashtagSvg := `<svg class="hashtag" viewBox="0 0 30 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.952381 38L4.52381 27.0092H0L1.25 21.8062H6.13095L8.27381 15.0246H3.75L5.05952 9.82154H9.94048L13.1548 0H17.9762L14.7619 9.82154H20.7143L23.9286 0H28.6905L25.5357 9.82154H30L28.75 15.0246H23.869L21.7262 21.8062H26.25L25 27.0092H20.0595L16.4881 38H11.6667L15.2381 27.0092H9.28572L5.71429 38H0.952381ZM10.9524 21.8062H16.9048L19.0476 15.0246H13.0952L10.9524 21.8062Z" fill="#323030" fill-opacity="0.5"/>
+                </svg>` | safeHTML -}}
+            <div class="filter">
+                <p class="filter-title"><span class="filter-name">Tags</span> <span class="filter-action show-filter showing">Show</span><span class="filter-action hide-filter">Hide</span></p>
+                <ul class="filter-list">
+                    {{ range $tags -}}
+                    <li class="tag" data-tag="{{ . }}">{{ $hashtagSvg }} {{ . }}</li>
+                    {{- end }}
+                </ul>
+            </div>
+        </aside>
+        <main>
+            <ul id="posts">
+            {{ range (.Paginate $filteredPages 5).Pages }}
+                {{ partial "post.html" . }}
+            {{ end }}
             </ul>
-        </div>
-        <div class="filter">
-            <p class="filter-title">Languages</p>
-            <ul class="filter-list">
-                {{ range .Site.Languages -}}
-                <li class="category">{{ .LanguageName }}</li>
-                {{ end }}
-            </ul>
-        </div>
-        <div class="filter">
-            <p class="filter-title">Tags</p>
-            <ul class="filter-list">
-                {{ range $k, $v := .Site.Taxonomies.categories -}}
-                <li><span class="hashtag">#</span> {{ $k }}</li>
-                {{- end }}
-            </ul>
-        </div>
-    </aside>
-    <main>
-        <ul>
-        {{- $currentLang := .Site.Language.LanguageName -}}
-        {{- $filteredPages := slice -}}
-        {{- $pages := where (where .Site.AllPages.ByPublishDate "Kind" "page") "Section" "blog" -}}
+        </main>
+    </div>
 
-        {{- range $i, $p := $pages -}}
+    {{- partial "mobile-navigation-absolute.html" . -}}
 
-            {{- $matchedLanguage := false -}}
-            {{- if eq $currentLang $p.Language.LanguageName -}}
-                {{- $matchedLanguage = true -}}
-            {{- end -}}
+    {{ $cssOptions := dict "outputStyle" "compressed" }}
+    {{ $style := resources.Get "styles/pages/blog-index.scss" | resources.ToCSS $cssOptions }}
 
-            {{- $hasTranslatedPage := false -}}
-            {{- range .Translations -}}
-                {{- if eq .Language.LanguageName $currentLang -}}
-                    {{- $hasTranslatedPage = true -}}
-                {{- end -}}
-            {{- end -}}
+    <style>
+        {{ $style.Content | safeCSS }}
+    </style>
 
-            {{- if or ($matchedLanguage) (not $hasTranslatedPage) -}}
-                {{- $filteredPages = $filteredPages | append $p -}}
-            {{- end -}}
+    {{ $jsOptions := dict "targetPath" "index.js" "target" "es2015" "minify" true }}
+    {{ $bundle := resources.Get "scripts/pages/blog-index.ts" | js.Build $jsOptions }}
 
-        {{- end -}}
-
-        {{ range (.Paginate $filteredPages 5).Pages }}
-            {{ partial "post.html" . }}
-        {{ end }}
-        </ul>
-    </main>
+    <script>
+        {{ $bundle.Content | safeJS }}
+    </script>
 </body>
 {{ end }}
 
 {{ define "partials/post.html" }}
-<li>
+<li class="post">
     <div class="post-header">
-        <span class="post-date">{{ .PublishDate.Format "January 2, 2006" }}</span> {{ with (first 1 .Translations) }} <span class="language">Open Dutch version</span> {{ end }}
+        <span class="post-date">{{ .PublishDate.Format "January 2, 2006" }}</span> {{ with (first 1 .Translations) }} <span class="language"><a href="{{ .RelPermalink }}" alt="{{ .Title }}">Dutch version available</a></span> {{ end }}
     </div>
-    <h2 class="post-title">{{ .Title }}</h2>
+    <h2 class="post-title"><a href="{{ .RelPermalink }}" alt="{{ .Title }}">{{ .Title }}</a></h2>
     <p class="description">{{ .Description }}</p>
 </li>
 {{ end }}

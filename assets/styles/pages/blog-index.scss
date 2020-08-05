@@ -1,0 +1,184 @@
+@import '../modules/fonts/source-sans-pro-400';
+@import '../modules/fonts/source-sans-pro-600';
+@import '../modules/main';
+@import '../layout/header';
+@import '../layout/mobile-navigation';
+@import '../modules/colours';
+
+html {
+    background-color: #F6F6F6;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+div.container {
+    position: relative;
+    color: $dark-grey;
+    margin: 3em auto 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    aside {
+        position: absolute;
+        background-color: #EDEDED;
+        border-radius: 7px;
+        padding: 0.3em 0.6em;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(calc(-100% - 3em));
+
+        div.filter {
+            p.filter-title {
+                margin: 0;
+                user-select: none;
+
+                span.filter-name {
+                    color: $dark-grey;
+                    font-size: 1.25em;
+                    font-variant: small-caps;
+                    text-transform: lowercase;
+                }
+                span.filter-action {
+                    font-variant: normal;
+                    text-transform: lowercase;
+                    margin-left: 0.3em;
+                    color: $light-grey;
+                    display: none;
+                }
+            }
+            ul.filter-list {
+                margin: 0;
+                padding: 0 0.3em 0 0;
+
+                li {
+                    cursor: pointer;
+                    text-transform: capitalize;
+                    color: $light-grey;
+                    width: fit-content;
+                    font-size: 1.1em;
+                    padding: 0.1em 0.3em;
+                    user-select: none;
+
+                    svg.hashtag {
+                        width: 0.55em;
+                    }
+                }
+                li:first-child {
+                    margin: 0.3em 0 0 0;
+                }
+                li.tag {
+                    text-transform: lowercase;
+                }
+                li:not(:last-child) {
+                    margin-bottom: 0.3em;
+                }
+                li.selected {
+                    border-radius: 3px;
+                    background-color: #DDDDDD;
+                }
+            }
+        }
+        div.filter:not(:last-child) {
+            border-bottom: 1.5px solid rgba(50, 48, 48, 0.2);
+            padding-bottom: 0.5em;
+            margin-bottom: 0.5em;
+        }
+    }
+    main {
+        width: 100%;
+        max-width: 800px;
+
+        ul {
+            margin: 0;
+
+            li.post {
+                margin: 0 0 1.5em 0;
+
+                a {
+                    color: inherit;
+                }
+                div.post-header {
+                    span.post-date {
+                        color: $light-grey;
+                        font-size: 1.1em;
+                        margin-right: 0.5em;
+                    }
+                    span.language {
+                        padding: 0.1em 0.3em;
+                        font-size: 1em;
+                        border-radius: 3px;
+                        background-color: #DDDDDD;
+                        color: rgba(50, 48, 48, 0.6);
+                    }
+                }
+                h2.post-title {
+                    font-weight: 600;
+                    font-size: 1.7em;
+                    margin: 0.1em 0;
+                }
+                p.description {
+                    color: $mid-grey;
+                    font-size: 1.15em;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    div.container {
+        flex-direction: row;
+        margin: 1.5em auto 0 auto;
+
+        aside {
+            position: relative;
+            transform: none;
+            margin: 0 1.5em 0 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    div.container {
+        flex-direction: column;
+        padding: 0 1.5em;
+
+        aside {
+            margin: 0 0 1.5em 0;
+
+            div.filter {
+                p.filter-title {
+                    span.showing {
+                        display: revert;
+                    }
+                }
+            }
+
+            ul.filter-list {
+                display: none;
+            }
+            ul.filter-list.showing {
+                display: revert;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    div.container {
+        main {
+            font-size: 0.9em;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}
+.showing {
+    display: revert;
+}

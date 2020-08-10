@@ -1,2 +1,3 @@
 /email-pgp-key https://api.protonmail.ch/pks/lookup?op=get&search=me@sammckenzie.be
 /blog/using-caddy-with-cloudflare /en/blog/using-caddy-with-cloudflare 301
+/en/blog /blog 302

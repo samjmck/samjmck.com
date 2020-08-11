@@ -1,6 +1,6 @@
 +++
 title = "How to setup Caddy with Cloudflare"
-tags = ["caddy", "cloudflare", "hosting"]
+tags = ["caddy", "cloudflare"]
 description = "Cloudflare has many different combinations for security settings that can complicate the configuration of your web server, especially if it’s a relatively new web server such as Caddy."
 date = 2020-07-07T00:25:24+02:00
 lastmod = 2020-07-27T19:35:17+02:00

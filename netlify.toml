@@ -8,6 +8,12 @@
 # https://docs.netlify.com/routing/redirects/redirect-options/#redirect-by-country-or-language
 
 [[redirects]]
+    from = "/index.html"
+    to = "/"
+    status = 200
+    force = true
+
+[[redirects]]
     from = "/"
     to = "/en/index.html"
     status = 200

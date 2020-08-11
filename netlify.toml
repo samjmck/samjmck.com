@@ -34,3 +34,8 @@
     to = "/en/index.html"
     status = 200
     force = true # Override Hugo-generated index.html
+[[redirects]]
+    from = "/index.html"
+    to = "/en/index.html"
+    status = 200
+    force = true # Override Hugo-generated index.html

@@ -9,9 +9,10 @@
 
 [[redirects]]
     from = "/index.html"
-    to = "/"
+    to = "/en/index.html"
     status = 200
-    force = true
+    force = true # Override Hugo-generated index.html
+    conditions = {Language = ["en"]}
 
 [[redirects]]
     from = "/"

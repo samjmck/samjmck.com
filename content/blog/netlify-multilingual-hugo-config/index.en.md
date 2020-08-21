@@ -6,7 +6,7 @@ lastmod = 2020-08-11T21:17:08+02:00
 publishdate = 2020-08-11T21:17:08+02:00
 tags = ["netlify", "hugo"]
 categories = ["development"]
-draft = false
+draft = true
 +++
 
 One of the reasons I chose Hugo for this site was its support for a multilingual mode, which is important to me as I am planning on writing some posts in Dutch. I won't be covering how to setup the multilingual mode in this post, but I will give a couple of useful tips for configuring Netlify with a multilingual Hugo site.

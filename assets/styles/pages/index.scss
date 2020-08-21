@@ -61,22 +61,22 @@ section.work {
   padding: 0 5em 6em 5em;
 
   ul.left-column {
-    margin: 0 1.4em 0 0;
+    margin: 0 2.4em 0 0;
   }
   ul.right-column {
-    margin: 0 0 0 1.4em;
+    margin: 0 0 0 2.4em;
   }
   ul.left-column, ul.right-column {
     display: flex;
     flex-direction: column;
-    max-width: 725px;
+    max-width: 700px;
     list-style-type: none;
     padding: 0;
     flex: 1;
 
     li.item {
       width: 100%;
-      margin: 0 0 2em 0;
+      margin: 0 0 3em 0;
     }
     li.introduction {
       p.my-work {

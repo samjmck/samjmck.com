@@ -7,35 +7,48 @@
 # It also proxies to the correct lang site
 # https://docs.netlify.com/routing/redirects/redirect-options/#redirect-by-country-or-language
 
+# EN language rewrites
+# Rewrite from /index.html to /nl/index.html
 [[redirects]]
     from = "/index.html"
     to = "/en/index.html"
-    status = 200
+    status = 200 # Force rewrite instead of redirect
     force = true # Override Hugo-generated index.html
-    conditions = {Language = ["en"]}
-
+    conditions = {Language = ["en"]} # Match Accept-Language headers that are configured for en
+# Rewrite from / to /en/index.html
 [[redirects]]
     from = "/"
     to = "/en/index.html"
     status = 200
-    force = true # Override Hugo-generated index.html
+    force = true
     conditions = {Language = ["en"]}
 
+# NL language rewrites
+# Rewrite from /index.html to /nl/index.html
+[[redirects]]
+    from = "/index.html"
+    to = "/nl/index.html"
+    status = 200
+    force = true
+    conditions = {Language = ["nl"]}
+# Rewrite from / to /nl/index.html
 [[redirects]]
     from = "/"
     to = "/nl/index.html"
     status = 200
-    force = true # Override Hugo-generated index.html
+    force = true
     conditions = {Language = ["nl"]}
 
-# Redirect for all other languages
-[[redirects]]
-    from = "/"
-    to = "/en/index.html"
-    status = 200
-    force = true # Override Hugo-generated index.html
+# Other language rewrites
+# Rewrite from /index.html to /en/index.html
 [[redirects]]
     from = "/index.html"
     to = "/en/index.html"
     status = 200
-    force = true # Override Hugo-generated index.html
+    force = true
+# Rewrite from / to /en/index.html
+[[redirects]]
+    from = "/"
+    to = "/en/index.html"
+    status = 200
+    force = true

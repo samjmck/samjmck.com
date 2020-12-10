@@ -86,6 +86,9 @@
     {{ $jsOptions := dict "targetPath" "index.js" "target" "es2015" "minify" true }}
     {{ $bundle := resources.Get "scripts/pages/index.ts" | js.Build $jsOptions }}
 
+    <script src="https://static.cloudflareinsights.com/beacon.min.js" defer data-cf-beacon='{"token": "a70b5719eb9140a49502acaf677ff971"}'></script>
+    <script src="https://condor.sammckenzie.be/script.js" site="PUFQZZPZ" defer></script>
+
     <script>
         {{ $bundle.Content | safeJS }}
     </script>

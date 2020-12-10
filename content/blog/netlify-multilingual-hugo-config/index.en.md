@@ -35,7 +35,7 @@ The issue with this approach is that it's slow and may be the cause for bad UX: 
 
 Both of these problems can be solved by rewriting the page based on the language headers the client sends. A rewrite is basically a server-side redirect, and in this case, it provides performance benefits for the client.
 
-I have added a number of options to `_headers` file of my static directory configuration that rewrite requests from `/index.html` and the root `/` and do the following:
+I have added a number of options to `_headers` file of my static directory configuration that rewrite requests from `/index.html` as well as the root `/`. These options do the following:
 1. Browsers that either have `en` or `nl` as their selected language get served the `index.html` from the language's respective directory, e.g. if the browser's language is `nl` then the `/nl/index.html` file will be served
 2. In the case that the browser accepts both languages, `en` will be prioritised as those options are listed first in the configuration
 3. Browsers that only accept languages other than `en` and `nl` will get served the site's default language `en`

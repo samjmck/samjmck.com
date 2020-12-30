@@ -2,16 +2,14 @@
 title = "Configuring Netlify for a multilingual Hugo site"
 description = "Hugo has pretty great support for multilingual content, but there are a few things you should do to actually serve the correct content to your visitors."
 date = 2020-08-11T21:17:08+02:00
-lastmod = 2020-08-11T21:17:08+02:00
-publishdate = 2020-08-11T21:17:08+02:00
+lastmod = 2020-12-30T20:50:08+02:00
+publishdate = 2020-12-30T20:50:08+02:00
 tags = ["netlify", "hugo"]
 categories = ["development"]
-draft = true
+draft = false
 +++
 
-One of the reasons I chose Hugo for this site was its support for a multilingual mode, which is important to me as I am planning on writing some posts in Dutch. I won't be covering how to setup the multilingual mode in this post, but I will give a couple of useful tips for configuring Netlify with a multilingual Hugo site.
-
-## Server-side rewrite instead of client-side redirect
+One of the reasons I chose Hugo for this site was its support for a multilingual mode, which is important to me as I am planning on writing some posts in Dutch. I won't be covering how to setup the multilingual mode in this post, but I will give a very useful tip for people that are using Netlify: use server-side rewrites instead of client-side rewrites.
 
 This tip is only for people who have the `defaultContentLanguageInSubdir` option set to `true` in their Hugo config. The reason for this is that with this option disabled, content that's written in the site's default language will be output to the root of the publish directory, including the `index.html` landing page, which means there is no need for any rewriting.
 
@@ -54,3 +52,5 @@ I have added a number of options to `_headers` file of my static directory confi
 /index.html /en/index.html  200!
 /           /en/index.html  200!
 {{< / highlight >}}
+
+After enabling this, your site will load faster and your users will have a better experience. 

@@ -92,6 +92,8 @@
     <script>
         {{ $bundle.Content | safeJS }}
     </script>
+
+    {{- partial "analytics.html" . -}}
 </body>
 {{ end }}
 

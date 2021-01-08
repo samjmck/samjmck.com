@@ -70,7 +70,7 @@
         </aside>
         <main>
             <ul id="posts">
-            {{ range (.Paginate $filteredPages 5).Pages }}
+            {{ range (.Paginate $filteredPages 5).Pages.ByPublishDate.Reverse }}
                 {{ partial "post.html" . }}
             {{ end }}
             </ul>

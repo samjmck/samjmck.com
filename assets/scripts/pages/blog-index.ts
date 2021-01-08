@@ -185,8 +185,9 @@ for(const aElement of document.querySelectorAll<HTMLAnchorElement> ('li.post h2.
     const languageCode = document.documentElement.lang;
     const response = await fetch('index.json');
     const data = <PostData[]> await response.json();
+    const chronologicalPosts = data.reverse();
 
-    for(const postData of data) {
+    for(const postData of chronologicalPosts) {
         posts.push({
             data: postData,
             element: createPostListElement(postData, languageCode),

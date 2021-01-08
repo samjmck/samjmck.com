@@ -47,7 +47,9 @@
     "categories": [{{ delimit $categories ", " }}],
     "date": "{{ .Page.Date }}",
     "publishDate": "{{ .Page.PublishDate.Format "January 2, 2006" }}",
+    "publishTime": {{ .Page.PublishDate.Unix }},
     "lastModifiedDate": "{{ .Page.Lastmod.Format "January 2, 2006" }}",
+    "lastModifiedTime": {{ .Page.Lastmod.Unix }},
     "otherLanguages": [
         {{ range $j, $t := .Page.Translations -}}
         {

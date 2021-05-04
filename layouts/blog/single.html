@@ -26,13 +26,25 @@
         {{ $style.Content | safeCSS }}
     </style>
 
+    {{ if .Params.css }}
+    {{ $customStyle := .Resources.GetMatch .Params.css | resources.ToCSS $cssOptions }}
+    <style>
+        {{ $customStyle.Content | safeCSS }}
+    </style>
+    {{ end }}
+
     {{ $jsOptions := dict "targetPath" "blog.js" "target" "es2015" "minify" true }}
     {{ $bundle := resources.Get "scripts/pages/blog-post.ts" | js.Build $jsOptions }}
 
     <script>
         {{ $bundle.Content | safeJS }}
     </script>
-    </style>
+    {{ if .Params.js }}
+    {{ $bundle := .Resources.GetMatch .Params.js | js.Build $jsOptions }}
+    <script>
+        {{ $bundle.Content | safeJS }}
+    </script>
+    {{ end }}
 
     {{- partial "analytics.html" . -}}
 </body>

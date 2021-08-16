@@ -1,0 +1,5 @@
+[tableOfContents]
+	other = "Table of contents"
+
+[definition]
+	other = "Definition of <b>{{ .Word }}</b> from <a href=\"{{ .Url }}\" title=\"{{ .Title }}\" target=\"_blank\" rel=\"noopener\">{{ .Source }}</a>"

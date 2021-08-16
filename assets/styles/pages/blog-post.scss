@@ -16,6 +16,29 @@ article {
   width: 100%;
   font-size: 19px;
 
+  blockquote {
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+    padding: 0 0 0 1.5em;
+    border-left: 10px solid #eaedf1;
+  }
+
+  div.table-of-contents {
+    padding: 0.1em 1em;
+    background-color: #eaedf1;
+    border-radius: 5px;
+  }
+
+  div.definition {
+    padding: 0.6em 1em;
+    background-color: #eaedf1;
+    border-radius: 5px;
+
+    p {
+      margin: 0.4em 0;
+    }
+  }
+
   div#article-header {
     margin: 0 0 30px 0;
     font-family: 'Source Sans Pro', sans-serif;

@@ -22,11 +22,12 @@ div.container {
     flex-direction: column;
 
     aside {
-        position: absolute;
+        position: fixed;
         background-color: #EDEDED;
         border-radius: 7px;
         padding: 0.3em 0.6em;
         display: flex;
+        align-self: flex-start;
         flex-direction: column;
         transform: translateX(calc(-100% - 3em));
 
@@ -135,7 +136,8 @@ div.container {
         margin: 1.5em auto 0 auto;
 
         aside {
-            position: relative;
+            position: sticky;
+            top: 3em;
             transform: none;
             margin: 0 1.5em 0 0;
             align-self: flex-start;
@@ -149,6 +151,9 @@ div.container {
         padding: 0 1.5em;
 
         aside {
+            position: relative;
+            align-self: stretch;
+            top: 0;
             margin: 0 0 1.5em 0;
 
             div.filter {

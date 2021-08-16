@@ -1,15 +1,13 @@
 +++
 title = "What I learned from my failed SaaS business"
 description = "I worked a year on a SaaS project. Even though it failed, there are some very valuable lessons that I learned."
-date = 2021-08-16T21:51:57+01:00
-lastmod = 2021-08-16T21:51:57+01:00
-publishdate = 2021-08-16T21:51:57+01:00
-tags = []
-categories = ["programming", "saas"]
+date = 2021-08-14T00:25:24+02:00
+lastmod = 2021-08-16T19:35:17+02:00
+publishdate = 2021-07-16T00:25:24+02:00
+tags = ["saas"]
+categories = ["development"]
 draft = false
 +++
-
-# Footietracker
 
 [Footietracker](https://footietracker.com) was a SaaS project I worked on for slightly longer than a year. It provided users with a Google Sheets document that automatically updated with their portfolios and latest pricing data from Football Index, a football gambling site in the UK that used a virtual stock market to allow users to "invest" in footballers. They are now bankrupt, so development on Footietracker has also halted.
 

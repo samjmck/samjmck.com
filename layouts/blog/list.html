@@ -4,7 +4,7 @@
 {{- $filteredPages := slice -}}
 {{- /* We cannot use .Site.Taxonomies.tags as it only lists the tags for the current language, not across multiple languages */ -}}
 {{- $tags := slice -}}
-{{- $pages := where (where .Site.AllPages.ByPublishDate "Kind" "page") "Section" "blog" -}}
+{{- $pages := where (where .Site.AllPages.ByPublishDate.Reverse "Kind" "page") "Section" "blog" -}}
 {{- range $i, $p := $pages -}}
     {{- $matchedLanguage := false -}}
     {{- if eq $currentLang $p.Language.LanguageName -}}
@@ -32,7 +32,7 @@
     {{ partial "head-content" . }}
 
     <link rel="preload" href="/fonts/source-sans-pro-v13-latin-600.woff2" as="font" type="font/woff2" crossorigin />
-    {{ range (first 1 $filteredPages) }}<link rel="prefetch" href="{{ .RelPermalink }}" />{{ end }}
+    {{ range (first 3 $filteredPages) }}<link rel="prefetch" href="{{ .RelPermalink }}" />{{ end }}
 </head>
 <body>
     {{ partial "header-relative.html" . }}
@@ -70,7 +70,7 @@
         </aside>
         <main>
             <ul id="posts">
-            {{ range (.Paginate $filteredPages 5).Pages.ByPublishDate.Reverse }}
+            {{ range $filteredPages }}
                 {{ partial "post.html" . }}
             {{ end }}
             </ul>

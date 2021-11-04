@@ -1,6 +1,6 @@
 +++
 title = "Investing in Belgium: Introduction"
-description = "The first part of a guide on investing in the stock market in Belgium. I write about some of the specifics of investing in the stock market in Belgium and also explain some basic terminology which will come in handy when investing in the stock market."
+description = "The first part of a guide on investing in the stock market in Belgium. I write about some specifics of investing in the stock market in Belgium and also explain some basic terminology which will come in handy when investing in the stock market."
 date = 2021-01-08T21:51:57+01:00
 lastmod = 2021-01-08T21:51:57+01:00
 publishdate = 2021-01-08T21:51:57+01:00
@@ -27,7 +27,7 @@ This is the first post of a series in which I cover how to invest in the stock m
 		<li><a href="#stock-market-related-taxes">Stock market related taxes in Belgium</a></li>
 		<li><a href="#the-importance-of-etfs">The importance of ETFs</a></li>
 	</ol>
-	<li><a href="#">Tax-efficient investing and portfolio allocation</a></li>
+	<li><a href="#">Tax-efficient investing</a></li>
 	<li><a href="#">Brokers, fees and investment strategies</a></li>
 	<li><a href="#">Purchasing a security with your broker</a></li>
 	<li><a href="#">Extra: cryptocurrencies</a></li>
@@ -79,7 +79,7 @@ Mutual funds, or funds in general, are one of the most popular ways to invest in
 One of the most important ways to lessen the risks of investing is to diversify your investments. It's common sense: don't put all your eggs in one basket. If you buy a mix of different types of stocks, bonds, or mutual funds, your overall holdings will not be wiped out if one investment fails. If you had just one investment and it went down in value, then you would lose money. But if you had ten different investments and one went down in value, you could still come out ahead.
 {{< /definition >}}
 
-An example of a mutual fund is the _[Global Technology Fund](https://www.troweprice.com/financial-intermediary/us/en/investments/mutual-funds/us-products/global-technology-fund.html "Global Technology Fund from T. Rowe Price")_ from T. Rowe Price, an American investment firm. The fund holds 60 tech stocks which are picked by the fund manager Alan Tu. If you scroll down on the information page, you'll see it requires an initial investment of at least 2500 USD and has a 0,85% fees per year.
+An example of a mutual fund is the _[Global Technology Fund](https://web.archive.org/web/20211009152710/https://www.troweprice.com/financial-intermediary/us/en/investments/mutual-funds/us-products/global-technology-fund.html "Global Technology Fund from T. Rowe Price")_ from T. Rowe Price, an American investment firm. The fund holds 60 tech stocks which are picked by the fund manager Alan Tu. If you scroll down on the information page, you'll see it requires an initial investment of at least 2500 USD and has a 0,85% fees per year.
 
 ### Exchange traded funds (ETFs)
 
@@ -113,7 +113,7 @@ And when compared with real estate, it's clear that the stock market is incredib
 
 There are two problems with mutual funds:
 
-1. **Most are actively managed**, meaning that the fund manager handpicks which securities to include in the fund. You might think that this isn't an issue, as it's the fund manager's job to research the securities and they should be able to pick securities that perform well. However, [research shows](https://www.spglobal.com/spdji/en/documents/spiva/spiva-us-year-end-2020.pdf "Report on active vs passive funds") that the vast majority of mutual funds aren't able to consistently beat or even meet their benchmarks, meaning that you would be better off simply holding all the stocks that are in an index instead of handpicking them (which would be _passive investing_). 
+1. **Most are actively managed**, meaning that the fund manager handpicks which securities to include in the fund. You might think that this isn't an issue, as it's the fund manager's job to research the securities and they should be able to pick securities that perform well. However, [research shows](https://web.archive.org/web/20211009152114/https://www.spglobal.com/spdji/en/documents/spiva/spiva-us-year-end-2020.pdf "Report on active vs passive funds") that the vast majority of mutual funds aren't able to consistently beat or even meet their benchmarks, meaning that you would be better off simply holding all the stocks that are in an index instead of handpicking them (which would be _passive investing_). 
 
 2. **They are expensive**. The fees that mutual funds charge are almost always higher than ETFs. For example, if you look at [KBC's mutual funds](https://www.kbc.be/corporate/en/product/investments/fund-finder.html "KBC fund finder"), you'll notice that many of their funds charge 2-3% per year in fees. Meanwhile, [one of the largest ETFs in Europe](https://www.justetf.com/en/etf-profile.html?isin=IE00B4L5Y983#overview "iShares MSCI World ETF") charges just 0,20% per year in fees. 
 
@@ -123,7 +123,7 @@ The ETF I just talked about is also a great example of how holding just one ETF 
 
 That same ETF I just mentioned is also very tax-efficient in Belgium for 2 reasons:
 
-1. It is domiciled in Ireland and Ireland has favourable tax treaties with most countries, including the US where most stocks are based. This means that the fund is able to minimise the amount of money paid in taxes when one if its stocks pays a dividend. And the lowest transaction tax rate of 0,12% that I mentioned in the previous section is applicable to this ETF, since it is [not registered in Belgium](https://www.fsma.be/sites/default/files/legacy/ccp2_li_nl.pdf "List of foreign funds registered with the Belgian FSMA") and Ireland is part of the European Economic Area.
+1. It is domiciled in Ireland and Ireland has favourable tax treaties with most countries, including the US where most stocks are based. This means that the fund is able to minimise the amount of money paid in taxes when one if its stocks pays a dividend. And the lowest transaction tax rate of 0,12% that I mentioned in the previous section is applicable to this ETF, since it is [not registered in Belgium](https://web.archive.org/web/20211009152140/https://www.fsma.be/sites/default/files/legacy/ccp2_li_nl.pdf "List of foreign funds registered with the Belgian FSMA") and Ireland is part of the European Economic Area.
 
 2. The fund is accumulating, which means that dividends paid out by underlying stocks of the fund are reinvested back into the fund instead of paid out to us. This way, we can avoid any withholding taxes that we would normally have to pay on dividends.
 
@@ -143,33 +143,33 @@ Say your broker offers CFDs with a 1:10 leverage and you think Microsoft shares,
 
 ## Sources
 **Securities**
-- https://www.handbook.fca.org.uk/handbook/glossary/G1061.html
-- https://www.fdic.gov/regulations/laws/rules/8000-6200.html
-- https://www.kbc.be/particulieren/nl/beleggen/financiele-termen.html#e
+- [https://www.handbook.fca.org.uk/handbook/glossary/G1061.html](https://web.archive.org/web/20211009151243/https://www.handbook.fca.org.uk/handbook/glossary/G1061.html)
+- [https://www.fdic.gov/regulations/laws/rules/8000-6200.html](https://web.archive.org/web/20211009151306/https://www.fdic.gov/regulations/laws/rules/8000-6200.html)
+- [https://www.kbc.be/particulieren/nl/beleggen/financiele-termen.html#e](https://web.archive.org/web/20211009151248/https://www.kbc.be/particulieren/nl/beleggen/financiele-termen.html#e)
 
 **Mutual funds**
-- https://www.sec.gov/investor/pubs/sec-guide-to-mutual-funds.pdf
+- [https://www.sec.gov/investor/pubs/sec-guide-to-mutual-funds.pdf](https://web.archive.org/web/20211009151609/https://www.sec.gov/investor/pubs/sec-guide-to-mutual-funds.pdf)
 
 **Exchange Traded Funds**
-- https://dfi.wa.gov/financial-education/information/etfs
-- https://investor.vanguard.com/etf/etf-vs-mutual-fund
-- https://www.bogleheads.org/wiki/ETFs_vs_mutual_funds
+- [https://dfi.wa.gov/financial-education/information/etfs](https://web.archive.org/web/20211009151550/https://dfi.wa.gov/financial-education/information/etfs)
+- [https://investor.vanguard.com/etf/etf-vs-mutual-fund](https://web.archive.org/web/20211009151551/https://investor.vanguard.com/etf/etf-vs-mutual-fund)
+- [https://www.bogleheads.org/wiki/ETFs_vs_mutual_funds](https://web.archive.org/web/20211009151552/https://www.bogleheads.org/wiki/ETFs_vs_mutual_funds)
 
 **Bonds**
-- https://investor.vanguard.com/investing/investment/what-is-a-bond
-- https://financien.belgium.be/nl/particulieren/belastingaangifte/tarieven-belastbaar-inkomen/belastbaar-inkomen/roerend-inkomen#q5
+- [https://investor.vanguard.com/investing/investment/what-is-a-bond](https://web.archive.org/web/20211009151754/https://investor.vanguard.com/investing/investment/what-is-a-bond)
+- [https://financien.belgium.be/nl/particulieren/belastingaangifte/tarieven-belastbaar-inkomen/belastbaar-inkomen/roerend-inkomen#q5](https://web.archive.org/web/20211009151946/https://financien.belgium.be/nl/particulieren/belastingaangifte/tarieven-belastbaar-inkomen/belastbaar-inkomen/roerend-inkomen)
 
 **Stock market related taxes in Belgium**
-- https://eservices.minfin.fgov.be/myminfin-web/pages/fisconet/document/07143c83-8ef9-4d85-a5fd-7564b0393e1b
-- https://www.test-aankoop.be/invest/fiscaliteit-en-wetgeving/belastingheffing/dossiers/taks-op-beursverrichtingen-tob
+- [https://eservices.minfin.fgov.be/myminfin-web/pages/fisconet/document/07143c83-8ef9-4d85-a5fd-7564b0393e1b](https://web.archive.org/web/20211009151950/https://eservices.minfin.fgov.be/myminfin-web/pages/fisconet/document/07143c83-8ef9-4d85-a5fd-7564b0393e1b)
+- [https://www.test-aankoop.be/invest/fiscaliteit-en-wetgeving/belastingheffing/dossiers/taks-op-beursverrichtingen-tob](https://web.archive.org/web/20211009152016/https://www.test-aankoop.be/invest/fiscaliteit-en-wetgeving/belastingheffing/dossiers/taks-op-beursverrichtingen-tob)
 
 **The importance of ETFs**
-- https://www.spglobal.com/spdji/en/documents/spiva/spiva-us-year-end-2020.pdf
-- https://www.fsma.be/sites/default/files/legacy/ccp2_li_nl.pdf
+- [https://www.spglobal.com/spdji/en/documents/spiva/spiva-us-year-end-2020.pdf](https://web.archive.org/web/20211009152114/https://www.spglobal.com/spdji/en/documents/spiva/spiva-us-year-end-2020.pdf)
+- [https://www.fsma.be/sites/default/files/legacy/ccp2_li_nl.pdf](https://web.archive.org/web/20211009152140/https://www.fsma.be/sites/default/files/legacy/ccp2_li_nl.pdf)
 
 **Derivatives**
-- https://www.investor.gov/introduction-investing/investing-basics/glossary/derivatives
-- https://www.kbc.be/particulieren/nl/beleggen/financiele-termen.html#a
-- https://www.ig.com/en/cfd-trading/what-is-cfd-trading-how-does-it-work
+- [https://www.investor.gov/introduction-investing/investing-basics/glossary/derivatives](https://web.archive.org/web/20211009152205/https://www.investor.gov/introduction-investing/investing-basics/glossary/derivatives)
+- [https://www.kbc.be/particulieren/nl/beleggen/financiele-termen.html#a](https://web.archive.org/web/20211009151248/https://www.kbc.be/particulieren/nl/beleggen/financiele-termen.html)
+- [https://www.ig.com/en/cfd-trading/what-is-cfd-trading-how-does-it-work](https://web.archive.org/web/20211009152245/https://www.ig.com/en/cfd-trading/what-is-cfd-trading-how-does-it-work)
 
 

@@ -1,5 +1,5 @@
 +++
-title = "Investing in Belgium: Tax-efficient investing and portfolio allocation"
+title = "Investing in Belgium: Tax-efficient investing"
 description = "The second part of a guide on investing in the stock market in Belgium. I explain what the taks op beursverrichting (TOB) or transaction tax is and how to reduce it, how much the withholding tax on dividends is in Belgium and how to avoid it, what the tax situation is with ETFs and what to look for in a tax-efficient ETF."
 date = 2021-08-03T21:51:57+01:00
 lastmod = 2021-08-12T21:51:57+01:00
@@ -12,7 +12,7 @@ draft = true
 {{< tableofcontents >}}
 <ol>
 	<li><a href="#">Introduction</a></li>
-	<li><a href="#">Tax-efficient investing and portfolio allocation</a></li>
+	<li><a href="#">Tax-efficient investing</a></li>
 	<ol>
 		<li><a href="#transaction-tax-tob">Transaction tax (TOB)</a></li>
 		<li><a href="#witholding-tax">Withholding tax</a></li>
@@ -29,7 +29,7 @@ One of the main reasons why investing in the stock market in Belgium is such a g
 
 ## Transaction tax (TOB)
 
-The taks op beursverrichtingen (TOB) is normally the only tax you will have to pay when investing in the stock market. You have to pay it when you purchase or sell certain types of securities. And if you are investing through a Belgian broker or bank, they will calculate, pay and declare the tax for you. Doing those things manually can be quite time-consuming, which is why it is generally recommended to use a broker that does it for you. 
+The taks op beursverrichtingen (TOB) is normally the only tax you will have to pay when investing in the stock market. You have to pay it when you purchase or sell certain types of securities. And if you are investing through a Belgian broker or bank, they will calculate, pay and declare the tax for you. Doing those things manually can be quite time-consuming, which is why it is generally recommended using a broker that does it for you. 
 
 The detailed list of which TOB rates apply to what securities can be found on the website of the [tax authorities](https://eservices.minfin.fgov.be/myminfin-web/pages/fisconet/document/07143c83-8ef9-4d85-a5fd-7564b0393e1b "Transaction tax rates"). Here's a summary of the most important rates:
 - 0,35% for shares
@@ -41,20 +41,20 @@ The detailed list of which TOB rates apply to what securities can be found on th
 The last 3 rates are the most important:
 - The **0,12%** TOB for Belgian registered distributing ETFs is low but unfortunately, as I will explain in the next section, dividends are taxed, and distributing ETFs pay out dividends to investors. It would be better to invest in accumulating ETFs that reinvest dividends internally without paying out the dividends, as we could then avoid the dividend tax.
 - The problem is that Belgian registered accumulating ETFs are taxed at **1,32%**, which is a fair bit more than the 0,12% of distributing ETFs.
-- Luckily, there's no benefit to buying ETFs that are registered in Belgium, and foreign funds that are still registered in the European Economic Area are taxed at a low rate of **0,12%**. These can also be accumulating to avoid the dividend tax. Towards the end of this post, you'll notice that we mostly focus on foreign - or more specific, Ireland domiciled - funds. This is one of the reasons why, as Ireland is in the European Economic Area and most funds domiciled there aren't registerd here.
+- Luckily, there's no benefit to buying ETFs that are registered in Belgium, and foreign funds that are still registered in the European Economic Area are taxed at a low rate of **0,12%**. These can also be accumulating to avoid the dividend tax. Towards the end of this post, you'll notice that we mostly focus on foreign - or more specific, Ireland domiciled - funds. This is one of the reasons why, as Ireland is in the European Economic Area and most funds domiciled there aren't registered here.
 
 > Funds registered in Belgium are [registered with the FSMA](https://www.fsma.be/sites/default/files/legacy/ccp2_li_nl.pdf "Belgium registered funds") (Financial Services and Markets Authority). Note that a fund being registered does not make it more or less trustworthy than funds that aren't registered; it just means that the provider of the fund is allowed to partake in certain commercial activities like advertising the fund to Belgian investors. This does also not mean that you cannot buy non-registered funds in Belgium.
 
 ## Withholding tax
 
-There's a 30% withholding tax or roerende voorheffing on dividends paid out by shares and interests received by bonds. If a Belgian company or fund is paying out the dividends, then they will pay the withholding tax. If the dividends are coming from a foreign company or fund, then your broker or bank will pay the withholding tax. This tax can be avoided quite easily when investing in ETFs by simply choosing an accumulating ETF, but it's still important to understand what the withholding tax is as the dividends received by the fund internally will still be taxed by other countries.
+There's a 30% withholding tax or roerende voorheffing on dividends paid out by shares and interests received by bonds. If a Belgian company or fund is paying out the dividends, then they will pay the withholding tax for you. If the dividends are coming from a foreign company or fund, then your broker or bank will pay the withholding tax for you. This tax can be avoided quite easily when investing in ETFs by simply choosing an accumulating ETF, but it's still important to understand what the withholding tax is as the dividends received by the fund internally will still be taxed by other countries.
 
 To understand what happens with dividends when you invest in an ETF, I will first explain what happens when you invest in a foreign stock. Take Apple for instance: when they pay out dividends to Belgian investors, the US would normally impose a 30% withholding tax on the dividends and then there would also be the 30% withholding tax from Belgium before it finally reaches the Belgian investor. This would leave us with a mere 49% of the original dividend. Luckily, there is a [US - Belgium double tax treaty](https://www.irs.gov/pub/irs-trty/belgiumtt06.pdf "US Belgium double tax treaty") which reduces the withholding tax of the US to 15%, but that still leaves us with only 59,5% of the original dividend.
 
 When you invest in an ETF, the situation gets even more complicated. There are now multiple levels of taxation:
-- The first level of taxation is at the source of the dividends. Like the example I just gave, dividends paid out by Apple to foreign investors would have a US withholding tax as they are a US corporation. The same goes for other foreign stocks: Dutch stocks will have a Dutch withholding tax, German stocks with have a German withholding tax and so on.
-- The second level is at the **ETF's country of domicile**. This is very important when it comes to reducing withholding taxes, as the double tax treaties that the country of domicile has with the countries where the ETF's stocks are based will determine how much of the dividends you will be able to keep. This is also the reason why so many ETFs are domiciled in Ireland, because Ireland has a tax treaty with the US which reduces the withholding tax on the US side to 15% and Ireland itself does not tax dividends at all. Ireland also has favourable tax treaties with most countries.
-- The third and last level of taxation is the Belgian withholding tax when the dividends get paid out to you. As mentioned before, you can avoid this withholding tax by opting for an accumulating ETF instead of a distributing ETF.
+- The first level of taxation is at the **source** of the dividends. Like the example I just gave, dividends paid out by Apple to foreign investors would have a US withholding tax as they are a US corporation. The same goes for other foreign stocks: Dutch stocks will have a Dutch withholding tax, German stocks with have a German withholding tax and so on.
+- The second level is at the **ETF's country of domicile**. This is very important when it comes to reducing withholding taxes, as the double tax treaties that the fund's domicile country has with the countries where the fund's stocks are based will determine how much of the dividends you will be able to keep. This is also the reason why so many ETFs are domiciled in Ireland, because Ireland has a tax treaty with the US which reduces the withholding tax on the US side to 15% and Ireland itself does not tax dividends at all. Ireland also has favourable tax treaties with most countries.
+- The third and last level of taxation is the **Belgian withholding tax** when the dividends get paid out to you. As mentioned before, you can avoid this withholding tax by opting for an accumulating ETF instead of a distributing ETF.
 
 Lastly, there is also a 30% withholding tax on any capital gains made from selling bonds. If you're investing in a fund that holds bonds, then the tax is applicable on the bonds part of the fund only if bonds make up 10% or more of the fund's portfolio. Ultimately, even though bonds are a good way to diversify a portfolio, the withholding taxes on their capital gains and coupons (interests collected from bonds) make them fairly useless, which is also why I won't be discussing them any further.
 
@@ -62,9 +62,9 @@ Lastly, there is also a 30% withholding tax on any capital gains made from selli
 
 When looking for an ETF, you should look for one that is accumulating so that you aren't directly paid any dividends and you can avoid the Belgian withholding tax. The fact that the dividends get reinvested into the ETF make the shares of the ETF more valuable, which means you will be able to sell them for more money. The ETF should also be domiciled in a country that has favourable tax treaties with the countries where most of its holdings are based. Most ETFs are domiciled in Ireland though, so that shouldn't be an issue.
 
-## Speculation tax
+## Extra: Speculation tax
 
-The gains of any kind of investing that is considered "responsible" by the tax authorities will not be taxed. This includes normal management of your stock portfolio, so buying and selling shares of funds and stocks when you would like to invest some money or take some out. If the tax authorities feel like you're buying and selling more frequently than you should be or you're trading with margin (borrowed money) or investing in risky products, then what you're doing might be considered as speculation. The burden is on the tax authorities to collect evidence to show that you were actually speculating. If they succeed, then you'll have to pay a "divers inkomen" (miscellaneous income) tax of 33% on the profits you made from those activities. In reality, this is something that you shouldn't worry about unless you're investing as a day job or doing it professionally.
+The gains of any kind of investing that is considered "responsible" by the tax authorities will not be taxed. This includes normal management of your stock portfolio, so buying and selling shares of funds and stocks when you would like to invest some money or take some out. If the tax authorities feel like you're buying and selling more frequently than you should be or that you're trading with margin (borrowed money) or investing in risky products, then what you're doing might be considered as speculation. The burden is on the tax authorities to collect evidence to show that you were actually speculating. If they succeed, then you'll have to pay a "divers inkomen" (miscellaneous income) tax of 33% on the profits you made from those activities. In reality, this is something that you shouldn't worry about unless you're investing as a day job or doing it professionally.
 
 ## Sources
 **Capital gains tax**

@@ -8,15 +8,15 @@ endDate = 2020-01-05T23:26:14+01:00
 company = "Footietracker"
 
 link = ""
-website = "https://footietracker.com"
+website = ""
 
 dribbble = ""
 figma = ""
-github = ""
+github = "https://github.com/samjmck/footietracker"
 
 imageName = "footietracker"
 imageName2 = ""
 
 comment = ""
 +++
-Development and design of a portfolio tracker for a virtual football stock market
+Development and design of a portfolio tracker for a virtual football stock market (inactive project)

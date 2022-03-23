@@ -87,7 +87,7 @@ The gains of any kind of investing that is considered "responsible" by the tax a
 - https://ec.europa.eu/taxation_customs/treaties-avoidance-double-taxation-concluded-member-states_en
 - https://eservices.minfin.fgov.be/myminfin-web/pages/fisconet/navigation/098e3428-66e6-4607-8053-41220fad356f,aa198ee9-44e7-45f6-bb27-2666adc3641f,3cd568fe-583e-4096-b690-94c72c8d2dd5,e95f14ba-9cf9-4ed7-8982-fe3edd5a3a57,d2994d67-a8f9-4e8a-8789-6209dba6b6f9?_ga=2.125497039.474930973.1593592981-312753481.1588075933
 - https://www.blackrock.com/ca/investors/en/literature/brochure/withholding-tax-reference-guide-en-ca.pdf
-https://www.wikifin.be/nl/belasting-werk-en-inkomen/belastingaangifte/je-roerend-inkomen/de-belastingen-op-je-belgische
+- https://www.wikifin.be/nl/belasting-werk-en-inkomen/belastingaangifte/je-roerend-inkomen/de-belastingen-op-je-belgische
 
 **Speculation tax**
 - https://www.moore.be/nl/nieuws/wanneer-is-gerealiseerde-meerwaarde-op-aandelen-belastbaar

@@ -11,7 +11,7 @@ link = ""
 website = ""
 dribbble = ""
 figma = ""
-github = "https://github.com/samjmckenzie/ebay-monitor"
+github = "https://github.com/samjmck/ebay-monitor"
 
 imageName = "terminal"
 imageName2 = "telegram"

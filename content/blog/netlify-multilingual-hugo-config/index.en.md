@@ -18,16 +18,16 @@ With this option enabled, all languages will be output to their respective direc
 {{< highlight html >}}
 <html>
    <head>
-      <title>https://sammckenzie.be/en/</title>
-      <link rel="canonical" href="https://sammckenzie.be/en/"/>
+      <title>https://samjmck.com/en/</title>
+      <link rel="canonical" href="https://samjmck.com/en/"/>
       <meta name="robots" content="noindex">
       <meta charset="utf-8" />
-      <meta http-equiv="refresh" content="0; url=https://sammckenzie.be/en/" />
+      <meta http-equiv="refresh" content="0; url=https://samjmck.com/en/" />
    </head>
 </html>
 {{< / highlight >}}
 
-The canonical link element tells search engines that this page is a duplicate of `https://sammckenzie.be/en/`, which is the real landing page. The last meta tag tells the browser to instantly redirect the client to said URL.
+The canonical link element tells search engines that this page is a duplicate of `https://samjmck.com/en/`, which is the real landing page. The last meta tag tells the browser to instantly redirect the client to said URL.
 
 The issue with this approach is that it's slow and may be the cause for bad UX: it'll probably take a few hundred milliseconds for the client to load the alias page and *then* they'll be redirected to the real landing page, which might be in the wrong language.
 

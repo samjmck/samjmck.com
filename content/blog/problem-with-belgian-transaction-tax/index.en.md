@@ -8,8 +8,6 @@ tags = ["tax", "FSMA", "brokers", "banks"]
 categories = ["finance", "investing"]
 +++
 
-## Tax authorities, financial authorities and fund providers
-
 Fund providers can register their funds with the Financial Services and Markets Authority (FSMA) in Belgium if they want to advertise those funds to Belgian investors. However, the tax law says that registered funds have a transaction tax of 1,32%. This rate is notably higher than the 0,12% transaction tax for funds that not registered in Belgium (but are registered in another member of the European Economic Area). For this reason, most Belgian investors avoid purchasing funds that are registered with the Belgian market authorities.
 
 However, there is ambiguity in checking whether a fund is actually registered or not. For some unknown reason, the FSMA lists registered funds by their _name_ and not their International Securities Identifier Number (ISIN). The issue is that a security name does not uniquely determine a specific security as most providers offer different variations of an index fund. For example, Vanguard offers two funds that follows the _FTSE All-World_ index: an accumulating and a distributing version. The exact name of a fund normally depends on the chosen variation. And even for a specific security such as a fund with one variation, the names can vary depending on where you get your information from. Example given: the fund that was just mentioned has the name "Vanguard FTSE All-World UCITS ETF (USD) Accumulating" on justETF and "Vanguard FTSE All-World UCITS ETF USD Acc" on Google.
@@ -19,7 +17,7 @@ This means that in practice, a fund name **does not uniquely identify a security
 The purpose of the ISIN is to provide a universally applicable identification number for international securities and derivatives with the goal of reducing delay, **mismatches and confusion** in global financial markets. The first publication of the ISIN, as an ISO standard, was in 1986 to address problems in cross- border settlement of securities and has since been expanded to be used broadly in the **processing of transactions, recordkeeping and regulatory reporting**.
 {{< /definition >}}
 
-## Fund providers getting caught up in the mess
+## Fund providers also getting caught up in the mess
 
 The result is that the tax man, brokers and investors now have different interpretations of how certain securities should be taxed. For example, Vanguard provides only Key Investor Information Documents (KIID) [of their distributing securities to their Belgian investors](https://global.vanguard.com/portal/site/kiids/be/en/documents). This indicates Vanguard have only registered the distributing variants of their funds and not the accumulating ones, which makes complete sense: providers know not to register accumulating versions as that means customers would have to pay higher transaction taxes. However, it would be impossible to tell whether the accumulating or distributing variants are registered from looking at the FSMA's list. This is where an ISIN would come in handy.
 

@@ -16,7 +16,7 @@ However, there is ambiguity in checking whether a fund is actually registered or
 
 This means that in practice, a fund name **does not uniquely identify a security**. An ETF's name could refer to either the distributing or accumulating version if you're not careful. This is why many financial authorities and services use ISIN's to identify a specific security. After all, that's what they were designed for:
 {{< definition word="ISIN" url="https://committee.iso.org/files/live/sites/tc68/files/Robin%20Doyle/What%20is%20ISIN-Final.pdf" title="ISIN definition from ISO" source="ISO.org" >}}
-The purpose of the ISIN is to provide a universally applicable identification number for international securities and derivatives with the goal of reducing delay, <b>mismatches and confusion</b> in global financial markets. The first publication of the ISIN, as an ISO standard, was in 1986 to address problems in cross- border settlement of securities and has since been expanded to be used broadly in the <b>processing of transactions, recordkeeping and regulatory reporting</b>.
+The purpose of the ISIN is to provide a universally applicable identification number for international securities and derivatives with the goal of reducing delay, **mismatches and confusion** in global financial markets. The first publication of the ISIN, as an ISO standard, was in 1986 to address problems in cross- border settlement of securities and has since been expanded to be used broadly in the **processing of transactions, recordkeeping and regulatory reporting**.
 {{< /definition >}}
 
 ## Fund providers getting caught up in the mess

@@ -1,4 +1,4 @@
 <div class="definition">
 	<p class="title">{{ T "definition" (dict "Word" (.Get "word") "Url" (.Get "url") "Title" (.Get "title") "Source" (.Get "source")) | safeHTML }}:</p>
-	<p class="description"><b>"</b>{{ trim .Inner "\n" }}<b>"</b></p>
+	<p class="description">{{ trim .Inner "\n" | markdownify }}</p>
 </div>

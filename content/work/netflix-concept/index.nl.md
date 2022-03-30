@@ -17,4 +17,4 @@ imageName = "netflix-concept"
 imageName2 = ""
 comment = ""
 +++
-Concept redesign of Netflix's user dashboard page. I am not affiliated with Netfix.
+Concept redesign of Netflix's user dashboard page. I am not affiliated with Netflix.

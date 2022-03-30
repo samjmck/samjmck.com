@@ -13,7 +13,7 @@ dribbble = ""
 figma = ""
 github = ""
 
-imageName = "benmar-ltd"
+imageName = "birchvisas-ltd"
 imageName2 = ""
 
 comment = ""

@@ -2,7 +2,7 @@
 draft = false
 title = "eBay monitor"
 date = 2020-07-22T11:16:20+02:00
-weight = 2
+weight = 5
 
 endDate = 2020-07-22T11:16:20+02:00
 company = ""

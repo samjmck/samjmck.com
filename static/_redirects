@@ -1,3 +1,15 @@
 /email-pgp-key https://api.protonmail.ch/pks/lookup?op=get&search=me@samjmck.com
 /blog/using-caddy-with-cloudflare /en/blog/using-caddy-with-cloudflare 301
 /blog /en/blog 302
+/en/tags/* /en/blog 302!
+/en/tags /en/blog 302!
+/en/categories/* /en/blog 302!
+/en/categories /en/blog 302!
+/en/work/* /en 302!
+/en/work /en 302!
+/nl/tags/* /nl/blog 302!
+/nl/tags /nl/blog 302!
+/nl/categories/* /nl/blog 302!
+/nl/categories /nl/blog 302!
+/nl/work/* /nl 302!
+/nl/work /nl 302!

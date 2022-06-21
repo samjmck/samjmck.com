@@ -10,7 +10,7 @@
         <div id="article-header">
             <h1 id="title">{{ .Title }}</h1>
 
-            <p id="details">{{ .PublishDate.Format "January 2, 2006" }}{{ if ne .PublishDate .Lastmod }} &mdash; last edit on {{ .Lastmod.Format "January 2, 2006" }}{{ end }}</p>
+            <p id="details">{{ if ne .PublishDate .Lastmod }}<span>Last updated {{ .Lastmod.Format "January 2, 2006" }}</span> &mdash; <span>{{ end }}Published {{ .PublishDate.Format "January 2, 2006" }}</span></p>
         </div>
         <main>
             {{ .Content }}

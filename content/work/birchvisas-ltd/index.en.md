@@ -17,5 +17,6 @@ imageName = "birchvisas-ltd"
 imageName2 = ""
 
 comment = ""
+sitemap_ex = true
 +++
 Design and development of website and proprietary content management system

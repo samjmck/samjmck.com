@@ -16,5 +16,6 @@ figma = ""
 imageName = "tobcalc"
 imageName2 = ""
 comment = ""
+sitemap_ex = true
 +++
 Web app that calculates the Belgian transaction tax from foreign brokers and fills in the tax declaration PDF with the user's details and the calculated taxes.

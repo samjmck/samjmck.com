@@ -17,5 +17,6 @@ imageName = ""
 imageName2 = ""
 
 comment = ""
+sitemap_ex = true
 +++
 Short description.

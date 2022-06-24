@@ -16,5 +16,6 @@ figma = "https://www.figma.com/file/Spdj0u4Ua4Qq0XztFPvuGSvB/Netflix-redesign?no
 imageName = "netflix-concept"
 imageName2 = ""
 comment = ""
+sitemap_ex = true
 +++
 Concept redesign of Netflix's user dashboard page. I am not affiliated with Netflix.

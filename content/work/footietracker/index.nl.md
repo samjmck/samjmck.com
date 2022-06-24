@@ -18,5 +18,6 @@ imageName = "footietracker"
 imageName2 = ""
 
 comment = ""
+sitemap_ex = true
 +++
 Development and design of a portfolio tracker for a virtual football stock market (inactive project)

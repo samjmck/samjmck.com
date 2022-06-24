@@ -17,5 +17,6 @@ imageName = "terminal"
 imageName2 = "telegram"
 
 comment = ""
+sitemap_ex = true
 +++
 Development of a tool that web scrapes eBay and notifies a Telegram account

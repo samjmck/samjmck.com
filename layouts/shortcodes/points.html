@@ -1,0 +1,4 @@
+<div class="points {{ .Get "type" }}">
+	<p class="title">{{ .Get "title" | markdownify }}</p>
+	<p class="description">{{ trim .Inner "\n" | markdownify }}</p>
+</div>

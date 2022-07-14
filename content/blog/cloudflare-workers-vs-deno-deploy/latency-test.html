@@ -1,0 +1,21 @@
+<html>
+<body>
+	<button id="test-latency">Test latency</button>
+	<p id="result"></p>
+	<script>
+		const resultElement = document.getElementById("result");
+		const iterations = 10;
+		document.getElementById("test-latency").addEventListener("click", async () => {
+			let total = 0;
+			for(let i = 0; i < iterations; i++) {
+				const t0 = performance.now();
+				await fetch(`${url}`);
+				const t1 = performance.now();
+				total += t1 - t0;
+			}
+			const average = Math.round(total/iterations);
+			resultElement.innerHTML = `Average request time (${iterations} iterations): ${average}ms`;
+		});
+	</script>
+</body>
+</html>

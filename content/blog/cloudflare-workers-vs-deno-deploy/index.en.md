@@ -2,8 +2,8 @@
 title = "Comparing Cloudflare Workers with Deno Deploy"
 description = "Cloudflare Workers and Deno Deploy are both cutting edge serverless computing platforms. In some ways, they are very similar. For example, both platforms implement web APIs such as fetch which are also used in browsers. In other ways, such as package management, they are quite different. This blog post compares the two platforms."
 date = 2022-07-08T23:13:54+02:00
-lastmod = 2022-07-14T23:13:54+02:00
-publishdate = 2022-07-14T23:13:54+02:00
+lastmod = 2022-07-14T12:13:54+02:00
+publishdate = 2022-07-14T12:13:54+02:00
 tags = ["cloudflare", "cloudflare deploy", "deno", "deno deploy", "serverless", "web"]
 categories = ["development"]
 draft = false

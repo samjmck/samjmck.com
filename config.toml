@@ -4,6 +4,9 @@ defaultContentLanguage = "en"
 disableAliases = true
 title = "Sam Mckenzie"
 
+[params]
+newsletter_groups = ["web development", "fintech and finance", "other"]
+
 [outputs]
     section = ["HTML", "JSON"]
 

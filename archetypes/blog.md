@@ -6,6 +6,7 @@ lastmod = {{ .Date }}
 publishdate = {{ .Date }}
 tags = []
 categories = []
+newsletter_groups = []
 draft = true
 +++
 

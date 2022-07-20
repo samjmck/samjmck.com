@@ -58,9 +58,39 @@ input, input:active, input:focus {
   outline: 0;
 }
 
+div.input {
+  display: inline-block;
+
+  label {
+    display: block;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-bottom: 0.3em;
+  }
+}
+
+input {
+  border: 1px solid #d7d7d7;
+  padding: 0.6em;
+  font-size: 0.85em;
+  border-radius: 0.3em;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
 button, button:active, button:focus{
   outline: 0;
   border: 0;
+}
+
+button {
+  padding: 0.6em 0.7em;
+  font-size: 0.8em;
+  border-radius: 0.3em;
+  background-color: #282828;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 500;
+  box-shadow: 0.1em 0.1em 0.3em rgba(0,0,0,0.15);
 }
 
 a.button.black {

@@ -1,0 +1,17 @@
+<form class="newsletter">
+    <p class="description">Subscribe to receive an email when I publish an article</p>
+    <ul class="groups">
+    {{- $groups := .Params.newsletter_groups -}}
+    {{ range $index, $.Site.Params.newsletter_groups }}
+        <li><input type="checkbox" id="group_{{ $index }}" value="{{ . }}" {{- if in $groups . -}}checked{{- end -}} /> <label for="group_{{ $index }}">{{ . | humanize }}</label></li>
+    {{ end }}
+    </ul>
+    <div class="inputs">
+        <div class="input">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="john.doe@gmail.com" />
+        </div>
+        <button type="submit">Subscribe</button>
+    </div>
+    <p class="result"></p>
+</form>

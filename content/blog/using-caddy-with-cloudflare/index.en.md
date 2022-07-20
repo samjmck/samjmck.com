@@ -7,6 +7,7 @@ lastmod = 2022-06-21T19:35:17+02:00
 publishdate = 2020-07-10T00:25:24+02:00
 draft = false
 categories = ["development"]
+newsletter_groups = ["web development"]
 +++
 
 Configuring Cloudflare can be quite difficult. There are many settings for proxying and SSL that can be fairly confusing if you don't understand what they do or how to configure them on your web server. And while there are plenty of tutorials out there explaining how to use configure nginx or Apache for Cloudflare, there aren't really any that explain how to configure Caddy.

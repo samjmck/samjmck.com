@@ -5,9 +5,11 @@
 @import '../layout/section';
 @import '../modules/fonts/source-sans-pro-400';
 @import '../modules/fonts/source-sans-pro-400i';
+@import '../modules/fonts/source-sans-pro-500';
 @import '../modules/fonts/source-sans-pro-600';
 @import '../modules/syntax';
 @import '../layout/mobile-navigation';
+@import '../modules/newsletter';
 
 article {
   padding: 2em 1em;
@@ -108,7 +110,7 @@ article {
     h2, h3, h4, h5 {
       font-size: 1.35em;
       font-family: 'Source Sans Pro', sans-serif;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     img {

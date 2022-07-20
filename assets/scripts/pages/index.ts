@@ -1,5 +1,6 @@
 import '../modules/smooth-scroll';
 import '../modules/mobile-navigation';
+import '../modules/newsletter';
 
 const headerElement = document.getElementsByTagName('header')[0]
 if("IntersectionObserver" in window) {

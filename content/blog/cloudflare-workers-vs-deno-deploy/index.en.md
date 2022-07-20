@@ -6,10 +6,11 @@ lastmod = 2022-07-14T12:13:54+02:00
 publishdate = 2022-07-14T12:13:54+02:00
 tags = ["cloudflare", "cloudflare deploy", "deno", "deno deploy", "serverless", "web"]
 categories = ["development"]
+newsletter_groups = ["web development"]
 draft = false
 +++
 
-When it comes to serverless computing platforms, Cloudflare Workers and Deno Deploy are more similar than other platforms in the sense that they both implement [standard web API's](https://developer.mozilla.org/en-US/docs/Web/API). This means that they should be easier to get started with for developers that generally write code that is run in a browser. However, they still differ from each other in a number of other aspects. In this post, I'll be highlighting some of those diferences.
+When it comes to serverless computing platforms, Cloudflare Workers and Deno Deploy are more similar than other platforms in terms of the [standard web API's](https://developer.mozilla.org/en-US/docs/Web/API) they implement. This means that they should be easier to get started with for developers that generally write code that is run in a browser. However, they still differ from each other in a number of other aspects. In this post, I'll be highlighting some of those diferences.
 
 {{< tableofcontents >}}
 <ol>
@@ -19,7 +20,7 @@ When it comes to serverless computing platforms, Cloudflare Workers and Deno Dep
   <li><a href="#4-regions">Regions</a></li>
   <a href="#summary">Summary: positives and negatives of each platform</a>
   <!--
-    - Developer environment, developer experience
+    - (Offline) developing experience/environment
     - Documentation
     - Pricing
   -->

@@ -2,7 +2,7 @@
 title = "Comparing Cloudflare Workers with Deno Deploy"
 description = "Cloudflare Workers and Deno Deploy are both cutting edge serverless computing platforms. In some ways, they are very similar. For example, both platforms implement web APIs such as fetch which are also used in browsers. In other ways, such as package management, they are quite different. This blog post compares the two platforms."
 date = 2022-07-08T23:13:54+02:00
-lastmod = 2022-07-14T12:13:54+02:00
+lastmod = 2022-07-22T12:13:54+02:00
 publishdate = 2022-07-14T12:13:54+02:00
 tags = ["cloudflare", "cloudflare deploy", "deno", "deno deploy", "serverless", "web"]
 categories = ["development"]
@@ -106,13 +106,9 @@ Running `wrangler dev` gives you a way to test your Worker before deploying it. 
 
 To test fully locally, you should run `wrangler dev --local`. This runs a Cloudflare Worker simulation with [Miniflare](https://github.com/cloudflare/miniflare), which used to be a third party project but is now being maintained by Cloudflare.
 
-There are some other quirks that you might have to get used to. In the `wrangler.toml` configuration file, you can configure the project and define environment variables for different environments such as production or staging. However, it doesn't seem like environments are actually well-defined or used within the Cloudflare Workers dashboard itself. The official documentation says:
+There are some other quirks that you might have to get used to. In the `wrangler.toml` configuration file, you can configure the project and define environment variables for different environments such as production or staging. ~~However, it doesn't seem like environments are actually well-defined or used within the Cloudflare Workers dashboard itself.~~
 
-> You cannot specify multiple environments with the same name. If this were allowed, publishing each environment would overwrite your previously deployed Worker, and the behavior would not be clear.
-
-This means that each environment ends up being deployed to a different Worker as you can see in the image below. Each Worker in the dashboard also has a "production" and "1 environment" label which makes it even more confusing.
-
-{{< img src="2-cloudflare-workers-environments.png" alt="Cloudflare Workers environments" >}}
+**Update:** It seems like Cloudflare are working on [improving environments](https://developers.cloudflare.com/workers/learning/using-services/#service-environments) and are transitioning to a new system in the dashboard. The next version of `wrangler` is supposed to support this new system.
 
 Something to also be aware of is the fact that if you set env variables in the dashboard of a Worker and then publish code to that Worker with a configuration file that doesn't have any env variables, that the env variables initially set in the dashboard will get deleted.
 
@@ -124,7 +120,7 @@ Testing for Deno Deploy is incredibly easy as you can test it as you would test 
 
 Deno Deploy has support for environment variables but only through their dashboard. Cloudflare Workers environment variables can be defined either in the dashboard or the local configuration file.
 
-There is no support for different environments such as production or staging in Deno Deploy. While the `wrangler` CLI seems to offer support for different environments in Cloudflare Workers, each "environment" gets deployed to a different Worker with seemingly no support or integration for environments in the Cloudflare Workers dashboard.
+There is no support for different environments such as production or staging in Deno Deploy. As of the 22nd of July 2022, there is half-baked support for enviroments within Cloudflare Workers, but it seems like Cloudflare are actively transitioning to a system which should allow for better support.
 
 ## 3. Compatible APIs and libraries
 
@@ -258,7 +254,6 @@ Deno Deploy's dashboard provides a better user experience as it is easier and si
     {{< /points >}}
     {{< points type="negatives" title="Cloudflare Workers negatives" >}}
 - Dashboard can feel bloated if you don't use Cloudflare's other services
-- CLI can be unclear and overwhelming at times for features such as environments
 - No option to link Worker to a git repo
 - `wrangler init` required to setup Worker project, installing a number of node modules
 - Need to change nameservers of domain to use that domain for a Worker
@@ -274,6 +269,7 @@ Deno Deploy's dashboard provides a better user experience as it is easier and si
     {{< points type="negatives" title="Deno Deploy negatives" >}}
 - Only 34 different locations
 - Playground environment is lacking in some features such being able to set request body, headers, be able to see HTTP requests...
+- No support for different environments such as a production or staging environment
 - GitHub required to make an account, no support for other git hosters for pulling code
 - Limited analytics, no custom time period
     {{< /points >}}

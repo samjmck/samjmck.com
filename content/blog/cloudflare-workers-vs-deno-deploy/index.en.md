@@ -12,12 +12,16 @@ draft = false
 
 When it comes to serverless computing platforms, Cloudflare Workers and Deno Deploy are more similar than other platforms in terms of the [standard web API's](https://developer.mozilla.org/en-US/docs/Web/API) they implement. This means that they should be easier to get started with for developers that generally write code that is run in a browser. However, they still differ from each other in a number of other aspects. In this post, I'll be highlighting some of those diferences.
 
+If you want a summary of the most important differences, then you can [skip to the summary at the end of the post](#summary).
+
 {{< tableofcontents >}}
 <ol>
   <li><a href="#1-how-easy-is-it-to-get-up-and-running-from-scratch">How easy it it to get up and running from scratch?</a></li>
-  <li><a href="#2-compatible-apis-and-libraries">Compatible APIs and libraries</a></li>
-  <li><a href="#3-ecosystem">Ecosystem</a></li>
-  <li><a href="#4-regions">Regions</a></li>
+  <li><a href="#2-developer-and-debugging-experience">Developer and debugging experience</a></li>
+  <li><a href="#3-compatible-apis-and-libraries">Compatible APIs and libraries</a></li>
+  <li><a href="#4-ecosystem">Ecosystem</a></li>
+  <li><a href="#5-regions">Regions</a></li>
+  <li><a href="#6-dashboards">Dashboards</a></li>
   <a href="#summary">Summary: positives and negatives of each platform</a>
   <!--
     - (Offline) developing experience/environment
@@ -26,8 +30,6 @@ When it comes to serverless computing platforms, Cloudflare Workers and Deno Dep
   -->
 </ol>
 {{< /tableofcontents >}}
-
-If you want a summary of the most important differences, then you can [skip to the end of the post](#summary).
 
 ## 1. How easy is it to get up and running from scratch?
 
@@ -69,7 +71,7 @@ addEventListener("fetch", event => {
 
 This code was written in the [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) syntax. New Cloudflare Workers documentation frequently uses JavaScript modules instead now. More on this later.
 
-To deploy your code, you can run `wrangler deploy`. The CLI will then show the URL where the worker has been deployed which you will also be able to see in the newly created project in the Workers dashboard.
+To deploy your code, you can run `wrangler publish`. The CLI will then show the URL where the worker has been deployed which you will also be able to see in the newly created project in the Workers dashboard.
 
 {{< img src="1-cloudflare-workers-deployment.png" alt="Cloudflare Workers deployed project" >}}
 
@@ -79,8 +81,52 @@ It's easier to get started with Deno Deploy than Cloudflare Workers because of D
 
 The downside of the Deno is that you are required to use GitHub to be able to create an account with them and that their auto-deployments are also only compatible with GitHub which might turn you away if you don't use GitHub.
 
+## 2. Developer and debugging experience
 
-## 2. Compatible APIs and libraries
+### Deno
+
+The Deno Deploy playground enviroment includes a code editor built with Monaco. If you are used to VS Code, this will feel familiar to you as VS Code also uses Monaco. This means you can edit TypeScript or JavaScript code and deploy it without having to leave your browser.
+
+{{< img src="2-deno-deploy-playground.png" alt="Deno Deploy playground" >}}
+
+You can see logs and also set environment variables for the playground. However, it's not possible to resize the logs window which means you can't see much in it. Another thing that isn't possible is editing the code of a project that is connected to a GitHub repository.
+
+However, the playground is in many cases not even neccesary as it's very easy to test a script made for Deno Deploy locally: you can run it just like any other Deno script with `deno run --allow-net [script].ts`. At that point, you can just test your code just like you would any other local web app.
+
+
+### Cloudflare
+
+Just like the Deno Deploy playground, Cloudflare Workers use Monaco for their code editor so it feels just like VS Code. The Cloudflare Workers playground also includes some familiar tools from the Chrome devtools such as the logs and network panel. The network panel is especially useful as you can see the details of the requests made by the Worker just like you would in a browser. Note that these tools unfortunately do not work outside of Chrome. It's also possible to set the method, headers and body of the HTTP request.
+
+{{< img src="2-cloudflare-workers-playground.png" alt="Cloudflare Workers playground" >}}
+
+Running `wrangler dev` gives you a way to test your Worker before deploying it. However, this developer environment by default isn't actually fully local. This is what the [Cloudflare documentation](https://developers.cloudflare.com/workers/wrangler/commands/#dev) says:
+
+> The `wrangler dev` command that establishes a connection between localhost and a Cloudflare server that hosts your Worker in development. This allows full access to Workers KV and Durable Objects.
+
+To test fully locally, you should run `wrangler dev --local`. This runs a Cloudflare Worker simulation with [Miniflare](https://github.com/cloudflare/miniflare), which used to be a third party project but is now being maintained by Cloudflare.
+
+There are some other quirks that you might have to get used to. In the `wrangler.toml` configuration file, you can configure the project and define environment variables for different environments such as production or staging. However, it doesn't seem like environments are actually well-defined or used within the Cloudflare Workers dashboard itself. The official documentation says:
+
+> You cannot specify multiple environments with the same name. If this were allowed, publishing each environment would overwrite your previously deployed Worker, and the behavior would not be clear.
+
+This means that each environment ends up being deployed to a different Worker as you can see in the image below. Each Worker in the dashboard also has a "production" and "1 environment" label which makes it even more confusing.
+
+{{< img src="2-cloudflare-workers-environments.png" alt="Cloudflare Workers environments" >}}
+
+Something to also be aware of is the fact that if you set env variables in the dashboard of a Worker and then publish code to that Worker with a configuration file that doesn't have any env variables, that the env variables initially set in the dashboard will get deleted.
+
+### Conclusion
+
+Both platforms use Monaco for their playgrounds which most developers will feel familiar with. The Deno Deploy playground is lacking is some aspects: the logs panel is not resizable, there is no way to customise HTTP requests and there is no way to explore the requests being made in an execution of a script. These features are implemented in the Cloudflare Workers playground, but some of the devtools are Chrome exclusive.
+
+Testing for Deno Deploy is incredibly easy as you can test it as you would test a normal Deno script. Cloudflare Workers on the other hand requires the `wrangler` CLI which can be quite confusing at times. The CLI includes a simulator which allows you to test not only Workers, but also other Cloudflare serverless services such as their key-value store. However, the testing or developer environment instead defaults to using a bridge between localhost and Cloudflare servers.
+
+Deno Deploy has support for environment variables but only through their dashboard. Cloudflare Workers environment variables can be defined either in the dashboard or the local configuration file.
+
+There is no support for different environments such as production or staging in Deno Deploy. While the `wrangler` CLI seems to offer support for different environments in Cloudflare Workers, each "environment" gets deployed to a different Worker with seemingly no support or integration for environments in the Cloudflare Workers dashboard.
+
+## 3. Compatible APIs and libraries
 
 ### Deno
 
@@ -107,7 +153,7 @@ Deno apps should be able to run on Deno Deploy without any modifications whereas
 What's notable is that there's now a group called [WinterCG](https://wintercg.org) that is focused on implementing standardised web APIs is runtime environments that aren't browsers. Cloudflare and Deno are both part of this group. Compared to platforms such as AWS Lambda, writing code for Cloudflare Workers or Deno Deploy is often more enjoyable as web developers can use the same well-documented APIs that are used in client-side web apps.
 
 
-## 3. Ecosystem
+## 4. Ecosystem
 
 ### Deno
 
@@ -126,7 +172,7 @@ Cloudflare have a number of services that work nicely with Workers:
 
 Cloudflare has many more services available that work nicely with Workers while Deno currently only has Deno Deploy. Most of these services have to do with storing data in some form of database one way or another. In this sense, Deno makes up for it slightly by making connections with SQL servers possible.
 
-## 4. Regions
+## 5. Regions
 
 ### Deno
 
@@ -159,7 +205,7 @@ To see which location is serving a request, you can look at the `cf-ray` respons
 Due to the scale of Cloudflare, Workers currently has more than 250 locations while Deno Deploy is limited to 34 locations.
 
 
-## 5. Dashboards
+## 6. Dashboards
 
 ### Deno
 
@@ -205,12 +251,15 @@ Deno Deploy's dashboard provides a better user experience as it is easier and si
     {{< points type="positives" title="Cloudflare Workers positives" >}}
 - More than 250 different locations
 - Strong ecosystem with other serverless services such as Workers KV
+- Playground enviroment is surprisingly useful with some Chrome devtools built-in and the abilitity to choose headers and content of requests
 - Implementation of web APIs such as `fetch`, `TextEncoder`, `TextDecoder` etc.
 - Analytics dashboard has a customisable time period as well and different metrics to choose from
 - Useful logs with different events and their parameters, such as headers of a response in a fetch
     {{< /points >}}
     {{< points type="negatives" title="Cloudflare Workers negatives" >}}
 - Dashboard can feel bloated if you don't use Cloudflare's other services
+- Some of the playground tools are Chrome exclusive
+- CLI can be unclear and overwhelming at times for features such as environments
 - No option to update Worker on GitHub repo push
 - `wrangler init` required to setup Worker project installing a number of node modules
 - Need to change nameservers of domain to use that domain for a Worker
@@ -218,13 +267,14 @@ Deno Deploy's dashboard provides a better user experience as it is easier and si
   {{< /column >}}
   {{< column >}}
     {{< points type="positives" title="Deno Deploy positives" >}}
-- Deno projects work with Deno Deploy straight out of the box
+- Deno projects work with Deno Deploy straight out of the box providing an intuitive and straightforward developer experience
 - Effective, straight to the point dashboard
 - Support for connections with database servers because of socket support
 - Trigger new deploy on GitHub repo commit
     {{< /points >}}
     {{< points type="negatives" title="Deno Deploy negatives" >}}
 - Only 34 different locations
+- Playground environment is lacking in some features such being able to set request body, headers, be able to see HTTP requests...
 - GitHub required to make an account, no support for other git hosters for pulling code
 - Limited analytics, no custom time period
     {{< /points >}}

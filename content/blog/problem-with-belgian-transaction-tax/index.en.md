@@ -6,7 +6,7 @@ lastmod = 2022-07-13T00:32:56+01:00
 publishdate = 2022-03-27T00:32:56+01:00
 tags = ["tax", "FSMA", "brokers", "banks"]
 categories = ["finance", "investing"]
-newsletter_groups = ["fintech and finance"]
+newsletter_groups = ["Fintech & finance"]
 +++
 
 Fund providers can register their funds with the Financial Services and Markets Authority (FSMA) if they want to advertise those funds to Belgian investors. However, the tax law says that registered funds have a transaction tax of 1,32%. This rate is notably higher than the 0,12% transaction tax for funds that not registered in Belgium but are registered with another member of the European Economic Area. For this reason, most Belgian investors avoid purchasing funds that are registered with the FSMA.

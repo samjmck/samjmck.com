@@ -6,7 +6,7 @@ lastmod = 2020-12-30T20:50:08+02:00
 publishdate = 2020-12-30T20:50:08+02:00
 tags = ["netlify", "hugo"]
 categories = ["development"]
-newsletter_groups = ["web development"]
+newsletter_groups = ["Web dev"]
 draft = false
 +++
 

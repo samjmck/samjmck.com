@@ -6,7 +6,7 @@ lastmod = 2022-07-14T12:13:54+02:00
 publishdate = 2022-07-14T12:13:54+02:00
 tags = ["cloudflare", "cloudflare deploy", "deno", "deno deploy", "serverless", "web"]
 categories = ["development"]
-newsletter_groups = ["web development"]
+newsletter_groups = ["Web dev"]
 draft = false
 +++
 

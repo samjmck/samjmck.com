@@ -4,8 +4,15 @@ defaultContentLanguage = "en"
 disableAliases = true
 title = "Sam Mckenzie"
 
-[params]
-newsletter_groups = ["web development", "fintech and finance", "other"]
+[[params.newsletter_groups]]
+id = "61323516417410084"
+name = "Fintech & finance"
+[[params.newsletter_groups]]
+id = "61323595657250046"
+name = "Web dev"
+[[params.newsletter_groups]]
+id = "61323543989716823"
+name = "Other"
 
 [outputs]
     section = ["HTML", "JSON"]

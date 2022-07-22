@@ -5,9 +5,11 @@ const responseElement = formElement.querySelector("p.result");
 formElement.addEventListener("submit", async event => {
     event.preventDefault();
     const email = emailElement.value;
-    const groups = [];
+    const groupIds: number[] = [];
     formCheckboxElements.forEach(checkboxElement => {
-        groups.push(checkboxElement.value);
+        if(checkboxElement.checked) {
+            groupIds.push(checkboxElement.value);
+        }
     });
     const response = await fetch("/newsletter", {
         method: "POST",
@@ -16,7 +18,7 @@ formElement.addEventListener("submit", async event => {
         },
         body: JSON.stringify({
             email,
-            groups,
+            group_ids: groupIds,
         }),
     });
     if(response.status === 200 || response.status === 201) {

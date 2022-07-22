@@ -6,7 +6,7 @@ lastmod = 2021-08-16T19:35:17+02:00
 publishdate = 2021-07-16T00:25:24+02:00
 tags = ["saas"]
 categories = ["development"]
-newsletter_groups = ["other"]
+newsletter_groups = ["Other"]
 draft = false
 +++
 

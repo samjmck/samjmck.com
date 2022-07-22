@@ -2,8 +2,8 @@
     <p class="description">Subscribe to receive an email when I publish an article</p>
     <ul class="groups">
     {{- $groups := .Params.newsletter_groups -}}
-    {{ range $index, $.Site.Params.newsletter_groups }}
-        <li><input type="checkbox" id="group_{{ $index }}" value="{{ . }}" {{- if in $groups . -}}checked{{- end -}} /> <label for="group_{{ $index }}">{{ . | humanize }}</label></li>
+    {{ range $.Site.Params.newsletter_groups }}
+        <li><input type="checkbox" id="group_{{ .id }}" value="{{ .id }}" {{- if in $groups .name }} checked{{- end -}} /> <label for="group_{{ .id }}">{{ .name | humanize }}</label></li>
     {{ end }}
     </ul>
     <div class="inputs">
@@ -11,7 +11,7 @@
             <label for="email">Email</label>
             <input type="email" id="email" placeholder="john.doe@gmail.com" />
         </div>
-        <button type="submit">Subscribe</button>
+        <button class="black" type="submit">Subscribe</button>
     </div>
     <p class="result"></p>
 </form>

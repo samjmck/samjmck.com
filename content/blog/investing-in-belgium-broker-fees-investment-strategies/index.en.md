@@ -6,7 +6,7 @@ lastmod = 2022-04-13T21:51:57+01:00
 publishdate = 2022-04-13T21:51:57+01:00
 tags = []
 categories = ["investing", "finance", "guide"]
-newsletter_groups = ["fintech and finance"]
+newsletter_groups = ["Fintech & finance"]
 draft = true
 +++
 

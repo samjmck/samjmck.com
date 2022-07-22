@@ -82,18 +82,27 @@ button, button:active, button:focus{
   border: 0;
 }
 
-button {
+button.black {
   padding: 0.6em 0.7em;
   font-size: 0.8em;
-  border-radius: 0.3em;
-  background-color: #282828;
-  color: white;
+  border-radius: 5px;
+  color: $white;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 500;
   box-shadow: 0.1em 0.1em 0.3em rgba(0,0,0,0.15);
+  background-color: #181818f0;
+  transition: box-shadow .15s ease-in-out, background-color .2s ease-in-out, transform .1s ease-in-out;
+  transform: scale(1);
+}
+button.black:hover {
+  transform: scale(1.02);
+  transition: box-shadow .15s ease-in-out, background-color .2s ease-in-out, transform .15s ease-in-out;
+  box-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,0.35);
+  background-color: #0e0e0e;
 }
 
 a.button.black {
+  font-family: "Source Sans Pro", sans-serif;
   background-color: #181818f0;
   color: $white;
   border-radius: 5px;

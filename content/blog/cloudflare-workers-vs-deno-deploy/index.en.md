@@ -85,7 +85,7 @@ The downside of the Deno is that you are required to use GitHub to be able to cr
 
 ### Deno
 
-The Deno Deploy playground enviroment includes a code editor built with Monaco. If you are used to VS Code, this will feel familiar to you as VS Code also uses Monaco. This means you can edit TypeScript or JavaScript code and deploy it without having to leave your browser.
+The Deno Deploy playground environment includes a code editor built with Monaco. If you are used to VS Code, this will feel familiar to you as VS Code also uses Monaco. This means you can edit TypeScript or JavaScript code and deploy it without having to leave your browser.
 
 {{< img src="2-deno-deploy-playground.png" alt="Deno Deploy playground" >}}
 
@@ -251,17 +251,16 @@ Deno Deploy's dashboard provides a better user experience as it is easier and si
     {{< points type="positives" title="Cloudflare Workers positives" >}}
 - More than 250 different locations
 - Strong ecosystem with other serverless services such as Workers KV
-- Playground enviroment is surprisingly useful with some Chrome devtools built-in and the abilitity to choose headers and content of requests
+- Playground environment is surprisingly useful and funtional
 - Implementation of web APIs such as `fetch`, `TextEncoder`, `TextDecoder` etc.
 - Analytics dashboard has a customisable time period as well and different metrics to choose from
 - Useful logs with different events and their parameters, such as headers of a response in a fetch
     {{< /points >}}
     {{< points type="negatives" title="Cloudflare Workers negatives" >}}
 - Dashboard can feel bloated if you don't use Cloudflare's other services
-- Some of the playground tools are Chrome exclusive
 - CLI can be unclear and overwhelming at times for features such as environments
-- No option to update Worker on GitHub repo push
-- `wrangler init` required to setup Worker project installing a number of node modules
+- No option to link Worker to a git repo
+- `wrangler init` required to setup Worker project, installing a number of node modules
 - Need to change nameservers of domain to use that domain for a Worker
     {{< /points >}}
   {{< /column >}}

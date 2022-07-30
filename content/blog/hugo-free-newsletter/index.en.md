@@ -35,7 +35,7 @@ Once you've signed up and are in the dashboard, go to the "Subscribers" section 
 
 In my case, I will be writing about web development, finance and a few more random topics. I have created 3 groups that corresponds with these topics:
 
-{{< img src="subscribers-groups" alt="Creating groups in the subscribers section of the MailerLite dashboard" >}}
+{{< img src="subscribers-groups.png" alt="Creating groups in the subscribers section of the MailerLite dashboard" >}}
 
 ### Getting your API token
 

@@ -1,6 +1,6 @@
 +++
 title = "How to use Caddy with Cloudflare's SSL settings"
-tags = ["caddy", "cloudflare"]
+tags = ["caddy", "cloudflare", "guide"]
 description = "Cloudflare is one of the most used reverse proxies on the internet. There are a number of different ways to configure your SSL and TLS settings on Cloudflare as well as Caddy. In this post, I will explain how you can configure your Caddy server to work properly with Cloudflare."
 date = 2020-07-07T00:25:24+02:00
 lastmod = 2022-06-21T19:35:17+02:00

@@ -2,7 +2,7 @@
 title = "Comparing Cloudflare Workers with Deno Deploy"
 description = "Cloudflare Workers and Deno Deploy are both cutting edge serverless computing platforms. In some ways, they are very similar. For example, both platforms implement web APIs such as fetch which are also used in browsers. In other ways, such as package management, they are quite different. This blog post compares the two platforms."
 date = 2022-07-08T23:13:54+02:00
-lastmod = 2022-07-22T12:13:54+02:00
+lastmod = 2022-07-30T12:13:54+02:00
 publishdate = 2022-07-14T12:13:54+02:00
 tags = ["cloudflare", "cloudflare deploy", "deno", "deno deploy", "serverless", "web"]
 categories = ["development"]
@@ -247,6 +247,7 @@ Deno Deploy's dashboard provides a better user experience as it is easier and si
     {{< points type="positives" title="Cloudflare Workers positives" >}}
 - More than 250 different locations
 - Strong ecosystem with other serverless services such as Workers KV
+- Support for cron scheduling
 - Playground environment is surprisingly useful and funtional
 - Implementation of web APIs such as `fetch`, `TextEncoder`, `TextDecoder` etc.
 - Analytics dashboard has a customisable time period as well and different metrics to choose from
@@ -254,6 +255,7 @@ Deno Deploy's dashboard provides a better user experience as it is easier and si
     {{< /points >}}
     {{< points type="negatives" title="Cloudflare Workers negatives" >}}
 - Dashboard can feel bloated if you don't use Cloudflare's other services
+- Confusing interface if you're working in different environments such as staging and production
 - No option to link Worker to a git repo
 - `wrangler init` required to setup Worker project, installing a number of node modules
 - Need to change nameservers of domain to use that domain for a Worker

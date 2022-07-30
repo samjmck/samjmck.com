@@ -47,7 +47,7 @@
                     {{- end }}
                 </ul>
             </div>
-            <div class="filter">
+            <!--<div class="filter">
                 <p class="filter-title"><span class="filter-name">Languages</span> <span class="filter-action show-filter showing">Show</span><span class="filter-action hide-filter">Hide</span></p>
                 <ul class="filter-list">
                     <li class="selected language" data-language-code="all">all</li>
@@ -55,7 +55,7 @@
                     <li class="language" data-language-code="{{ .Lang }}">{{ .LanguageName }}</li>
                     {{ end }}
                 </ul>
-            </div>
+            </div>-->
             {{- $hashtagSvg := `<svg class="hashtag" viewBox="0 0 30 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.952381 38L4.52381 27.0092H0L1.25 21.8062H6.13095L8.27381 15.0246H3.75L5.05952 9.82154H9.94048L13.1548 0H17.9762L14.7619 9.82154H20.7143L23.9286 0H28.6905L25.5357 9.82154H30L28.75 15.0246H23.869L21.7262 21.8062H26.25L25 27.0092H20.0595L16.4881 38H11.6667L15.2381 27.0092H9.28572L5.71429 38H0.952381ZM10.9524 21.8062H16.9048L19.0476 15.0246H13.0952L10.9524 21.8062Z" fill="#323030" fill-opacity="0.5"/>
                 </svg>` | safeHTML -}}

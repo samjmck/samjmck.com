@@ -44,6 +44,19 @@ article {
     }
   }
 
+  div.note {
+    padding: 0.6em 1em;
+    background-color: #eaedf1;
+    border-radius: 5px;
+
+    p {
+      margin: 0.4em 0;
+    }
+    p.title {
+      font-weight: 500;
+    }
+  }
+
   div.points {
     padding: 0.6em 1em;
     border-radius: 5px;

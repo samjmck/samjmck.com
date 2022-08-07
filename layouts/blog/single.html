@@ -2,6 +2,12 @@
 
 <head>
     {{- partial "head-content.html" . -}}
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@sam_mck" />
+    <meta name="twitter:creator" content="@sam_mck" />
+    <meta name="twitter:title" content="{{ .Title }}" />
+    <meta name="twitter:description" content="{{ .Description }}" />
 </head>
 <body>
     {{- partial "header-relative.html" . -}}

@@ -3,7 +3,7 @@ title = "How to use Caddy with Cloudflare's SSL settings"
 tags = ["caddy", "cloudflare", "guide"]
 description = "Cloudflare is one of the most used reverse proxies on the internet. There are a number of different ways to configure your SSL and TLS settings on Cloudflare as well as Caddy. In this post, I will explain how you can configure your Caddy server to work properly with Cloudflare."
 date = 2020-07-07T00:25:24+02:00
-lastmod = 2022-06-21T19:35:17+02:00
+lastmod = 2022-09-14T15:19:17+02:00
 publishdate = 2020-07-10T00:25:24+02:00
 draft = false
 categories = ["development"]
@@ -11,6 +11,19 @@ newsletter_groups = ["Web dev"]
 +++
 
 Configuring Cloudflare can be quite difficult. There are many settings for proxying and SSL that can be fairly confusing if you don't understand what they do or how to configure them on your web server. And while there are plenty of tutorials out there explaining how to use configure nginx or Apache for Cloudflare, there aren't really any that explain how to configure Caddy.
+
+{{< tableofcontents >}}
+<ol>
+   <li><a href="#configuration-with-reverse-proxy-disabled">Configuration with reverse proxy disabled</a></li>
+   <li><a href="#configuration-with-proxy-enabled">Configuration with proxy enabled</a></li>
+   <ol>
+      <li><a href="#1-using-cloudflares-origin-certificate">Using Cloudflare's origin certificate</a></li>
+      <li><a href="#2-using-a-lets-encrypt-certificate">Using a Let's Encrypt certificate</a></li>
+      <li><a href="#3-using-a-self-signed-certificate">Using a self-signed certificate</a></li>
+      <a href="#authenticated-origin-pull">Extra: authenticated origin pull</a>
+   </ol>
+</ol>
+{{< /tableofcontents >}}
 
 ## Configuration with reverse proxy disabled
 

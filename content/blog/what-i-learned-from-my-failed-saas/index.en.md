@@ -2,7 +2,7 @@
 title = "What I learned from my failed SaaS business"
 description = "I worked a year on a SaaS project. Even though it failed, there are some very valuable lessons that I learned."
 date = 2021-08-14T00:25:24+02:00
-lastmod = 2021-08-16T19:35:17+02:00
+lastmod = 2021-07-16T00:25:24+02:00
 publishdate = 2021-07-16T00:25:24+02:00
 tags = ["saas"]
 categories = ["development"]

@@ -3,7 +3,7 @@ title = "Creating a free mail newsletter for Hugo and other static site generato
 description = "I have created a very simple open-source script that allows you to create a free newsletter up to 1000 subscribers with MailerLite and Cloudflare Workers with minimal overhead. The necessary client-side scripts and templates are also provided along with an easy to integrate Hugo template."
 date = 2022-07-21T13:55:29+02:00
 lastmod = 2022-07-21T13:55:29+02:00
-publishdate = 2022-08-26T00:55:29+02:00
+publishdate = 2022-07-21T13:55:29+02:00
 tags = ["newsletter", "mailing list", "guide"]
 categories = ["development"]
 newsletter_groups = ["Web dev"]
@@ -15,7 +15,7 @@ The past week, I've been trying to find the best way to start a newsletter for m
 ## Requirements
 - A Cloudflare account for Cloudflare Workers (or Deno Deploy with some extra work)
 - A MailerLite account
-- Any website that you are able to modify the HTML of (this tutorial will use Hugo)
+- Any website that you are able to modify the HTML of
 
 {{< tableofcontents >}}
 <ol>

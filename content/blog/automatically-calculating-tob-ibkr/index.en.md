@@ -16,13 +16,12 @@ As I personally use Interactive Brokers, an American broker that doesn't declare
 
 {{< tableofcontents >}}
 <ol>
-  <li><a href="#1-when-to-pay-the-tax">When to declare and pay the tax</a></li>
+  <li><a href="#1-when-to-declare-and-pay-the-tax">When to declare and pay the tax</a></li>
   <li><a href="#2-how-to-calculate-the-tax">How to calculate the tax</a></li>
-  <li><a href="#3-how-to-pay-the-tax">How to declare the tax</a></li>
+  <li><a href="#3-how-to-declare-the-tax">How to declare the tax</a></li>
   <li><a href="#3-how-to-pay-the-tax">How to pay the tax</a></li>
   <a href="#summary">Summary</a>
 </ol>
-
 {{< /tableofcontents >}}
 
 ## 1. When to declare and pay the tax

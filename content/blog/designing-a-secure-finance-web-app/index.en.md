@@ -2,7 +2,7 @@
 title = "Designing a functional and secure finance web app"
 description = "I made a single-page application to calculate the Belgian stock market transaction tax. As the app deals with sensitive personal and financial information, one of the top priorites while designing the app was security. Bugs and security breaches are always bad but they are especially bad if the program is dealing with such sensitive information."
 date = 2022-07-23T12:46:15+02:00
-lastmod = 2022-07-23T12:46:15+02:00
+lastmod = 2022-07-30T12:46:15+02:00
 publishdate = 2022-07-30T12:46:15+02:00
 tags = ["finance", "web"]
 categories = ["development"]
@@ -11,6 +11,16 @@ draft = false
 +++
 
 A few months ago, I made [tobcalc](https://github.com/samjmck/tobcalc), a single-page web app that helps investors with filing and calculating the stock market transaction tax in Belgium. The number one priority while designing the app was security as the app deals with sensitive personal and financial information such as Belgian citizens' national registration number and transaction history from brokers. Security breaches and bugs in programs are always bad but they are especially bad if that program is dealing with such sensitive data. In this post, I'll be explaining how I designed the app to be functional as well as secure.
+
+{{< tableofcontents >}}
+<ol>
+	<li><a href="#do-as-much-as-possible-on-the-client-instead-of-the-server">Do as much as possible on the client instead of the server</a></li>
+	<li><a href="#keeping-everything-to-a-minimum">Keeping everything to a minimum</a></li>
+	<li><a href="#thinking-of-possible-attack-vectors">Thinking of possible attack vectors</a></li>
+	<li><a href="#unit-tests">Unit tests</a></li>
+	<li><a href="#a-clean-codebase-inspires-confidence-and-trust">A clean codebase inspires confidence and trust</a></li>
+</ol>
+{{< /tableofcontents >}}
 
 ## Do as much as possible on the client instead of the server
 

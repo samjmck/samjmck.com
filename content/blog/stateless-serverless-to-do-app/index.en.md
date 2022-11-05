@@ -190,7 +190,7 @@ Here's a small summary of all the technologies I used to build it:
 
 ## Performance
 
-Looking at the Chrome DevTools network tab shows us the load times for the Cloudflare Worker endpoints. The times of the requests `lists` and `share-list` are the Workers endpoints: `lists` creates the initial list for the user and the `share-list` requests generate the HMAC for that list (one writable and one non-writable).
+The Chrome DevTools network tab shows us the load times for the Cloudflare Worker endpoints. The `lists` endpoint creates the initial list for the user and the `share-list` endpoint requests generate the HMACs for that list: one writable and one non-writable.
 
 {{< img src="network-request-speeds.png" alt="Request speeds of Cloudflare Workers" >}}
 
@@ -239,9 +239,9 @@ Let's look at the `iteration_duration` and `iterations` lines. In total, 45069 r
 
 ## Summary
 
-I really enjoyed working on this project. This is the first time I've built a fully serverless application and I'm pleased with how well it turned out. It forces you to architect your application quite carefully, limiting the amount of resources you have access to and encouraging you to be as lean and as efficient as possible with your code. Of course, these ideas are always encouraged in software engineering, but even more so if you are being billed based on your usage and performance is a priority.
+I really enjoyed working on this project. This is the first time I've built a fully serverless application and I'm pleased with how well it turned out. It forces you to architect your application quite carefully, limiting the amount of resources you have access to and encouraging you to be as lean and as efficient as possible with your code. Of course, these ideas are always encouraged in software engineering, but even more so if you are being billed based on your usage.
 
-In this case, it took a few tries, but I am very satisfied with the resulting design and code. The code for the Cloudflare Worker which is roughly 250 lines allows users to create, delete and share lists and modify or view lists that are either shared or private. For me, personally, that's an impressive amount of functionality to have in 250 lines of code and it's a testament to the elegant design that stateless systems can provide.
+In this case, it took a few tries, but I am very satisfied with the resulting design and code. The code for the Cloudflare Worker is roughly 250 lines and allows users to create, delete and share lists and modify or view lists that are either shared or private. For me, personally, that's an impressive amount of functionality to have in 250 lines of code and it's a testament to the elegant design that stateless systems can have.
 
 
 

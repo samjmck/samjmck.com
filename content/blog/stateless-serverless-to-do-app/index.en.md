@@ -31,13 +31,13 @@ Developing a to-do list app doesn't sound particularly interesting. There are pr
 
 ## What's so interesting about serverless computing?
 
-As someone who is hosting a few small websites and services for fun, I don't want to spend any time managing any servers. Obviously, serverless solves that issue for me. I also don't want to be spending any money on these projects. Most serverless platforms have generous free tiers with a lot of compute time for free which fits these projects perfectly.
+As someone who is hosting a few small websites and services for fun, I don't want to spend any time managing any servers. Obviously, serverless solves that issue for me. I also don't want to be spending any money on these projects. Most serverless platforms have generous free tiers with a lot of compute time which fits these projects perfectly.
 
-Latency is also an issue with self-hosting my projects. I live in Belgium while most people that read my posts don't. I would love for my projects to load at roughly the same speed regardless of where you're visiting it from. This is an easy problem to solve for static sites: just use a Content Delivery Network (CDN). For dynamic content that is computed on the fly, this used to be quite a complex issue to solve but with serverless is it very straightforward as your code normally gets executed at the datacenter closest to your client. I will demonstrate the speed later in this post, it truly feels like black magic.
+Latency is also an issue with self-hosting my projects. I live in Belgium while most people that read my posts don't. I would love for my projects to load at roughly the same speed regardless of where you're visiting it from. This is an easy problem to solve for static sites: just use a Content Delivery Network (CDN). For dynamic content that is computed on the fly, this used to be quite a complex issue to solve. With serverless, is it very straightforward: your code (generally) gets executed at the datacenter closest to your client. I will demonstrate the speed later in this post, it truly feels like black magic.
 
 ## Database design and storage
 
-A user visiting the site should be able to create multiple lists with each list containing multiple "to-do" items that can be checked. The list should also be shareable through a link with other users. If I write these models in TypeScript, it might look something like this:
+A user visiting the site should be able to create multiple lists with each list containing multiple "to-do" items that can be checked. The list should also be shareable with a link. If I write these models in TypeScript, it might look something like this:
 
 ```ts
 type Item = {
@@ -53,9 +53,9 @@ type User = {
 }
 ```
 
-This looks like something that would fit quite nicely in a relational database, right? There's a one-to-many relationship between users and lists and a one-to-many relationship between lists and items. Each model (or entity) would have its own table. The problem is that relational (SQL based) database servers require a server to run. SQL queries can also be computationally expensive and time-consuming which is not good when you are being billed per millisecond of usage.
+This looks like something that would fit quite nicely in a relational database, right? There's a one-to-many relationship between users and lists and a one-to-many relationship between lists and items. Each model (or entity) would have its own table. The problem is that relational database servers require a server to run. SQL queries can also be computationally expensive and time-consuming which is not good when you are being billed per millisecond of usage.
 
-What we would really like to use is one of the serverless database offerings such as [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) or [Cloudflare Workers KV](https://www.cloudflare.com/en-gb/products/workers-kv/). Both of these offerings are key-value stores which generally speaking aren't really suited for datasets containing many relations but can be very fast if you don't require many relations.
+What we would really like to use is one of the serverless database offerings such as [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) or [Cloudflare Workers KV](https://www.cloudflare.com/en-gb/products/workers-kv/). Both of these offerings are key-value stores which generally speaking aren't really suited for datasets containing many relations but can be very fast if you don't.
 
 At this point, we need to think of a way to fit this data structure into a key-value database. What we could do is identify the list with a Universally Unique Identifier (UUID) and condense lists and items into one data type, like so:
 
@@ -124,16 +124,16 @@ However, this would require the user to know the UUID of the user they are shari
 - How does the user find their friend's UUID?
 - What if the user has never visited the app before and doesn't have a UUID?
 
-The first issue could be solved by using some kind of invitation system where the friend's UUID is retroactively added to the shared list. The second issue could maybe be fixed by creating the account before the accepting the invite through a link.These solutions would require a lot of extra code and would introduce a lot of complexities which we don't want.
+The first issue could be solved by using some kind of invitation system where the friend's UUID is retroactively added to the shared list. The second issue could maybe be fixed by creating the account before the accepting the invite through a link. These solutions would require a lot of extra code and would introduce a lot of complexities which we don't want.
 
-Thinking back to the previous section, we were able to move some of the work from the server to the client by using a JWT. The JWT gave us a way to store data in a stateless way, on the client, while ensuring that the data was verified (or signed) by the server. We could do something similar for sharing lists.
+Thinking back to the previous section, we were able to move some of the work from the server to the client by using a JWT. The JWT gave us a way to store data in a stateless way, on the client, while ensuring that the data is verified or signed by the server. We could do something similar for sharing lists.
 
-To fetch a list from the database, we only the need the list's UUID. When sharing the list with a friend, we would like to be able to choose whether the list should be just readable or also writable. In theory, we could send these two parameters (UUID and writable) in the URL to a friend and let the server fetch the list and depending on the writable parameter, also let the friend write the list. There are two problems with this approach:
+To fetch a list from the database, we just need the list's UUID. When sharing the list with a friend, we would like to be able to choose whether the list should be just readable or also writable. In theory, we could send these two parameters (UUID and writable) in the URL to a friend and let the server fetch the list and depending on the writable parameter, also let the friend write the list. There are two problems with this approach:
 
 - A user could change the list UUID parameter and view a list they shouldn't have access to
 - A user could change the writable parameter and edit a list they couldn't be able to edit
 
-If we sign these two parameters, include the signature in the same URL and then check if the signature matches on the server, then we solve both issues. Now, if the user changes at least one of the parameters, the signature won't match and the list won't load (or be written to).
+If we sign these two parameters, include the signature in the same URL and then check if the signature matches on the server, then we solve both issues. Now, if the user changes at least one of the parameters, the signature won't match and the list won't load and won't be written to.
 
 This is what it now looks like for the user sharing the link to their list:
 
@@ -149,7 +149,7 @@ There are quite a few serverless platforms you can choose from: [Google Cloud Fu
 
 I chose Cloudflare for the following reasons:
 
-- They offer a basic key-value store which was required for this project.
+- They offer a basic key-value store, something I this project needed.
 - They use web compatible APIs such as `fetch` which means you don't have to waste any time learning new libraries and you can use documentation from MDN.
 - Cloudflare Workers don't suffer from the same "cold-start" times that plague platforms like [Google Cloud Functions](https://cloud.google.com/functions/docs/bestpractices/tips) and [AWS Lambda](https://aws.amazon.com/blogs/compute/operating-lambda-performance-optimization-part-1/). This is because of [some clever technology](https://blog.cloudflare.com/cloud-computing-without-containers/) they are using from Chrome. The trade-off you make for this is that you don't have access to the Node.js standard library.
 - It integrates nicely with their static site hosting which I use for the frontend.
@@ -162,9 +162,9 @@ I am in no way affiliated with any of the organisations I just talked about.
 
 ### Limitations of Cloudflare's key-value database
 
-There's an interesting caveat with Cloudflare's key-value store (Workers KV) which is that it lacks consistency. This means that one function might read a different value than another function, even though they're accesing the same key at the same time. This is because Workers KV "stores data in a small number of centralized data centers, then caches that data in Cloudflare’s data centers after access". If you happen to be connected to a data center that hasn't cached the newest version of your list, then you will see an older version. Cloudflare advertise this system as "eventually-consistent" with data taking up to a minute to propagate to all other locations.
+There's an interesting caveat with Cloudflare's key-value store (Workers KV) which is that it lacks consistency. This means that one function execution might read a different value than another execution, even though they're accesing the same key at the same time. This is because Workers KV "stores data in a small number of centralized data centers, then caches that data in Cloudflare’s data centers after access". If you happen to be connected to a data center that hasn't cached the newest version of your list, then you will see an older version. Cloudflare advertise this system as "eventually-consistent" with data taking up to a minute to propagate to all other locations.
 
-Their "up to a minute" claim was concerning to me but when I tested it, it seemed to never take more than a few seconds. This is a trade-off I'm willing to make.
+Their "up to a minute" claim was concerning to me at first. However, when I tested it, it seemed to never take more than a few seconds. Keep in mind that people are also likely to share lists with people that they are physically close to, so the chances that they'll both be connecting to the same data center should be high. This is a trade-off I'm willing to make.
 
 ### Developing the serverless function
 

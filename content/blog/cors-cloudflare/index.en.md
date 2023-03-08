@@ -7,7 +7,7 @@ publishdate = 2023-03-08T09:48:42+01:00
 tags = ["web", "cloudflare"]
 categories = ["development"]
 newsletter_groups = ["Web dev"]
-draft = true
+draft = false
 +++
 
 CORS (Cross-Origin Resource Sharing) is a system that by default restricts browsers from making requests to a different origin than the one the page was loaded from. This is important for security purposes. For example, if you visit a malicious website `thief.com`, it should not be able to make requests to `bank.com` as if it was you. Or imagine the website you are on has been hacked and is serving JavaScript that is sending your credentials to their own server. CORS prevents this from happening.

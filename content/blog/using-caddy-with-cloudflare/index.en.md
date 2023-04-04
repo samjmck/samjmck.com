@@ -3,7 +3,7 @@ title = "How to use Caddy with Cloudflare's SSL settings"
 tags = ["caddy", "cloudflare", "guide"]
 description = "Cloudflare is one of the most used reverse proxies on the internet. There are a number of different ways to configure your SSL and TLS settings on Cloudflare as well as Caddy. In this post, I will explain how you can configure your Caddy server to work properly with Cloudflare."
 date = 2020-07-07T00:25:24+02:00
-lastmod = 2022-09-14T15:19:17+02:00
+lastmod = 2023-04-04T12:26:17+02:00
 publishdate = 2020-07-10T00:25:24+02:00
 draft = false
 categories = ["development"]
@@ -183,10 +183,10 @@ You can enable authenticated origin pulls by going to the SSL/TLS section of you
 
 To configure authenticated origin pulls, download the Cloudflare CA file to `/etc/ssl/certs`.
 
-Note that the download link might change in the future. You can find the latest link at the end of [this Cloudflare article](https://support.cloudflare.com/hc/en-us/articles/204899617-Authenticated-Origin-Pulls).
+Note that the download link might change in the future. You can find the latest link at the end of [this Cloudflare article](https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/set-up/zone-level/).
 
 {{< highlight bash >}}
-curl -o /etc/ssl/certs/origin-pull-ca.pem https://support.cloudflare.com/hc/en-us/article_attachments/360044928032/origin-pull-ca.pem
+curl -o /etc/ssl/certs/origin-pull-ca.pem https://developers.cloudflare.com/ssl/static/authenticated_origin_pull_ca.pem
 {{< / highlight >}}
 
 You can now configure Caddy to verify client certificates with the Cloudflare CA and otherwise block the request if the client doesn't present a valid certificate or any at all. Add the following to your `tls` directive in your `Caddyfile`:
@@ -226,3 +226,5 @@ You can now run Caddy with the `caddy run` command.
 - https://blog.cloudflare.com/origin-server-connection-security-with-universal-ssl/
 - https://www.ibm.com/support/knowledgecenter/SSMNED_5.0.0/com.ibm.apic.cmc.doc/task_apionprem_gernerate_self_signed_openSSL.html
 - https://developers.cloudflare.com/ssl/origin/authenticated-origin-pull/
+- https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/set-up/zone-level/
+

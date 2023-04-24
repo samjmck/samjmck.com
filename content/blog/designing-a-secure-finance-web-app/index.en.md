@@ -7,7 +7,7 @@ publishdate = 2022-07-30T12:46:15+02:00
 tags = ["finance", "web"]
 categories = ["development"]
 newsletter_groups = ["Web dev", "Fintech & finance"]
-image = "funds-tests.png"
+image = "demo.png"
 draft = false
 +++
 

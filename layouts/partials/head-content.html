@@ -6,6 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta charset="utf-8" />
 
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:description" content="{{ .Description }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+{{ if isset .Params "image" -}}
+<meta property="og:image" content="{{ .Permalink }}{{ .Params.image }}" />
+{{- end -}}
+
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="icon" type="image/svg+xml" href="/favicon_with_background.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

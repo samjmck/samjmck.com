@@ -1,12 +1,13 @@
 +++
 title = "Designing a functional and secure finance web app"
-description = "I made a single-page application to calculate the Belgian stock market transaction tax. As the app deals with sensitive personal and financial information, one of the top priorites while designing the app was security. Bugs and security breaches are always bad but they are especially bad if the program is dealing with such sensitive information."
+description = "I made a single-page application to calculate the Belgian stock market transaction tax. As the app deals with sensitive personal and financial information, one of the top priorites while designing the app was security. Bugs and security breaches are always bad, but they are especially bad if the program is dealing with such sensitive information."
 date = 2022-07-23T12:46:15+02:00
 lastmod = 2022-07-30T12:46:15+02:00
 publishdate = 2022-07-30T12:46:15+02:00
 tags = ["finance", "web"]
 categories = ["development"]
 newsletter_groups = ["Web dev", "Fintech & finance"]
+image = "funds-tests.png"
 draft = false
 +++
 

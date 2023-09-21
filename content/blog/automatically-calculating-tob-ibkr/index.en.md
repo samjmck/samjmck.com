@@ -5,7 +5,7 @@ date = 2022-08-05T14:53:20+02:00
 lastmod = 2022-08-05T14:53:20+02:00
 publishdate = 2022-08-06T14:53:20+02:00
 tags = ["finance", "tax", "brokers"]
-categories = ["finance", "investing", "guide"]
+categories = ["finance", "investing"]
 newsletter_groups = ["Fintech & finance"]
 draft = false
 +++

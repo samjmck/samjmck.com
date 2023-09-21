@@ -5,7 +5,7 @@ date = 2021-01-08T21:51:57+01:00
 lastmod = 2021-01-08T21:51:57+01:00
 publishdate = 2021-01-08T21:51:57+01:00
 tags = []
-categories = ["investing", "finance", "guide"]
+categories = ["investing", "finance"]
 newsletter_groups = ["Fintech & finance"]
 draft = true
 +++

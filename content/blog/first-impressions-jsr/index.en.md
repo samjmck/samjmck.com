@@ -1,9 +1,9 @@
 +++
 title = "Publishing on JSR for the first time"
-description = ""
-date = 2022-08-05T14:53:20+02:00
-lastmod = 2022-08-05T14:53:20+02:00
-publishdate = 2022-08-06T14:53:20+02:00
+description = "I recently decided to publish a package to JSR for the first time. A number of changes were needed to make my code compatible, but all in all, it was a good experience."
+date = 2024-06-01T14:53:20+02:00
+lastmod = 2024-06-01T14:53:20+02:00
+publishdate = 2024-06-01T14:53:20+02:00
 tags = ["web"]
 categories = ["development"]
 newsletter_groups = ["Web dev"]

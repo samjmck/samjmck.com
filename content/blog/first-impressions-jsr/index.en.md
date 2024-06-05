@@ -1,5 +1,5 @@
 +++
-title = "Publishing on JSR for the first time"
+title = "Publishing to JSR for the first time"
 description = "I recently decided to publish a package to JSR for the first time. A number of changes were needed to make my code compatible, but all in all, it was a good experience."
 date = 2024-06-01T14:53:20+02:00
 lastmod = 2024-06-01T14:53:20+02:00

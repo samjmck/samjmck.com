@@ -12,7 +12,7 @@ draft = false
 
 I recently decided to publish an [open-source library](https://github.com/samjmck/tobcalc) I created to the [JavaScript Registry (JSR)](https://jsr.io), a new package registry that seems to be an alternative to npm. JSR is created by the same people behind Deno, the runtime I chose while developing the library.
 
-It used to be the case that no matter what no matter what JavaScript runtime you were writing your library for, you really only had one registry to distribute it with: npm.  This kinda sucks, because 1) maybe your library is not aimed for Node users, but now you're publishing it on the _Node_ package manager and 2) the runtime you were using would have to support npm. This is the problem that JSR seems to be trying to solve: it's a registry designed to be used by any runtime. 
+It used to be the case that no matter what JavaScript runtime your library was for, you really only had one registry to distribute it with: npm. This kinda sucks, because 1) maybe your library is not aimed for Node users, but now you're publishing it on the _Node_ package manager and 2) the runtime you were using would have to support npm. This is the problem that JSR seems to be trying to solve: it's a registry designed to be used by any runtime. 
 
 But before I talk about what it was like to publish my library on JSR, let's talk about how importing modules in Deno has evolved. You used to only be able to import third-party packages through something called "remote imports". Basically, you could host your module on any HTTP server, and you would import the module using the URL of module's entrypoint. Most people used either GitHub or [`deno.land/x`](https://deno.land/x) to host their modules. It was pretty annoying to have to import everything through a URL. Deno themselves recommended importing everything through one file and re-exporting everything. At that point, you're effectively recreating a `package.json` file in JavaScript. But then, Deno introduced Node and npm compatibility, allowing developers to use packages from npm using the `npm:` specifier. 
 
@@ -20,7 +20,7 @@ And fast-forward to today, you can now add JSR to the mix. The Deno team seems t
 
 ## Updating the library so I could publish it
 
-Not allowing remote imports was probably the biggest pain-point when updating my library so I could publish it to JSR. All remote imports had to be changed to either imports from JSR, or from npm. And since at the time of updating the library not many packages were on JSR, I had to use npm. So, this:
+Not allowing remote imports was probably the biggest pain-point when updating my library. All remote imports had to be changed to either imports from JSR, or from npm. And since at the time of updating the library not many packages were on JSR, I had to use npm. So, this:
 
 ```ts
 import { PDFDocument } from "https://cdn.skypack.dev/pdf-lib@1.17.1?dts";

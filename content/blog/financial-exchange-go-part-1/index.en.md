@@ -10,7 +10,7 @@ newsletter_groups = ["Web dev", "Fintech & finance"]
 draft = false
 +++
 
-In this series of blog posts, I'm going to try to create a financial exchange from scratch in Go. Why? Because 1) it's been a few years since I've written Go and I'd like to revisit the language and 2) the core idea of a financial exchange seems pretty trivial to me (matching buyers with sellers), but I know once I start making this a lot more will come into play than I'm expecting now.
+In this series of blog posts, I'm going to try to create a financial exchange from scratch in Go. Why? Because 1) it's been a few years since I've written Go and I'd like to revisit the language and 2) the core idea of a financial exchange seems pretty trivial to me (matching buyers with sellers) at the moment, but I know that once I start, a lot more will come into play than I am expecting now.
 
 So, how about we start with my idea of a financial exchange?
 
@@ -49,7 +49,7 @@ Here's another visualisation in the "ladder" style from Kraken. You can see the 
 
 ## Order matching
 
-So the main value an exchange provides for buyers and sellers is that they can hopefully easily and quickly find someone that will be willing to fill their order. Imagine you're a seller walking around a room full of buyers asking each and every one of them if they would be willing to accept your price. It would 1) take a lot of time and 2) also require some bookkeeping. This is what the exchange's task should be, and it should be good at it.
+So the main value an exchange provides for buyers and sellers is that they can hopefully easily and quickly find someone that will be willing to fill their order. Imagine you're a seller walking around a room full of buyers asking each and every one of them what their price is. It would 1) take a lot of time and 2) also require some bookkeeping. This is what the exchange's task should be, and it should be good at it.
 
 Let's assume again we have a room of buyers or in code, an array of orders. This array is not structured or sorted in any way or form, we just add to it as buy orders come in.
 

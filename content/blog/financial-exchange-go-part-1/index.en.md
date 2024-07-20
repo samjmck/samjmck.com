@@ -35,12 +35,11 @@ Often, there will be a discrepancy between the sell and buy order. That's to say
 
 However, sometimes the ask price will meet the bid price, at which point the seller and buyer get **matched** with each other and their orders get (partially) fulfilled. I believe these concepts describe the core part of an exchange called **the order book**.
 
-
 ## The order book
 
 Order books can be visualised in some very fun ways.
 
-![Order book depth chart](blog/part-1_order_book_depth_chart.gif)
+![Order book depth chart](part-1_order_book_depth_chart.gif)
 
 In this "depth" chart from [Kjerish (Wikipedia)](part-1_order_book_depth_chart.gif), the x-axis represents the price, the y-axis represents the total number of shares being sold or purchased at that price, the green represents buy orders (bids) and the red represents sell orders (asks). You can see how the chart evolves through time.
 

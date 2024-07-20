@@ -31,13 +31,12 @@ On the one hand, you have **buyers**. Buyers create buy orders. For example, as 
 
 On the other hand, you have **sellers**. Sellers create sell orders. For example, as a seller, you might want to sell 100 shares of ASML for 60 EUR per share. Now, as a seller, you want to sell your shares for as much as possible. Again, there may be some secondary goals, but for the basic implementation of this project they aren't really important.
 
-## The order book
-
 Often, there will be a discrepancy between the sell and buy order. That's to say that the price of the seller will not match the price of the buyer. The lowest price a seller is offering is referred to as the **ask**, whereas the highest price a buyer is offering is reffered to as the **bid**.
 
-However, sometimes the ask price will meet the bid price, at which point the seller and buyer get **matched** with each other and their orders get (partially) fulfilled.
+However, sometimes the ask price will meet the bid price, at which point the seller and buyer get **matched** with each other and their orders get (partially) fulfilled. I believe these concepts describe the core part of an exchange called **the order book**.
 
-I believe these concepts describe the core part of an exchange, the **order book**.
+
+## The order book
 
 Order books can be visualised in some very fun ways.
 

@@ -10,7 +10,7 @@ newsletter_groups = ["Web dev", "Fintech & finance"]
 draft = false
 +++
 
-In this series of blog posts, I'm going to try to create a financial exchange from scratch in Go. Why? Because 1) it's been a few years since I've written Go and I'd like to revisit the language and 2) the core idea of a financial exchange seems pretty trivial to me (matching buyers with sellers), but I know once I start making this a lot more will come to play than I thought.
+In this series of blog posts, I'm going to try to create a financial exchange from scratch in Go. Why? Because 1) it's been a few years since I've written Go and I'd like to revisit the language and 2) the core idea of a financial exchange seems pretty trivial to me (matching buyers with sellers), but I know once I start making this a lot more will come into play than I'm expecting now.
 
 So, how about we start with my idea of a financial exchange?
 

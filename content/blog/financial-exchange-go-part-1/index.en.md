@@ -45,11 +45,11 @@ In this "depth" chart from [Kjerish (Wikipedia)](part-1_order_book_depth_chart.g
 
 ![Kraken order book depth chart ladder style](part-1_order_book_ladder_chart.png)
 
-Here's another visualisation in the "ladder" style from Kraken. You can see the price in the middle. The top half represents sell orders, the bottom half buy orders. The width of the green or red bar indiciates how the total quantity of shares for that price.
+Here's another visualisation in the "ladder" style from Kraken. You can see the price in the middle. The top half represents sell orders, the bottom half buy orders. The width of the green or red bar shows the total quantity of shares for that price.
 
 ## Order matching
 
-So the main value an exchange provides for buyers and sellers is that they can hopefully easily and quickly find someone that will be willing to fill their order. Imagine you're a seller walking around a room full of buyers asking each and every one of them what their price is. It would 1) take a lot of time and 2) also require some bookkeeping. This is what the exchange's task should be, and it should be good at it.
+So the main value an exchange provides for buyers and sellers is that they can hopefully easily and quickly find someone that will be willing to fill their order. Imagine you're a seller walking around a room full of buyers asking each and every one of them what their price is. It would 1) take a lot of time and 2) also require some bookkeeping. This is what the exchange's task should be.
 
 Let's assume again we have a room of buyers or in code, an array of orders. This array is not structured or sorted in any way or form, we just add to it as buy orders come in.
 
@@ -61,7 +61,7 @@ Now a sell order comes in. The seller wants to get the highest price for their o
 
 ## Efficient order matching
 
-The behaviour we want is for an order to be _instantly_ matched, with a time complexity of `O(1)`. So, some kind of data structure that allows us to retrieve the order with the lowest price when _popping_ the list with `O(1)`. Note that popping entails the finding the order as well as removing it from the list. We could achieve this using a **sorted list**, where the first item would always be the order with the lowest price. Removing that item would also be `O(1)` which is important. Comparable data structures like the **priority queue** remove items in `O(log n)`, since the tree requires restructuring. However, inserting in a sorted list would be `O(n)` since it may require traversing the whole list. To summarise the comparison we're making:
+The behaviour we want is for an order to be _instantly_ matched, with a time complexity of `O(1)`. So, some kind of data structure that allows us to retrieve the order with the lowest price when _shifting_ (or _popping_) the list with `O(1)`. Note that popping entails the finding the order as well as removing it from the list. We could achieve this using a **sorted list**, where the first item would always be the order with the lowest price. Removing that item would also be `O(1)` which is important. Comparable data structures like the **priority queue** remove items in `O(log n)`, since the tree requires restructuring. However, inserting in a sorted list would be `O(n)` since it may require traversing the whole list. To summarise the comparison we're making:
 
 | **Operation**  | **Sorted list** | **Priority queue** |
 | -------------- | --------------- | ------------------ |

@@ -16,18 +16,18 @@ This is part 2 in the series of blog posts where I try to create a financial exc
 <ol>
 	<li><a href="#setting-up-the-project">Setting up the project</a></li>
 	<li><a href="#go-modules-go-packages-and-go-paths">Go modules, Go packages and Go... paths?</a></li>
-    <ul>
+    <ol>
         <li><a href="#1-go-modules">Go modules</a></li>
         <li><a href="#2-go-packages">Go packages</a></li>
         <li><a href="#3-gopath"><code>$GOPATH</code></a></li>
-    </ul>
+    </ol>
 	<li><a href="#defining-the-type-of-an-order">Defining the type of an order</a></li>
 	<li><a href="#sorted-list">Sorted list</a></li>
-    <ul>
+    <ol>
         <li><a href="#1-removefirst"><code>RemoveFirst</code></a></li>
         <li><a href="#2-removelast"><code>RemoveLast</code></a></li>
         <li><a href="#3-insert"><code>Insert</code></a></li>
-    </ul>
+    </ol>
     <li><a href="#order-matching">Order matching</a></li>
     <li><a href="#result">Result</a></li>
 </ol>
@@ -50,7 +50,7 @@ Then, after cd'ing to the directory where I want to put my project it, I run `go
 
 It does that if the URL for the module does not have a VCS qualifier such as `.git`, `.fossil` etc. More on that [here](https://go.dev/ref/mod#serving-modules-directly-from-a-proxy).
 
-When learning Go a few years back, I didn't learn the module or package system properly and I remembered being confused by `$GOPATH$`, so I'm going to pay a bit more attention to that aspect this time.
+When learning Go a few years back, I didn't learn the module or package system properly and I remembered being confused by `$GOPATH`, so I'm going to pay a bit more attention to that aspect this time.
 
 ## Go modules, Go packages and Go... paths?
 

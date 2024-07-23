@@ -104,7 +104,7 @@ Even though we've only defined one struct so far, there are some important conve
 
 We could also create 2 separate types: 1 for a buy order, 1 for a sell order. However, this would add more code and complexity which seems unnecessary.
 
-2. `Shares` and `price` must always be positive, regardless of whether the order is sell or buy.
+2. `Shares` and `Price` must always be positive, regardless of whether the order is sell or buy.
 
 Another way to potentially distinguish buy and sell orders from each other without creating 2 types would be having e.g. a negative number of shares/price for sell orders and a positive number when the type is a buy order. But for the case of order matching, it seems easier to me to simply be able to do `order1.Price == order2.Price` instead of `order1.Price * -1 == order2.Price`.
 

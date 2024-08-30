@@ -110,7 +110,7 @@ Another way to potentially distinguish buy and sell orders from each other witho
 
 3. The unit of `Price` is 1 euro cent, so 1 euro has the value `100`.
 
-The smallest unit of tradeable currency is 1 cent. We don't work with floats since floats can be imprecise and small errors can accumulate when doing arithmetic with them, which is unacceptable when working with money.
+The smallest unit of tradable currency is 1 cent. We don't work with floats since floats can be imprecise and small errors can accumulate when doing arithmetic with them, which is unacceptable when working with money.
 
 ## Sorted list
 
@@ -138,7 +138,7 @@ func (l SortedOrderList) RemoveFirst() SortedOrderList {
 }
 ```
 
-This is a very simple method, but I'd lile to go into a bit more detail of what's exactly happening here.
+This is a very simple method, but I'd like to go into a bit more detail of what's exactly happening here.
 
 Take this example where we are working with an `int` slice:
 

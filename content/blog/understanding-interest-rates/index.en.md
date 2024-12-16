@@ -1,9 +1,9 @@
 +++
 title = "Understanding: interest rates"
 description = "At the time of writing, the European Central Bank (ECB) has announced that they will reduce the current interest rate from 3.25% to 3.00%. It's always big news when a central bank changes their interest rates for reasons that I vaguely understand. I know for example that it rates on savings accounts are mostly dependent on the central bank interest rate, and that low interest (roughly) equals cheaper money (roughly) equals more money being invested into the economy? Take that with a massive grain of salt, and read the post to see how my understanding of this system evolves."
-date = 2024-12-17
-lastmod = 2024-12-17
-publishdate = 2024-12-17
+date = 2024-12-17T00:00:00
+lastmod = 2024-12-17T00:00:00
+publishdate = 2024-12-17T00:00:00
 tags = []
 categories = ["economics", "finance", "banking"]
 newsletter_groups = ["Fintech & finance", "Economics"]

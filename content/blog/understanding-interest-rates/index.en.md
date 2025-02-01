@@ -10,7 +10,7 @@ newsletter_groups = ["Fintech & finance", "Economics"]
 draft = false
 +++
 
-The European Central Bank (ECB) just announced they will reduce the current interest rate from 3.25% to 3.00%. It's always big news when a central bank changes their interest rates for reasons that I vaguely understand. I know for example that the rates on savings accounts are mostly dependent on the central bank interest rate, and that low interest (roughly) equals cheaper money (roughly) equals more money being invested into the economy? Take what I just said with a massive grain of salt, as I'm now going to try to understand what interest rates are all about.
+The European Central Bank (ECB) just announced they will reduce the current interest rate from 3.25% to 3.00%. It's always big news when a central bank changes their interest rates for reasons that I vaguely understand. I know for example that the rates on savings accounts are mostly dependent on the central bank interest rate, and that low interest (roughly) equals cheaper money (roughly) equals more money being invested into the economy? Please note that this is only my _current_ understanding, which I'll refine throughout this post.
 
 ## Central banks, commercial banks and types of interest rates
 
